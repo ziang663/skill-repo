@@ -85,6 +85,36 @@ Validate independently:
 When Mooncake is disabled, recursively reject `MOONCAKE_*`, `MC_*`, and
 `--hicache-storage-*` from the payload.
 
+### Hugging Face model sources
+
+SiFlow validates the HF token field even for a public, non-gated repository. For public models use:
+
+```json
+"hf": {
+  "model": "org/model",
+  "token": "anonymous"
+}
+```
+
+The literal `anonymous` is a public-source marker, not a credential. The deployment helper permits
+only that value at the exact HF token path and still rejects other embedded token/secret fields.
+For a private or gated repository, use the platform's approved secret mechanism; do not put a real
+HF token in a payload snapshot, command, report, or Git repository.
+
+### Custom image and command compatibility
+
+Resource compatibility is not command compatibility. Before applying a custom-image payload,
+obtain evidence for the exact image digest and command family from one of:
+
+- a known-good SiFlow service using the same digest and flags;
+- CLI help or a smoke run from that exact image;
+- source/commit metadata that unambiguously matches the image.
+
+Do not assume that a standard SGLang LLM CLI accepts SGLang diffusion/video-generation flags. Do
+not use a successful run from another virtual environment as proof for the selected image. If the
+combination is unverified but the user wants a compatibility trial, label it as such, use the
+smallest requested topology, and make the first container logs the stopping gate.
+
 Use `scripts/deploy_inference.py` to validate and save a canonical payload. It does not contact the
 API unless `--apply` is explicitly supplied.
 
@@ -103,6 +133,23 @@ client.inference.list_service_instances(service_id=service_id)
 Record each transition: `queueing`, Pod creation, image pull, container start, Engine startup,
 Router registration, readiness, and smoke-test result.
 
+Keep these phases distinct:
+
+- `ContainerCreating` before a `Pulled`/`Started` event is normally image setup, not model download.
+- Model download has started only when application logs show HF/file transfer or checkpoint access.
+- Router readiness `503` while no Worker is healthy is expected; diagnose the Worker first.
+- `usage:` plus `unrecognized arguments` followed by restarts is a command-parser failure. Capture
+  the exact unsupported flags and stop waiting for weights or readiness.
+
+After Pod creation, compare the submitted payload with the actual Pod JSON. In particular verify
+the Worker image and command, Router policy/selectors/ports, environment, timezone, resources, and
+volume mounts. SiFlow may generate or normalize the Router command instead of preserving the
+submitted role command verbatim.
+
+Use `scripts/inspect_service.py` after the first Pod transition. It saves service details,
+instances, Kubernetes events, and application logs, and summarizes current and previous container
+states.
+
 ## Queueing and retry safety
 
 For `quota check error`:
@@ -116,6 +163,16 @@ For `quota check error`:
 5. Do not delete a queueing service directly. Deletion requires Offline state and explicit authority.
 6. If recreation is approved, snapshot, offline, verify no Pods remain, delete, re-check capacity,
    then create once. Stop if a same-name or forked service already exists.
+
+For every failed create, including request-validation failures:
+
+1. Treat the attempt as consumed; never silently resend a modified payload.
+2. Query all pages for the exact service name because the API can fail after partial server-side
+   work.
+3. Save the error and exact-name matches. `deploy_inference.py` writes `create_failure.json` and
+   records that no retry was attempted.
+4. Explain the correction and obtain fresh authorization when the prior approval was for one
+   create attempt.
 
 ## Acceptance
 

@@ -14,6 +14,7 @@ from siflow.types.inference import ServiceCreateParams
 
 
 SENSITIVE_KEY_PARTS = ("token", "secret", "password", "access_key", "accesskey")
+ANONYMOUS_HF_TOKEN_PATH = "$.modelConfig.modelSource.storage.hf.token"
 
 
 def dump(value: Any) -> Any:
@@ -30,12 +31,49 @@ def reject_embedded_secrets(value: Any, path: str = "$") -> None:
     if isinstance(value, dict):
         for key, item in value.items():
             child = f"{path}.{key}"
-            if any(part in key.lower() for part in SENSITIVE_KEY_PARTS) and item not in (None, "", [], {}):
+            is_public_hf_marker = child == ANONYMOUS_HF_TOKEN_PATH and item == "anonymous"
+            if (
+                any(part in key.lower() for part in SENSITIVE_KEY_PARTS)
+                and item not in (None, "", [], {})
+                and not is_public_hf_marker
+            ):
                 raise ValueError(f"payload contains a non-empty secret-like field at {child}")
             reject_embedded_secrets(item, child)
     elif isinstance(value, list):
         for index, item in enumerate(value):
             reject_embedded_secrets(item, f"{path}[{index}]")
+
+
+def validate_model_source(value: dict[str, Any]) -> None:
+    model_source = value.get("modelConfig", {}).get("modelSource", {})
+    if model_source.get("storageType") != "hf":
+        return
+
+    hf = model_source.get("storage", {}).get("hf", {})
+    if not hf.get("model"):
+        raise ValueError("HF model source requires modelConfig.modelSource.storage.hf.model")
+    if not hf.get("token"):
+        raise ValueError(
+            "SiFlow requires modelConfig.modelSource.storage.hf.token even for a public model; "
+            "use the literal 'anonymous' for public Hugging Face repositories"
+        )
+
+
+def exact_name_matches(client: SiFlow, service_name: str) -> list[Any]:
+    matches: list[Any] = []
+    page = 1
+    page_size = 100
+    while True:
+        candidates = client.inference.list_services(
+            search=service_name,
+            page=page,
+            page_size=page_size,
+        )
+        rows = list(candidates)
+        matches.extend(item for item in rows if item.name == service_name)
+        if len(rows) < page_size:
+            return matches
+        page += 1
 
 
 def write_private_json(path: Path, value: Any) -> None:
@@ -55,6 +93,7 @@ def main() -> None:
 
     raw = json.loads(args.payload.read_text())
     reject_embedded_secrets(raw)
+    validate_model_source(raw)
     params = ServiceCreateParams.model_validate(raw)
     canonical = params.model_dump(mode="json", by_alias=True, exclude_none=True)
     service_name = canonical.get("name")
@@ -75,13 +114,38 @@ def main() -> None:
         access_key_secret=secret_key,
     )
 
-    candidates = client.inference.list_services(search=service_name, page=1, page_size=100)
-    exact = [item for item in candidates if item.name == service_name]
+    exact = exact_name_matches(client, service_name)
     if exact:
         ids = [item.id for item in exact]
         raise RuntimeError(f"refusing duplicate service name {service_name!r}; existing IDs: {ids}")
 
-    service_id = client.inference.create_service(service_params=params)
+    try:
+        service_id = client.inference.create_service(service_params=params)
+    except Exception as error:
+        failure: dict[str, Any] = {
+            "serviceName": service_name,
+            "errorType": type(error).__name__,
+            "error": str(error),
+            "retryAttempted": False,
+        }
+        try:
+            after_failure = exact_name_matches(client, service_name)
+            failure["exactNameMatchesAfterFailure"] = [
+                {
+                    "id": getattr(item, "id", None),
+                    "name": getattr(item, "name", None),
+                    "status": dump(getattr(item, "status", None)),
+                }
+                for item in after_failure
+            ]
+        except Exception as lookup_error:
+            failure["postFailureLookupError"] = repr(lookup_error)
+        write_private_json(args.out_dir / "create_failure.json", failure)
+        raise RuntimeError(
+            f"service creation failed for {service_name!r}; no retry was attempted; "
+            f"see {args.out_dir / 'create_failure.json'}"
+        ) from error
+
     service = client.inference.get_service(service_id=service_id)
     instances = client.inference.list_service_instances(service_id=service_id)
     write_private_json(args.out_dir / "service_after_create.json", dump(service))

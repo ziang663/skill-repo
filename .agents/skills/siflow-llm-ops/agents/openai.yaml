@@ -1,4 +1,4 @@
 interface:
   display_name: "SiFlow LLM Operations"
-  short_description: "Operate and diagnose SiFlow LLM services"
-  default_prompt: "Use $siflow-llm-ops to inspect or operate a SiFlow inference/Mooncake service, collect logs and traces, and produce an evidence-based diagnosis."
+  short_description: "Safely deploy and diagnose SiFlow inference services"
+  default_prompt: "Use $siflow-llm-ops to deploy, inspect, or diagnose a SiFlow inference/Mooncake service, verify actual Pod configuration, collect logs and traces, and produce an evidence-based result."

@@ -18,6 +18,7 @@ evidence/
   service.json
   instances.json
   syslogs.json
+  logs.json
   raw/*.ndjson.gz
   traces/*.json
   summary.md
@@ -27,7 +28,16 @@ Record UTC windows and convert UI UTC+8 timestamps explicitly.
 
 ## SiFlow logs
 
-Try `query_logs`, `download_logs`, and Pod container log methods first. On some overseas clusters, aggregate logs may return zero and Pod WebSocket access may fail because cluster context is missing. Treat this as an observability-path failure, not proof that the application emitted no logs.
+Try `query_logs`, `download_logs`, and Pod container log methods first. Aggregate logs can return
+zero while the Pod is still pulling an image or before its first container start, then populate
+after the first exit/restart. Re-query after that lifecycle transition before declaring the SiFlow
+log path unavailable. On some overseas clusters, logs can remain empty and Pod WebSocket access can
+fail because cluster context is missing; treat that as an observability-path failure, not proof that
+the application emitted no logs.
+
+For a restart loop, preserve the full bounded log response but report the first causal line. A long
+CLI usage dump is secondary evidence; the decisive line is usually the final parser error naming
+the unsupported arguments.
 
 ## OmniObs logs
 

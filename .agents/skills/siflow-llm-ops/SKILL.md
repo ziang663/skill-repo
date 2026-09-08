@@ -21,12 +21,13 @@ If `from siflow import SiFlow` fails or the SDK must be installed/upgraded, read
 1. Identify `region`, `cluster`, tenant, owner, service ID, and requested mutation scope.
 2. Snapshot the service and instances before any mutation with `scripts/inspect_service.py`.
 3. Prefer a known-good service as the configuration source. Preserve fields that the user did not request changing.
-4. Create Mooncake before inference when inference depends on a dedicated Mooncake endpoint.
-5. Treat service creation/update as destructive: prepare payloads first, show the meaningful diff, and require explicit user intent before applying.
-6. Validate readiness, image, command, environment, replica count, Router policy, endpoint, and Pod restart state.
-7. Collect evidence from SiFlow logs first. If overseas-cluster logs are empty or WebSocket logs fail, use OmniObs with `scripts/fetch_omni_logs.py`. On Pisces, read `references/observability.md` for split-horizon DNS handling and complete-window downloads.
-8. Correlate engine logs, Router logs, OTel traces, Kubernetes lifecycle, and replay results before assigning a root cause.
-9. Save raw evidence and a concise Markdown report. Separate confirmed facts, likely mechanisms, amplifiers, and unknowns.
+4. For a custom image, prove that the exact image digest supports the intended command family and flags. Do not infer SGLang diffusion support from an LLM `sglang serve` CLI, a different virtual environment, or a similarly named image.
+5. Create Mooncake before inference when inference depends on a dedicated Mooncake endpoint.
+6. Treat service creation/update as destructive: prepare payloads first, show the meaningful diff, and require explicit user intent before applying. A failed create does not authorize an automatic retry.
+7. Validate readiness, actual Pod image/command/environment, replica count, Router policy, endpoint, and Pod restart state. Platform-generated Router configuration can differ from the submitted role command.
+8. Collect evidence from SiFlow logs first. Logs can be empty before the first container start and appear after a restart; poll once after the lifecycle transition before falling back to OmniObs. On Pisces, read `references/observability.md` for split-horizon DNS handling and complete-window downloads.
+9. Correlate engine logs, Router logs, OTel traces, Kubernetes lifecycle, and replay results before assigning a root cause.
+10. Save raw evidence and a concise Markdown report. Separate confirmed facts, likely mechanisms, amplifiers, and unknowns.
 
 ## Credentials and safety
 
@@ -75,6 +76,12 @@ Important deployment invariants:
 - A service must be Offline before deletion. Never offline or delete it without explicit authority.
 - Use `scripts/deploy_inference.py` for payload validation and guarded creation. It dry-runs unless
   `--apply` is supplied and refuses exact duplicate names.
+- SiFlow requires a non-empty HF token field even for public repositories. Use the literal
+  `anonymous` for a public model; never place a real Hugging Face token in a payload or evidence.
+- If creation fails, query the exact service name and report the error. Do not retry, update, fork,
+  offline, or delete unless the user explicitly authorizes the next mutation.
+- Treat `usage:` followed by `unrecognized arguments` and a restart loop as an image/CLI
+  incompatibility. Stop waiting for model download and report the unsupported flags.
 
 ## Logs and traces
 

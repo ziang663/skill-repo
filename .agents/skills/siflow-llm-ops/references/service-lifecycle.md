@@ -100,6 +100,8 @@ For custom mode, image and command are supplied directly. An engine version is u
 - Scaling must not rewrite images or commands.
 - A Router-only update must not restart engines unless the platform requires it and the user accepts it.
 - After update, poll until all expected Pods are ready and compare actual Pod configuration with the requested payload.
+- Compare the actual Pod JSON even after creation succeeds. Platform-generated Router commands,
+  environment values, ports, or defaults may not preserve the submitted role block verbatim.
 - Updating an Offline service does not prove it is Online. Re-read status, then call
   `online_service` only when Online was explicitly authorized; record update and Online results
   separately.
@@ -115,6 +117,7 @@ For custom mode, image and command are supplied directly. An engine version is u
 - Service status reports all Pods ready.
 - Expected number of engine/prefill/decode/Router Pods exists.
 - Images and commands match the intended version.
+- The exact image digest has evidence for the intended command family and flags.
 - Pod environment resolves dynamic values to actual IPs.
 - Router discovers all healthy workers.
 - No repeated restart, assertion, CUDA, NCCL, or page-retrieval errors.

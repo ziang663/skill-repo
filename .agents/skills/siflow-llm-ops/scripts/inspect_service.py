@@ -30,12 +30,51 @@ def write_json(path: Path, value: Any) -> None:
     path.chmod(0o600)
 
 
+def container_runtime(pod: dict[str, Any]) -> dict[str, Any]:
+    raw = pod.get("podJson")
+    if not raw:
+        return {}
+    try:
+        pod_json = json.loads(raw) if isinstance(raw, str) else raw
+    except (TypeError, json.JSONDecodeError):
+        return {"podJsonError": "invalid JSON"}
+
+    statuses = pod_json.get("status", {}).get("containerStatuses", [])
+    if not statuses:
+        return {}
+    main = next((item for item in statuses if item.get("name") == "main"), statuses[0])
+    return {
+        "ready": main.get("ready"),
+        "restartCount": main.get("restartCount"),
+        "state": main.get("state", {}),
+        "lastState": main.get("lastState", {}),
+    }
+
+
+def state_summary(value: dict[str, Any]) -> str:
+    if not value:
+        return "unknown"
+    kind, detail = next(iter(value.items()))
+    if not isinstance(detail, dict):
+        return kind
+    reason = detail.get("reason")
+    exit_code = detail.get("exitCode")
+    suffix = ""
+    if reason:
+        suffix += f" reason={reason}"
+    if exit_code is not None:
+        suffix += f" exit={exit_code}"
+    return kind + suffix
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="Snapshot a SiFlow inference service.")
     parser.add_argument("--region", required=True)
     parser.add_argument("--cluster", required=True)
     parser.add_argument("--service-id", type=int, required=True)
     parser.add_argument("--out", type=Path, required=True)
+    parser.add_argument("--log-limit", type=int, default=5000)
+    parser.add_argument("--log-order", choices=("asc", "desc"), default="asc")
     args = parser.parse_args()
 
     client = SiFlow(
@@ -50,17 +89,33 @@ def main() -> int:
         syslogs = plain(client.inference.query_sys_logs(args.service_id))
     except Exception as error:
         syslogs = {"error": repr(error)}
+    try:
+        logs = plain(
+            client.inference.query_logs(
+                args.service_id,
+                limit=args.log_limit,
+                sort_order=args.log_order,
+            )
+        )
+    except Exception as error:
+        logs = {"error": repr(error)}
 
     write_json(args.out / "service.json", service)
     write_json(args.out / "instances.json", instances)
     write_json(args.out / "syslogs.json", syslogs)
+    write_json(args.out / "logs.json", logs)
 
-    print(f"service={args.service_id} name={service.get('name', '')}")
+    service_status = service.get("status", {})
+    print(
+        f"service={args.service_id} name={service.get('name', '')} "
+        f"status={service_status.get('status', '')} message={service_status.get('message', '')}"
+    )
     for role, pods in instances.items():
         print(f"{role}: {len(pods)}")
         for pod in pods:
             if not isinstance(pod, dict):
                 continue
+            runtime = container_runtime(pod)
             print(
                 "  "
                 + str(pod.get("name") or pod.get("podName") or "")
@@ -70,7 +125,12 @@ def main() -> int:
                 + str(pod.get("restartCount") or 0)
                 + " created="
                 + str(pod.get("createTime") or pod.get("startTime") or "")
+                + " current="
+                + state_summary(runtime.get("state", {}))
+                + " previous="
+                + state_summary(runtime.get("lastState", {}))
             )
+    print(f"application_logs={logs.get('total', 'unknown')}")
     return 0
 
 
