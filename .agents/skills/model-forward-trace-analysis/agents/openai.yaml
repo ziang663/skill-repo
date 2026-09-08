@@ -1,0 +1,4 @@
+interface:
+  display_name: "SGLang Model Forward Trace Analysis"
+  short_description: "Trace SGLang model forwards, kernels, and dtypes"
+  default_prompt: "Use $model-forward-trace-analysis to trace one SGLang model request and produce a component and dtype performance report."

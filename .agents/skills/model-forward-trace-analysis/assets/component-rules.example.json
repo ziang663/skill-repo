@@ -1,0 +1,38 @@
+{
+  "rules": [
+    {
+      "component": "Communication",
+      "pattern": "nccl|all[_ -]?reduce|all[_ -]?gather|reduce[_ -]?scatter|all[_ -]?to[_ -]?all|sendrecv"
+    },
+    {
+      "component": "MoE",
+      "pattern": "deepgemm|grouped[_ -]?gemm|moe|expert|dispatch|combine"
+    },
+    {
+      "component": "Attention",
+      "pattern": "flash.*attn|fmha|attention|paged.*attn|sparse_attention"
+    },
+    {
+      "component": "Indexer or Top-K",
+      "pattern": "indexer|topk|top_k|radix.*select|kpool|paged_mqa_logits"
+    },
+    {
+      "component": "Quantization",
+      "pattern": "quant|dequant|fp8|nvfp4|scale.*pack"
+    },
+    {
+      "component": "Norm and Position",
+      "pattern": "rms.*norm|layer.*norm|rope|rotary|hadamard"
+    },
+    {
+      "component": "Cache or State",
+      "pattern": "kv.*cache|cache.*write|state.*update|scatter.*cache"
+    },
+    {
+      "component": "Memory and Runtime",
+      "pattern": "memcpy|memset|elementwise_kernel|vectorized_elementwise"
+    }
+  ],
+  "default": "Unclassified"
+}
+
