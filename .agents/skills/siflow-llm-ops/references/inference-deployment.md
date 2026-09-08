@@ -176,13 +176,18 @@ For every failed create, including request-validation failures:
 
 ## Acceptance
 
-Require all of the following before declaring success:
+Apply acceptance criteria supported by the selected workload. For SGLang diffusion/video services,
+read `sglang-diffusion-deployment.md`; do not require LLM-only request shapes, metrics, or OTel
+features that the selected diffusion CLI does not expose. If observability was an explicit user
+requirement, a missing endpoint remains an acceptance failure rather than a cosmetic limitation.
+
+Require all applicable items before declaring success:
 
 - expected Router and Engine Pod counts are Ready with zero restart loops;
 - actual images, commands, environment, pools, and volume mounts match the payload;
 - Router discovers the expected workers;
 - Engine logs prove the intended loader and no forbidden fallback;
 - no unexpected compilation for an image whose compile cache is expected to hit;
-- OTel export is healthy for Engine and Router;
-- `/health`, `/v1/models`, and deterministic and sampling requests succeed;
+- configured OTel export is healthy for Engine and Router;
+- `/health`, `/v1/models`, and a workload-appropriate functional request succeed;
 - raw snapshots and logs are saved without secrets.

@@ -1,6 +1,6 @@
 ---
 name: siflow-llm-ops
-description: Install and use the SiFlow Python SDK, and operate or diagnose SiFlow LLM inference, Router, HiCache, and Mooncake services. Use for SDK setup, creating or updating inference/Mooncake services, cloning a known-good service, inspecting pods and configuration, collecting SiFlow or OmniObs logs and OTel traces, analyzing cache hit/TTFT/restarts, and producing evidence-based incident reports.
+description: Install and use the SiFlow Python SDK, and operate or diagnose SiFlow LLM and SGLang diffusion/video inference, Router, HiCache, and Mooncake services. Use for SDK setup, creating or updating inference/Mooncake services, validating custom images and commands, inspecting pods and configuration, collecting logs and traces, analyzing cache hit/TTFT/restarts, and producing evidence-based deployment or incident reports.
 ---
 
 # SiFlow LLM Operations
@@ -60,6 +60,11 @@ separate state transitions, and require explicit authorization for both.
 For a new SDK-created LLM Inference service, also read
 `references/inference-deployment.md`. It covers resource discovery, split Engine/Router pools,
 engine-version registration, payload validation, safe creation, queueing diagnosis, and acceptance.
+
+For SGLang diffusion or video-generation workloads, also read
+`references/sglang-diffusion-deployment.md`. These workloads can use a different CLI parser,
+request API, startup sequence, cache footprint, and observability surface from SGLang LLM serving.
+Use `scripts/smoke_video.py` for an authorized minimal asynchronous video smoke test.
 
 Important deployment invariants:
 
@@ -130,6 +135,7 @@ python scripts/summarize_prefill_cache.py \
 - `references/sdk-installation.md`: official wheel download, isolated installation, validation, upgrade, and offline reuse.
 - `references/service-lifecycle.md`: creation, update, scaling, Mooncake configuration, and validation.
 - `references/inference-deployment.md`: guarded SiFlow SDK deployment and queueing diagnosis.
+- `references/sglang-diffusion-deployment.md`: image/CLI preflight, persistent HF cache, MiniMax-H3 deployment, asynchronous video smoke testing, and diffusion-specific acceptance.
 - `references/mooncake-inference.md`: Mooncake payload changes, Offline update, explicit Online, and L3 acceptance.
 - `references/observability.md`: SiFlow SDK logs, OmniObs logs/traces, cache and restart analysis.
 - `references/pod-terminal.md`: authenticated WebSocket Pod terminal access, protocol, safety, and ephemeral-versus-shared evidence.
