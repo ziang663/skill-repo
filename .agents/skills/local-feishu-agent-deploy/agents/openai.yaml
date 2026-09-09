@@ -1,0 +1,4 @@
+interface:
+  display_name: "Local Feishu Agent Deployment"
+  short_description: "Deploy and operate a local Feishu agent backend"
+  default_prompt: "Use $local-feishu-agent-deploy to securely deploy, validate, restart, or troubleshoot a local Feishu long-connection agent backend."
