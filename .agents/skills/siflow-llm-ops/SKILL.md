@@ -51,11 +51,14 @@ Read `references/service-lifecycle.md` before creating or updating a service. Ke
 - Keep engine and Router images aligned when the image is unified.
 - Use Kubernetes Downward API for `MOONCAKE_LOCAL_HOSTNAME=status.podIP`; never use a literal placeholder.
 - Give independent workloads distinct Mooncake namespaces/tags when isolation is required.
-- For scaling, first GET the live service, deep-copy the complete role block, and change only the
-  requested replica/resource fields. Do not send a minimal `{"replicas": ...}` role block: SiFlow
-  can replace the stored role metadata and lose scheduler annotations/labels such as
-  `scheduling.navix.sh/entry-id`. Read `references/service-lifecycle.md` for the recovery path when
-  a prior partial scale payload has already blanked fields.
+- For scaling, first GET the live service, deep-copy the complete top-level `roleConfig`, and change
+  only the requested replica/resource fields inside the target role. Preserve every sibling role,
+  including a `server` Router while scaling `worker`: observed SiFlow versions can replace the
+  entire `roleConfig` map rather than deep-merge it. A worker-only payload can therefore remove the
+  Router from control-plane state even if its old Pod temporarily remains Running. Do not send a
+  minimal `{"replicas": ...}` role block; it can also blank scheduler annotations/labels such as
+  `scheduling.navix.sh/entry-id`. Read `references/service-lifecycle.md` for preflight invariants and
+  the recovery path when a prior partial scale payload has already damaged the service.
 
 When enabling Mooncake on an existing inference service or bringing a Mooncake-backed service
 Online, also read `references/mooncake-inference.md`. Treat configuration update and Online as two
