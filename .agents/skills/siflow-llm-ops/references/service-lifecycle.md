@@ -97,6 +97,27 @@ For custom mode, image and command are supplied directly. An engine version is u
 - Snapshot before updates.
 - Preserve source service fields not involved in the request.
 - Use update models, not create models, for an existing service.
+- Before `scale_service`, GET the service and deep-copy the complete role configuration being
+  scaled. Change only the explicitly requested fields, normally `replicas`, then validate that all
+  other fields are byte-for-byte/equality-equivalent to the fetched source.
+- Do not construct a minimal scale role such as
+  `ServiceScaleParams(roleConfig={"worker": {"replicas": 3}})`. On observed SiFlow versions this
+  can replace the stored target role block instead of merging it, blanking the image, command,
+  resource requests, probes, and scheduler metadata. The resulting quota check may incorrectly
+  treat the target replicas as a fresh allocation and leave the service in `scale-queueing`.
+- Preserve the complete role block, including `image`, `command`, `env`, `resourceConfig`, probes,
+  labels, annotations, node selectors/affinity, service account, ports, and size. In particular,
+  retain `scheduling.navix.sh/entry-id`, scheduling trace/snapshot annotations, and
+  `quota.scitix.ai/data` when returned by the API.
+- If a previous partial scale request has already damaged the top-level `roleConfig[role]`, do not
+  use that damaged block as the retry source. Re-GET the service and, after verifying it describes
+  the still-running Pod, recover the role from `status.lastServiceRoleConfigs[role]`; deep-copy it,
+  modify only `replicas`, save the validated payload, and require the existing authorization to
+  cover the retry. Stop if the last-applied block does not match the live Pod image, command,
+  resources, or scheduler identity.
+- After scaling, verify both the desired replica count and the actual Pod count. A successful API
+  response is not sufficient: inspect `replicasStatus`, queueing reason, Pod creation times,
+  placement, readiness, and restart counts.
 - Scaling must not rewrite images or commands.
 - A Router-only update must not restart engines unless the platform requires it and the user accepts it.
 - After update, poll until all expected Pods are ready and compare actual Pod configuration with the requested payload.
