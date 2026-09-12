@@ -1,0 +1,4 @@
+interface:
+  display_name: "SiFlow Image Factory"
+  short_description: "Build and verify SiFlow engine and router images"
+  default_prompt: "Use $siflow-image-factory to build the requested SiFlow image, verify its contents and provenance, and report validation results without changing live services unless requested."
