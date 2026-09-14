@@ -1,0 +1,36 @@
+{
+  "currency": "USD",
+  "unit": "per 1000000 tokens",
+  "price_order": ["cached_input", "uncached_input", "output"],
+  "retrieved_date_utc": "2026-09-13",
+  "window_start_utc": "2026-09-13T00:00:00+00:00",
+  "days": 30,
+  "models": {
+    "v41": {
+      "peak": [0.006, 0.30, 1.20], "offpeak": [0.003, 0.15, 0.60],
+      "schedule": "weekdays_01_04_06_10_utc",
+      "basis": "current", "source": "https://api-docs.deepseek.com/quick_start/pricing"
+    },
+    "v4flash": {
+      "peak": [0.014, 0.44, 1.32], "offpeak": [0.007, 0.22, 0.66],
+      "schedule": "daily_01_04_06_10_utc",
+      "basis": "historical_20260816_scenario_only",
+      "source": "https://api-docs.deepseek.com/news/news260813",
+      "image": "https://api-docs.deepseek.com/img/v4_260813_price_en.png",
+      "note": "V4 Flash retired 2026-09-10. Historical announcement lists daily peak hours without weekday exclusion. This is not a currently purchasable API price."
+    },
+    "v4pro": {
+      "peak": [0.044, 1.32, 3.96], "offpeak": [0.022, 0.66, 1.98],
+      "schedule": "weekdays_01_04_06_10_utc",
+      "basis": "current", "source": "https://api-docs.deepseek.com/quick_start/pricing"
+    },
+    "glm53": {
+      "flat": [0.26, 1.40, 4.40], "schedule": "flat", "basis": "current",
+      "source": "https://docs.z.ai/guides/overview/pricing"
+    },
+    "glm53flash": {
+      "flat": [0.03, 0.15, 0.50], "schedule": "flat", "basis": "current",
+      "source": "https://docs.z.ai/guides/overview/pricing"
+    }
+  }
+}

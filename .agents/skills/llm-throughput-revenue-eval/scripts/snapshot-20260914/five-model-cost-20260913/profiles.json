@@ -1,0 +1,41 @@
+{
+  "v41": {
+    "name": "DeepSeek V4.1 Flash", "served_model": "deepseek-v4.1-flash", "gpus": 8,
+    "model_path": "/volume/dev/models/DeepSeek-V4.1-Flash-fb2764a5cf32",
+    "common": ["--trust-remote-code", "--tp", "8", "--ep-size", "8", "--mem-fraction-static", "0.8", "--attention-backend", "dsv4", "--moe-runner-backend", "flashinfer_mxfp4", "--cuda-graph-max-bs-decode", "64", "--reasoning-parser", "auto", "--tool-call-parser", "auto"],
+    "throughput": ["--max-running-requests", "256"], "sla": ["--enable-decoder-swa-bounded-replay"],
+    "sla_input": 8000, "sla_output": 1252, "cache_rate": 0.932, "ttft_s": 2.0, "ttft_strict": true, "tpot_ms": 20.0
+  },
+  "v4flash": {
+    "name": "DeepSeek V4 Flash 0731", "served_model": "deepseek-v4-flash", "gpus": 2,
+    "model_path": "/volume/dev/models/DeepSeek-V4-Flash-0731",
+    "common": ["--trust-remote-code", "--tp", "2"],
+    "throughput": ["--moe-runner-backend", "marlin"],
+    "sla": ["--moe-runner-backend", "flashinfer_mxfp4", "--flashinfer-mxfp4-moe-precision", "fp8", "--speculative-algorithm", "DSPARK"],
+    "sla_input": 22016, "sla_output": 514, "cache_rate": 0.796, "ttft_s": 1.0, "tpot_ms": 25.4
+  },
+  "v4pro": {
+    "name": "DeepSeek V4 Pro 0813", "served_model": "deepseek-v4-pro", "gpus": 8,
+    "model_path": "/models/preset/deepseek-ai/DeepSeek-V4-Pro-0813/v1.0",
+    "common": ["--trust-remote-code", "--tp", "8", "--moe-runner-backend", "flashinfer_mxfp4"],
+    "throughput": ["--mem-fraction-static", "0.88"],
+    "sla": ["--mem-fraction-static", "0.90", "--speculative-algorithm", "DSPARK"],
+    "sla_input": 49664, "sla_output": 948, "cache_rate": 0.868, "ttft_s": 2.86, "tpot_ms": 22.2
+  },
+  "glm53": {
+    "name": "GLM 5.3 FP8", "served_model": "glm-5.3", "gpus": 8,
+    "model_path": "/volume/dev/models/GLM-5.3",
+    "common": ["--tp", "8"],
+    "throughput": ["--dp", "8", "--enable-dp-attention", "--moe-a2a-backend", "deepep", "--speculative-algorithm", "EAGLE", "--speculative-num-steps", "1", "--speculative-eagle-topk", "1", "--speculative-num-draft-tokens", "2", "--mem-fraction-static", "0.85", "--chunked-prefill-size", "32768", "--max-running-requests", "256"],
+    "sla": ["--speculative-algorithm", "EAGLE", "--speculative-num-steps", "5", "--speculative-eagle-topk", "1", "--speculative-num-draft-tokens", "6", "--mem-fraction-static", "0.8"],
+    "sla_input": 72125, "sla_output": 1095, "cache_rate": 0.94532, "ttft_s": 1.397, "tpot_ms": 16.6666666667
+  },
+  "glm53flash": {
+    "name": "GLM 5.3 Flash FP8", "served_model": "glm-5.3-flash", "gpus": 4,
+    "model_path": "/volume/dev/models/GLM-5.3-Flash",
+    "common": ["--tp-size", "4", "--ep-size", "4", "--dsa-prefill-backend", "tilelang", "--dsa-decode-backend", "tilelang", "--kv-cache-dtype", "bfloat16", "--moe-runner-backend", "deep_gemm", "--reasoning-parser", "glm45", "--tool-call-parser", "glm47"],
+    "throughput": [],
+    "sla": ["--mem-fraction-static", "0.75", "--speculative-algorithm", "EAGLE", "--speculative-num-steps", "5", "--speculative-eagle-topk", "1", "--speculative-num-draft-tokens", "6"],
+    "sla_input": 73835, "sla_output": 1447, "cache_rate": 0.9256, "ttft_s": 2.0, "tpot_ms": 33.3333333333
+  }
+}

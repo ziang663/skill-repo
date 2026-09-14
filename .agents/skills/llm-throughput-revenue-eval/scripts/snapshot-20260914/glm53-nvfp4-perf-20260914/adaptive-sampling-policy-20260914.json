@@ -1,0 +1,13 @@
+{
+  "recorded_utc": "2026-09-14T05:50:21+00:00",
+  "user_request": "我觉得如果跑到100条，你发现ttft和tpot都还是规则内的，就可以终止，往上加了",
+  "scope": "Subsequent SLA points in existing live search; current 0.25 RPS point remains 200 because its executor is already loaded",
+  "minimum_completed_prefix": 100,
+  "maximum_planned_requests": 200,
+  "early_check": "First 100 scheduled requests all completed successfully; both mean latency limits met; cache within tolerance and offered rate valid",
+  "if_check_passes": "Cancel only not-yet-submitted requests, drain all in-flight requests and include all submitted results in final point verdict and revenue",
+  "if_check_fails": "Continue to 200 with original open-loop schedule",
+  "report": "Actual sample count, planned maximum, early-stop decision and final post-drain verdict; do not claim all points have 200 samples",
+  "deployment_changes": false,
+  "allocator_warning_policy": "record only; unchanged"
+}

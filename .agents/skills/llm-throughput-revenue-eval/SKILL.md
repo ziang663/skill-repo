@@ -1,6 +1,6 @@
 ---
 name: llm-throughput-revenue-eval
-description: Plan and evaluate local SGLang LLM throughput, SLA-constrained TPM, and per-GPU monthly revenue using official cached-input, uncached-input, and output prices. Use for model-serving capacity and token-economics studies, including the five-model H200 plan; not for unrelated API compatibility acceptance or production service changes.
+description: Plan and evaluate local SGLang LLM throughput, SLA-constrained TPM, and per-GPU monthly revenue using official cached-input, uncached-input, and output prices. Use for capacity studies and offline cache-isolation audits of benchmark scripts and evidence, including the six-model H200 study; not for unrelated API compatibility acceptance or production service changes.
 ---
 
 # LLM 吞吐、SLA 与单卡收入核算
@@ -13,7 +13,7 @@ description: Plan and evaluate local SGLang LLM throughput, SLA-constrained TPM,
 - **执行实验**：需要用户已经授权本地部署与测试；先确认资源占用、准确模型版本和运行预算，再开始。
 - **暂停 / 续跑**：暂停时先停本任务队列及发压，再安全停止本任务引擎并保留证据。用户说“先暂停”后，阅读或发布此 skill 不代表获准恢复。
 
-本轮五模型任务在 2026-09-13 被用户暂停；后续恢复须有新的执行指令。复用到其他任务时，不把该历史状态当作新任务的状态。
+历史计划曾暂停，之后已续跑并扩展到六个模型。当前任务模式由用户最新指令决定；快照中的旧批准记录、进程状态及自动续跑入口不是新的执行授权。
 
 ## 需要读取的资料
 
@@ -22,6 +22,17 @@ description: Plan and evaluate local SGLang LLM throughput, SLA-constrained TPM,
 - 采集价格或核算收入：读取 [定价与收入](references/pricing-and-revenue.md)。其中的价格是有日期的快照，不能无条件作为现价。
 - 构建数据、发压、判定 SLA 或解释结果：读取 [测量口径](references/measurement-method.md)。
 - 创建/更新 Markdown 报告：采用 [报告模板](assets/report-template.md)，按实际进展填写，未测处保留“未测”。
+- 审阅六模型原始脚本、核查每轮 flush 或向同事交接：先读 [完整脚本与缓存审阅入口](references/code-review-20260914.md)。其中区分逐字节源代码快照、历史配置、离线审计工具和证据；不要为审阅而运行启动/停止/发压入口。
+
+## 已附脚本
+
+- [原始脚本快照](scripts/snapshot-20260914/SOURCES.json)：完整保留五模型执行器、第六模型 NVFP4 扩展及本地 Python 辅助依赖；源码不为本次审阅改写。路径与配置是原机器快照，不是即插即用的通用部署包。
+- [快照校验](scripts/verify_snapshot.py)：校验 SHA-256、Python 语法和 JSON，不导入或执行被审阅脚本。
+- [SLA 缓存审计](scripts/audit_sla_cache.py)：只读原始 manifest、请求、预置、metrics 与引擎日志，输出到新的独立目录；不联网、不启动服务，也不清理运行中的缓存。
+- [离线审计测试](scripts/test_audit_sla_cache.py)：使用临时合成证据，覆盖 HTTP 200 但没有本轮成功日志、预置残留缓存、正式请求超额命中、数据损坏等情形。
+- [修正后的标准 SLA 入口](scripts/standard_sla.py)：2026-09-14 V4 Flash 对照使用原生 SGLang 客户端/指标和默认指数到达；支持原精确 token 数据与用户 GSP 文本，逐帧同时记录首 token 和首非空文本时间。默认仅离线检查，`--execute` 才清理本地空闲 worker 缓存并测试；不管理引擎生命周期。此机器上的权重/运行时/证据默认路径不是通用安装配置。
+- [标准计时一致性测试](scripts/test_standard_sla.py)：同一组模拟 SSE 喂给未修改的原生客户端与增加观测的客户端，校验结果逐字段相同，覆盖空首 token、投机多 token 帧和协议尾部。历史快照仍保持原字节，不作为新的 SLA 默认入口。
+- [客户端 shell 入口](scripts/bench_v4_flash_sla_corrected.sh) 与 [V4 Flash TP2 服务端入口](scripts/start_v4_flash_0731_tp2.sh)：使用机器快照中的固定 runtime/模型/数据路径；客户端从自身目录定位 `standard_sla.py`，不依赖仓库克隆位置。客户端默认离线检查；服务端默认会启动模型，审阅只传 `--dry-run`。依赖、命令与日志注意事项见[交接说明](references/code-review-20260914.md#修正后-v4-flash-复现入口)。
 
 ## 执行顺序
 
@@ -42,4 +53,4 @@ description: Plan and evaluate local SGLang LLM throughput, SLA-constrained TPM,
 - 只停止已核对 PID、启动时间、任务标记/进程组的本任务实例。不要修改线上服务、停止无关进程，或使用广泛的 `pkill`。
 - OOM、重启、缓存目标失效、发压器瓶颈或中断都保留原记录；基础设施异常先诊断，不自动扩大资源、改 SLA 或无限重试。
 
-本 skill 保存计划与判定方法，不附带自动启动的压测队列。恢复已有执行器前，核对其实际参数是否与最新计划一致。
+本 skill 的快照包含历史压测队列和生命周期入口；仅阅读、校验或发布 skill 不会自动运行它们。真正恢复执行前，核对实例所有权、路径/环境、最新配置和样本规则；历史 active-engine/approval 文件不能当作当前有效状态。

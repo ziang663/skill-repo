@@ -1,0 +1,26 @@
+{
+  "model": "v4pro",
+  "engine_run": "v4pro-resume-12-sla",
+  "prior_search": "v4pro-resume-12-sla-search.json",
+  "evidence_unchanged": true,
+  "reviewed_cache_failure_points": [
+    "v4pro-resume-12-sla-p03-r1.000000",
+    "v4pro-resume-13-sla-p05-r0.875000",
+    "v4pro-resume-13-sla-p06-r0.812500"
+  ],
+  "disposition": "retain_fail_probe_lower_rates_on_same_healthy_engine",
+  "diagnosis": "At 1 RPS all 200 requests completed with exact 49664/948 lengths, no retractions, healthy endpoints and no OOM. Actual cache rate fell to .801597938, mean TTFT58.37887s. Cache counts were 0:7, 40960:166, 43008:21, 43264:6; 37-point accounting audit passed. High SWA usage and queue buildup co-occurred; the exact cache retention mechanism has not been localized. Treat this as an unusable workload point, not a pure latency failure bound. Probe between valid .5 RPS and this resource-affected rate without changing configuration, dataset,200 samples or tolerances.",
+  "additional_reviews": [
+    {
+      "point": "v4pro-resume-13-sla-p05-r0.875000",
+      "completed_utc": "2026-09-13T20:45:19.698191+00:00",
+      "diagnosis": "All 200 requests completed with exact 49664/948 lengths; all three health endpoints remained HTTP 200 and the engine generation has no OOM or fatal exception. Actual cache rate .820154639, mean TTFT24.677003s and TPOT17.900916ms. Cached distribution: 0:5,40960:118,43008:71,43264:6;199 requests had zero retractions and one had one. The 39-point token accounting audit passed without issues. Cache-retention mechanism remains unlocalized; this is not a pure latency failure bound. Probe .8125 RPS between the valid .75 and unusable .875 on the same engine, configuration and dataset."
+    },
+    {
+      "point": "v4pro-resume-13-sla-p06-r0.812500",
+      "completed_utc": "2026-09-13T20:52:04.587888+00:00",
+      "diagnosis": "All200 requests completed with exact49664/948 lengths; health endpoints stayed HTTP200 and no OOM/fatal exception occurred in this engine generation. Actual cache .845103093, mean TTFT4.983998s and TPOT15.569422ms. Cached distribution:0:3,40960:39,43008:152,43264:6;198 requests had zero retractions, two had one. Final40-point token accounting audit passed without issues. The exact cache retention mechanism remains unlocalized. Keep this as a resource-affected unusable point, not a pure latency upper bound. End refinement with valid lower .75 and unusable upper .8125 RPS (width .0625,8.333% of lower); preserve all failures, configuration and tolerances."
+    }
+  ],
+  "engine_identity_verified": {"pid":1104788,"start_ticks":"409496393"}
+}

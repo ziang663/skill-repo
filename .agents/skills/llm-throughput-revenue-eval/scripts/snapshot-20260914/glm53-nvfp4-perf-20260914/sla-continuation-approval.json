@@ -1,0 +1,22 @@
+{
+  "recorded_utc": "2026-09-14T05:34:24+00:00",
+  "user_reply": "可以的，开始",
+  "scope": "Continue the independent local SLA configuration; preserve throughput warning and raw FAIL; no automatic throughput rerun or tuning",
+  "strategy": "sla",
+  "run_name": "sla-tp8-mtp5-mem085-01",
+  "tp": 8,
+  "dp": 1,
+  "ep": 1,
+  "dpa": false,
+  "mem_fraction_static": 0.85,
+  "weights": "GLM-5.3-NVFP4",
+  "moe_backend": "marlin",
+  "moe_a2a_backend": "none",
+  "kv_cache_dtype": "fp8_e4m3",
+  "disable_shared_experts_fusion": true,
+  "mtp_steps_topk_draft": [5, 1, 6],
+  "formal_requests_per_point": 200,
+  "initial_rps": 0.25,
+  "new_infrastructure_problem_policy": "Stop and discuss with user before configuration changes or retries",
+  "online_changes_authorized": false
+}

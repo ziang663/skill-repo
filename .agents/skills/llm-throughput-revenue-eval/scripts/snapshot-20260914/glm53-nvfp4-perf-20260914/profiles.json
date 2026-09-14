@@ -1,0 +1,16 @@
+{
+  "glm53_nvfp4": {
+    "name": "GLM 5.3 NVFP4 / H200 Marlin",
+    "served_model": "glm-5.3-nvfp4-local",
+    "gpus": 8,
+    "model_path": "/volume/dev/models/GLM-5.3-NVFP4",
+    "common": ["--tp", "8", "--ep-size", "1", "--quantization", "modelopt_fp4", "--moe-a2a-backend", "none", "--moe-runner-backend", "marlin", "--fp4-gemm-backend", "marlin", "--kv-cache-dtype", "fp8_e4m3", "--dsa-prefill-backend", "flashmla_sparse_q8", "--dsa-decode-backend", "flashmla_kv", "--disable-shared-experts-fusion", "--mem-fraction-static", "0.85"],
+    "throughput": ["--dp", "8", "--enable-dp-attention", "--speculative-algorithm", "EAGLE", "--speculative-num-steps", "1", "--speculative-eagle-topk", "1", "--speculative-num-draft-tokens", "2", "--chunked-prefill-size", "32768", "--max-running-requests", "256"],
+    "sla": ["--dp", "1", "--speculative-algorithm", "EAGLE", "--speculative-num-steps", "5", "--speculative-eagle-topk", "1", "--speculative-num-draft-tokens", "6"],
+    "sla_input": 72125,
+    "sla_output": 1095,
+    "cache_rate": 0.94532,
+    "ttft_s": 1.397,
+    "tpot_ms": 16.666666666666668
+  }
+}

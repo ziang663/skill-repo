@@ -1,0 +1,301 @@
+{
+  "snapshot_date": "2026-09-14",
+  "purpose": "Unmodified local script/config snapshots for six-model SLA review; not a historical byte-level attestation for every controller. Per-point manifest.client.script_sha256 attests benchmark cores.",
+  "source_root": "/volume/dev/alan/deployments",
+  "files": [
+    {
+      "path": "five-model-cost-20260913/audit_token_accounting.py",
+      "sha256": "41d55235a5acdc5ab094dfd363ccaa3ba35507a1d899db5f8018b03df46bac6d",
+      "source": "/volume/dev/alan/deployments/five-model-cost-20260913/audit_token_accounting.py",
+      "kind": "script"
+    },
+    {
+      "path": "five-model-cost-20260913/benchmark.py",
+      "sha256": "98806c6426b44c51c384cb85cfc75410b5d6dea835465c4a0e08d6457568abad",
+      "source": "/volume/dev/alan/deployments/five-model-cost-20260913/benchmark.py",
+      "kind": "script"
+    },
+    {
+      "path": "five-model-cost-20260913/collect_sources.py",
+      "sha256": "21daf128d2d38c107d28cf76323e87f1f7ce703570579486113afa8b87c1393b",
+      "source": "/volume/dev/alan/deployments/five-model-cost-20260913/collect_sources.py",
+      "kind": "script"
+    },
+    {
+      "path": "five-model-cost-20260913/conduct.py",
+      "sha256": "08f23aca82cc2684626b53ea1ecba1d579ab6f75d457883eac145ab667d16d7c",
+      "source": "/volume/dev/alan/deployments/five-model-cost-20260913/conduct.py",
+      "kind": "script"
+    },
+    {
+      "path": "five-model-cost-20260913/engine_evidence.py",
+      "sha256": "afef861efb909942561bf9f61def4aaa0caffd33ff7265d48283bf6660319cc3",
+      "source": "/volume/dev/alan/deployments/five-model-cost-20260913/engine_evidence.py",
+      "kind": "script"
+    },
+    {
+      "path": "five-model-cost-20260913/engine_lifecycle.py",
+      "sha256": "e737c7dfdf3ff5cfbdc0316adac9acbe922b4fb02b8f7ef9f9384b71a67187ec",
+      "source": "/volume/dev/alan/deployments/five-model-cost-20260913/engine_lifecycle.py",
+      "kind": "script"
+    },
+    {
+      "path": "five-model-cost-20260913/local_campaign.py",
+      "sha256": "720167acef39aa4b9ede04f6134ec572622a51191df24d2b8b6bed742d109b59",
+      "source": "/volume/dev/alan/deployments/five-model-cost-20260913/local_campaign.py",
+      "kind": "script"
+    },
+    {
+      "path": "five-model-cost-20260913/observe_campaign.py",
+      "sha256": "ca57772fd89fa5036da2561aa7e9309aa9bb4daea94fda455fd0f0aba9d7b1ce",
+      "source": "/volume/dev/alan/deployments/five-model-cost-20260913/observe_campaign.py",
+      "kind": "script"
+    },
+    {
+      "path": "five-model-cost-20260913/official_runtime.py",
+      "sha256": "d951be913abc8210ebe8113801b639362b711e153d9350bdecd9e6b9e456cc97",
+      "source": "/volume/dev/alan/deployments/five-model-cost-20260913/official_runtime.py",
+      "kind": "script"
+    },
+    {
+      "path": "five-model-cost-20260913/progress_status.py",
+      "sha256": "aa57e381651f8c1614aa48c2f1cce0164207c49668293f75f209e878fe2bdc65",
+      "source": "/volume/dev/alan/deployments/five-model-cost-20260913/progress_status.py",
+      "kind": "script"
+    },
+    {
+      "path": "five-model-cost-20260913/report_results.py",
+      "sha256": "955598abc3c07ef5880e91c50304224cd431abf2f8c050c792b2dad7cb7a1e15",
+      "source": "/volume/dev/alan/deployments/five-model-cost-20260913/report_results.py",
+      "kind": "script"
+    },
+    {
+      "path": "five-model-cost-20260913/resume_check.py",
+      "sha256": "9b87ed9ecd6fb59ffc3712dd7a2bdb7e1571c6ad8767adfd18f1e3524eeb5076",
+      "source": "/volume/dev/alan/deployments/five-model-cost-20260913/resume_check.py",
+      "kind": "script"
+    },
+    {
+      "path": "five-model-cost-20260913/reviewed_sla_probe.py",
+      "sha256": "6d27fadb37d1815d4ed2606ae3e27a562df3fc9101b6044bd22ab92a53a64046",
+      "source": "/volume/dev/alan/deployments/five-model-cost-20260913/reviewed_sla_probe.py",
+      "kind": "script"
+    },
+    {
+      "path": "five-model-cost-20260913/run_model.py",
+      "sha256": "3fcc2a1aeddacbbf7e7d8d76dc1cbade182441591438ca84f9b6fdbe6443d8e4",
+      "source": "/volume/dev/alan/deployments/five-model-cost-20260913/run_model.py",
+      "kind": "script"
+    },
+    {
+      "path": "five-model-cost-20260913/run_remaining.py",
+      "sha256": "1e0698f80740d010b22538c6e5d7b62cd57582a90bc65c35422499025eefd74f",
+      "source": "/volume/dev/alan/deployments/five-model-cost-20260913/run_remaining.py",
+      "kind": "script"
+    },
+    {
+      "path": "five-model-cost-20260913/runtime_check.py",
+      "sha256": "c8b93891e45e40ad1bedbbe404cac932136ff28b492901383a8033e4653f1c3e",
+      "source": "/volume/dev/alan/deployments/five-model-cost-20260913/runtime_check.py",
+      "kind": "script"
+    },
+    {
+      "path": "five-model-cost-20260913/summarize_campaign.py",
+      "sha256": "3b0aea106782753e5e50ec6d4f6a0cec2c18d47c561f676b134ae526625494b5",
+      "source": "/volume/dev/alan/deployments/five-model-cost-20260913/summarize_campaign.py",
+      "kind": "script"
+    },
+    {
+      "path": "five-model-cost-20260913/test_benchmark.py",
+      "sha256": "548dd51e39825ac3fbe61ab95f6a0ef87008f183a3e252812b03a72acf897eb1",
+      "source": "/volume/dev/alan/deployments/five-model-cost-20260913/test_benchmark.py",
+      "kind": "script"
+    },
+    {
+      "path": "five-model-cost-20260913/test_launch_overrides.py",
+      "sha256": "78574def761b609489f98fa7bc0cfcb6a2d0d0314b0b7bf270464a7b6de5dc17",
+      "source": "/volume/dev/alan/deployments/five-model-cost-20260913/test_launch_overrides.py",
+      "kind": "script"
+    },
+    {
+      "path": "five-model-cost-20260913/test_lifecycle.py",
+      "sha256": "16f68029cba0d6d659bb17ce993f8ea544626e384befa3f08bf15cf771782440",
+      "source": "/volume/dev/alan/deployments/five-model-cost-20260913/test_lifecycle.py",
+      "kind": "script"
+    },
+    {
+      "path": "five-model-cost-20260913/test_reviewed_continuation.py",
+      "sha256": "c056f6469288fd69c6da7200d381655c37c9346ff3c72a58aa368134f39533c5",
+      "source": "/volume/dev/alan/deployments/five-model-cost-20260913/test_reviewed_continuation.py",
+      "kind": "script"
+    },
+    {
+      "path": "five-model-cost-20260913/test_six_model_report.py",
+      "sha256": "e4465e5eeb1ca73bfe6c7b4e55e362d4710368d13f8e2e370077935ff6a3c890",
+      "source": "/volume/dev/alan/deployments/five-model-cost-20260913/test_six_model_report.py",
+      "kind": "script"
+    },
+    {
+      "path": "five-model-cost-20260913/test_transport.py",
+      "sha256": "6952938f59f5995d8f1693399c89ade607e8fbcb37a5eda0f0c0c4def3089400",
+      "source": "/volume/dev/alan/deployments/five-model-cost-20260913/test_transport.py",
+      "kind": "script"
+    },
+    {
+      "path": "five-model-cost-20260913/test_user_accepted_report.py",
+      "sha256": "d405f3abca0f27810d2140cc68bafc79dfe0a706173a0eb6e8ae86dbdca59c00",
+      "source": "/volume/dev/alan/deployments/five-model-cost-20260913/test_user_accepted_report.py",
+      "kind": "script"
+    },
+    {
+      "path": "glm53-nvfp4-perf-20260914/adaptive_sampling.py",
+      "sha256": "875036890a5b5194df8f2d194fe0a6f2d67b0546fd3766abd2bb12540c2a66f3",
+      "source": "/volume/dev/alan/deployments/glm53-nvfp4-perf-20260914/adaptive_sampling.py",
+      "kind": "script"
+    },
+    {
+      "path": "glm53-nvfp4-perf-20260914/audit_sla_pause.py",
+      "sha256": "b72a77fe1fddbc5843bc8ea99ab09c5a2fcc384700f2d9721bbf7856b8fe271d",
+      "source": "/volume/dev/alan/deployments/glm53-nvfp4-perf-20260914/audit_sla_pause.py",
+      "kind": "script"
+    },
+    {
+      "path": "glm53-nvfp4-perf-20260914/benchmark_core.py",
+      "sha256": "028ab6e65bc515480fa2441c3333316c0d356cfd728d537cd709ac740f1b629f",
+      "source": "/volume/dev/alan/deployments/glm53-nvfp4-perf-20260914/benchmark_core.py",
+      "kind": "script"
+    },
+    {
+      "path": "glm53-nvfp4-perf-20260914/benchmark.py",
+      "sha256": "a73790e0f769831ed4ded8b63893de6ecf83960d64a3d568e927364f81357232",
+      "source": "/volume/dev/alan/deployments/glm53-nvfp4-perf-20260914/benchmark.py",
+      "kind": "script"
+    },
+    {
+      "path": "glm53-nvfp4-perf-20260914/conduct.py",
+      "sha256": "4310f84bc7075f32ca8b0487d0a03ff617bb50ec80106334810be08addca576e",
+      "source": "/volume/dev/alan/deployments/glm53-nvfp4-perf-20260914/conduct.py",
+      "kind": "script"
+    },
+    {
+      "path": "glm53-nvfp4-perf-20260914/experiment.py",
+      "sha256": "d8d546238c29ce1b3653c08af0290c5f88dd1274faa014c55e77a6e0edfb08c6",
+      "source": "/volume/dev/alan/deployments/glm53-nvfp4-perf-20260914/experiment.py",
+      "kind": "script"
+    },
+    {
+      "path": "glm53-nvfp4-perf-20260914/final_audit.py",
+      "sha256": "944c729bc249982f6b1593cc69628f9a79f1859c424a6317c19c62f63035b523",
+      "source": "/volume/dev/alan/deployments/glm53-nvfp4-perf-20260914/final_audit.py",
+      "kind": "script"
+    },
+    {
+      "path": "glm53-nvfp4-perf-20260914/launch_sla_search.py",
+      "sha256": "4d95def028a232c679bf211c4c8960947b0ebb83e371e646a7e30b120d4b3ddd",
+      "source": "/volume/dev/alan/deployments/glm53-nvfp4-perf-20260914/launch_sla_search.py",
+      "kind": "script"
+    },
+    {
+      "path": "glm53-nvfp4-perf-20260914/progress.py",
+      "sha256": "72526efa2b3cc39b539bf8f2c5d7933cafe92b7f501e78d408e56b6a01a66585",
+      "source": "/volume/dev/alan/deployments/glm53-nvfp4-perf-20260914/progress.py",
+      "kind": "script"
+    },
+    {
+      "path": "glm53-nvfp4-perf-20260914/reassess_throughput.py",
+      "sha256": "2136e249133dc268ffe623a8f974b6fee4142ee0ae1c7d854556b7bc9ceed9d3",
+      "source": "/volume/dev/alan/deployments/glm53-nvfp4-perf-20260914/reassess_throughput.py",
+      "kind": "script"
+    },
+    {
+      "path": "glm53-nvfp4-perf-20260914/report.py",
+      "sha256": "a9a40de68f2608ede9af0f6756db6a44e0f30ee96174b3eaa0488dc1897973b2",
+      "source": "/volume/dev/alan/deployments/glm53-nvfp4-perf-20260914/report.py",
+      "kind": "script"
+    },
+    {
+      "path": "glm53-nvfp4-perf-20260914/test_experiment.py",
+      "sha256": "3ee9e87f3f6651498c0623426db0e6d38b6cb1b17b1ce2f5a1608e9eab5a003a",
+      "source": "/volume/dev/alan/deployments/glm53-nvfp4-perf-20260914/test_experiment.py",
+      "kind": "script"
+    },
+    {
+      "path": "glm53-nvfp4-perf-20260914/warning_policy.py",
+      "sha256": "dfbdf660ac4fa0f4499dceb74ebda3ebcccde4ff40b353750a973b680a2757d6",
+      "source": "/volume/dev/alan/deployments/glm53-nvfp4-perf-20260914/warning_policy.py",
+      "kind": "script"
+    },
+    {
+      "path": "five-model-cost-20260913/profiles.json",
+      "sha256": "52a6d8da455812b1406f472bb461bec0d41b3c75deb6caecd1ba1ffc4c2a3da6",
+      "source": "/volume/dev/alan/deployments/five-model-cost-20260913/profiles.json",
+      "kind": "historical_configuration"
+    },
+    {
+      "path": "five-model-cost-20260913/prices.json",
+      "sha256": "706395e2c70c94cd44001746a6ff8803ca835efeb1ad36b508c2d0b716b3b0be",
+      "source": "/volume/dev/alan/deployments/five-model-cost-20260913/prices.json",
+      "kind": "historical_configuration"
+    },
+    {
+      "path": "five-model-cost-20260913/v4pro-resume-12-sla-overrides.json",
+      "sha256": "514b72a03c660ecf9249fe2a64f5b512edc470a09b16d4034e3379ed9f0ae02a",
+      "source": "/volume/dev/alan/deployments/five-model-cost-20260913/v4pro-resume-12-sla-overrides.json",
+      "kind": "historical_configuration"
+    },
+    {
+      "path": "five-model-cost-20260913/v4pro-sla-resource-review.json",
+      "sha256": "97198f16991e05135611ce045346e4409cacf815f29ff1421fdcad784f9d1abb",
+      "source": "/volume/dev/alan/deployments/five-model-cost-20260913/v4pro-sla-resource-review.json",
+      "kind": "historical_configuration"
+    },
+    {
+      "path": "five-model-cost-20260913/v4pro-throughput-user-acceptance.json",
+      "sha256": "3f695238e53d50d59e65f58f5ad703711faf62d5ecaf4220b478027da9034cae",
+      "source": "/volume/dev/alan/deployments/five-model-cost-20260913/v4pro-throughput-user-acceptance.json",
+      "kind": "historical_configuration"
+    },
+    {
+      "path": "glm53-nvfp4-perf-20260914/profiles.json",
+      "sha256": "7a944a0d8a0638a8a0c8787cdbd596bfaa55c56f1f2367bd179732d40d04d738",
+      "source": "/volume/dev/alan/deployments/glm53-nvfp4-perf-20260914/profiles.json",
+      "kind": "historical_configuration"
+    },
+    {
+      "path": "glm53-nvfp4-perf-20260914/adaptive-sampling-policy-20260914.json",
+      "sha256": "69f992b3a2444270a10d1a50b0e83c80a5a261a2dd2f529e2c95a28c9dd05461",
+      "source": "/volume/dev/alan/deployments/glm53-nvfp4-perf-20260914/adaptive-sampling-policy-20260914.json",
+      "kind": "historical_configuration"
+    },
+    {
+      "path": "glm53-nvfp4-perf-20260914/warning-policy-20260914.json",
+      "sha256": "af074b7bf185f46f2f91c23d231550ed5be05ce790ad3a871cd52c8ce00df817",
+      "source": "/volume/dev/alan/deployments/glm53-nvfp4-perf-20260914/warning-policy-20260914.json",
+      "kind": "historical_configuration"
+    },
+    {
+      "path": "glm53-nvfp4-perf-20260914/sla-continuation-approval.json",
+      "sha256": "6afa00c825873565f42f5c340756c3f7856f4bfd60fde1878a6d66675d3448f4",
+      "source": "/volume/dev/alan/deployments/glm53-nvfp4-perf-20260914/sla-continuation-approval.json",
+      "kind": "historical_configuration"
+    },
+    {
+      "path": "glm52-h200-1m-20260911/local_glm.py",
+      "sha256": "79002f2b98d697d3c55ae42a3135c2ca5f59c2ed33621c023ae2596f845423c9",
+      "source": "/volume/dev/alan/deployments/glm52-h200-1m-20260911/local_glm.py",
+      "kind": "script"
+    },
+    {
+      "path": "dsv41-h200-opt-20260911/local_engine.py",
+      "sha256": "cc89a5e6c4dca94eea919753ad76f0102338b4e159e59a98b4f7548e668bf2ea",
+      "source": "/volume/dev/alan/deployments/dsv41-h200-opt-20260911/local_engine.py",
+      "kind": "script"
+    },
+    {
+      "path": "dsv41-h200-opt-20260911/pull_runtime.py",
+      "sha256": "4643d894e97644dba6c2f3e8ce91ccc7b5147fce12ec1e038d1813ef1645c6bb",
+      "source": "/volume/dev/alan/deployments/dsv41-h200-opt-20260911/pull_runtime.py",
+      "kind": "script"
+    }
+  ]
+}

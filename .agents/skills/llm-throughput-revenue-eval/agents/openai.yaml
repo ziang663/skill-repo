@@ -1,4 +1,4 @@
 interface:
   display_name: "LLM 吞吐与单卡收入核算"
-  short_description: "制定五模型 H200 测试计划，核对缓存价格并评估 SLA 下吞吐与单卡收入"
-  default_prompt: "使用 $llm-throughput-revenue-eval 整理五模型 H200 的部署、吞吐、SLA 与单卡月收入测试计划，先核对最新要求，不启动服务。"
+  short_description: "评估 H200 模型吞吐与单卡收入，审阅六模型原始脚本及 SLA 缓存证据"
+  default_prompt: "使用 $llm-throughput-revenue-eval 核对模型吞吐、SLA 与单卡收入要求，或离线审阅六模型脚本和缓存证据；未获执行授权时不启动服务。"

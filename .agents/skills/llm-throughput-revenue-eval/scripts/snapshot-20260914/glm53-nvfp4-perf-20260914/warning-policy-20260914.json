@@ -1,0 +1,15 @@
+{
+  "recorded_utc": "2026-09-14T05:43:08+00:00",
+  "user_reply": "告警无所谓，只要不crash就不管",
+  "run_name": "sla-tp8-mtp5-mem085-02",
+  "initial_rps": 0.25,
+  "allocator_warning_action": "record_only",
+  "require_no_crash_or_restart": true,
+  "require_all_200_requests_successful": true,
+  "cache_and_latency_thresholds": "unchanged",
+  "deployment_parameters": "unchanged: TP8/DP1/EP1, mem0.85, chunk8192, MTP5/1/6, Marlin, FP8 KV, shared-expert fusion disabled",
+  "resume_authorized": true,
+  "historical_throughput": "Accept observed completed batch under new warning tolerance; preserve raw FAIL from previous strict policy and publish separate reassessment",
+  "historical_partial_sla": "Preserve interruption; do not reuse partial results as a formal point",
+  "online_changes_authorized": false
+}

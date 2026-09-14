@@ -1,0 +1,4035 @@
+{
+  "created_utc": "2026-09-14T12:26:22.598108+00:00",
+  "audit_script_sha256": "8131b95e80de946d7994389462ac1b61c198037392e993d26e58fc5adc342e6f",
+  "roots": [
+    "/volume/dev/alan/deployments/five-model-cost-20260913",
+    "/volume/dev/alan/deployments/glm53-nvfp4-perf-20260914"
+  ],
+  "dataset_verification": "all",
+  "statuses": {
+    "PASS": 40,
+    "INCOMPLETE": 2,
+    "FAIL": 1
+  },
+  "selected_points_missing": [],
+  "by_model": {
+    "glm53": {
+      "attempts": 6,
+      "saved_requests": 1200,
+      "dataset_hashes": [
+        "6eeaf248f1065a9b26232fb8dbc8b614edc20c01d411ab04e72c32835b2aa605"
+      ]
+    },
+    "glm53flash": {
+      "attempts": 8,
+      "saved_requests": 1405,
+      "dataset_hashes": [
+        "e9b0b94a3fd4cf1723aaa9d6dd9db99381ca546ac830bbddef1b06945a7fc71e"
+      ]
+    },
+    "v41": {
+      "attempts": 7,
+      "saved_requests": 1400,
+      "dataset_hashes": [
+        "a91c2fb27f55d1d52ae065dccdd7d768d0a9af9abcdb6574775d9368340e8896"
+      ]
+    },
+    "v4flash": {
+      "attempts": 8,
+      "saved_requests": 1600,
+      "dataset_hashes": [
+        "7f359cd04959f50cd2e9c8fe42da541eadd92423411ffa71ec3ce0678a1b938a"
+      ]
+    },
+    "v4pro": {
+      "attempts": 7,
+      "saved_requests": 1200,
+      "dataset_hashes": [
+        "a5c4d94dbc65395569d72d872b28e218517208203361d4006d255dac4bffbc64"
+      ]
+    },
+    "glm53_nvfp4": {
+      "attempts": 7,
+      "saved_requests": 1027,
+      "dataset_hashes": [
+        "6eeaf248f1065a9b26232fb8dbc8b614edc20c01d411ab04e72c32835b2aa605"
+      ]
+    }
+  },
+  "points": [
+    {
+      "point": "glm53-resume-07-sla-p01-r0.250000",
+      "evidence_root": "/volume/dev/alan/deployments/five-model-cost-20260913",
+      "model": "glm53",
+      "selected": false,
+      "original_sla_status": "PASS",
+      "original_failure_reasons": [],
+      "audit_status": "PASS",
+      "errors": [],
+      "missing": [],
+      "saved_requests": 200,
+      "saved_success": 200,
+      "cache_counts_known": 200,
+      "excess_cache_requests": [],
+      "flush_http": 200,
+      "preseed_cached_tokens": [
+        0
+      ],
+      "preseed_input_tokens": [
+        68224
+      ],
+      "flush_log": {
+        "path": "/volume/dev/alan/deployments/five-model-cost-20260913/runs/glm53-resume-07-sla/engine.log",
+        "events": [
+          {
+            "utc": "2026-09-13T15:48:42+00:00",
+            "line": 928,
+            "text": "[2026-09-13 15:48:42 TP0] Cache flushed successfully!"
+          }
+        ]
+      },
+      "client_sha256": "98806c6426b44c51c384cb85cfc75410b5d6dea835465c4a0e08d6457568abad",
+      "client_matching_files": [
+        "/volume/dev/alan/deployments/five-model-cost-20260913/benchmark.py"
+      ],
+      "dataset_sha256": "6eeaf248f1065a9b26232fb8dbc8b614edc20c01d411ab04e72c32835b2aa605",
+      "dataset_check": {
+        "errors": [],
+        "sha256": "6eeaf248f1065a9b26232fb8dbc8b614edc20c01d411ab04e72c32835b2aa605",
+        "input_shape": [
+          200,
+          72125
+        ],
+        "shared_prefix_tokens": 68224,
+        "independent_tail_starts": 200
+      },
+      "target_cache_rate": 0.94532,
+      "accounting": {
+        "errors": [],
+        "missing": [],
+        "totals": {
+          "input": 14425000,
+          "output": 219000,
+          "cached": 13623424
+        },
+        "counters": {
+          "input": {
+            "request_sum": 14425000,
+            "server_delta": 14425000.0,
+            "source": "sglang:prompt_tokens_total"
+          },
+          "output": {
+            "request_sum": 219000,
+            "server_delta": 219000.0,
+            "source": "sglang:generation_tokens_total"
+          },
+          "cached": {
+            "request_sum": 13623424,
+            "server_delta": 13623424.0,
+            "source": "sglang:prefill_effective_tokens_total cache modes"
+          }
+        },
+        "derived": {
+          "input_tpm": 1083430.941409881,
+          "output_tpm": 16448.622264732337,
+          "cached_input_tpm": 1023226.2800378487,
+          "uncached_input_tpm": 60204.661372032366,
+          "total_tpm": 1099879.5636746134,
+          "completed_rps": 0.25035954740840693,
+          "observed_cache_rate": 0.9444314731369151,
+          "ttft_s_mean": 0.4198009274643846,
+          "tpot_ms_mean": 3.790305986318574,
+          "saved_request_wall_span_s": 798.84809094714
+        }
+      },
+      "evidence_sha256": {
+        "manifest.json": "7af3baf986defe863b24e731832fa187196a1e705138ca7b02144127b15cde37",
+        "summary.json": "6c80462eae634e12fa06ca5c48b2871ed890c2dad433586ab7678c5932e40593",
+        "flush.json": "aa982ee922fbeb9462965c4b651a1fb0ccfa55dfa37b0914e302129fd90cfa64",
+        "cache-preseed.json": "1ccee7eaf515ca087efd1c125182b77b45f95fc911f4222ce532400edce0d0db",
+        "metrics-before.txt": "616db91b0104b4cb1897a0b0622fe1bcb81181da03fb9af1a0c65a033335cd07",
+        "metrics-after.txt": "4ed17a30c6dc360dc9c1ec7ecec414f992ef6e6af5b46928113066ce7a0bf132"
+      }
+    },
+    {
+      "point": "glm53-resume-07-sla-p02-r0.500000",
+      "evidence_root": "/volume/dev/alan/deployments/five-model-cost-20260913",
+      "model": "glm53",
+      "selected": false,
+      "original_sla_status": "PASS",
+      "original_failure_reasons": [],
+      "audit_status": "PASS",
+      "errors": [],
+      "missing": [],
+      "saved_requests": 200,
+      "saved_success": 200,
+      "cache_counts_known": 200,
+      "excess_cache_requests": [],
+      "flush_http": 200,
+      "preseed_cached_tokens": [
+        0
+      ],
+      "preseed_input_tokens": [
+        68224
+      ],
+      "flush_log": {
+        "path": "/volume/dev/alan/deployments/five-model-cost-20260913/runs/glm53-resume-07-sla/engine.log",
+        "events": [
+          {
+            "utc": "2026-09-13T16:02:21+00:00",
+            "line": 2577,
+            "text": "[2026-09-13 16:02:21 TP0] Cache flushed successfully!"
+          }
+        ]
+      },
+      "client_sha256": "98806c6426b44c51c384cb85cfc75410b5d6dea835465c4a0e08d6457568abad",
+      "client_matching_files": [
+        "/volume/dev/alan/deployments/five-model-cost-20260913/benchmark.py"
+      ],
+      "dataset_sha256": "6eeaf248f1065a9b26232fb8dbc8b614edc20c01d411ab04e72c32835b2aa605",
+      "dataset_check": {
+        "errors": [],
+        "sha256": "6eeaf248f1065a9b26232fb8dbc8b614edc20c01d411ab04e72c32835b2aa605",
+        "input_shape": [
+          200,
+          72125
+        ],
+        "shared_prefix_tokens": 68224,
+        "independent_tail_starts": 200
+      },
+      "target_cache_rate": 0.94532,
+      "accounting": {
+        "errors": [],
+        "missing": [],
+        "totals": {
+          "input": 14425000,
+          "output": 219000,
+          "cached": 13623424
+        },
+        "counters": {
+          "input": {
+            "request_sum": 14425000,
+            "server_delta": 14425000.0,
+            "source": "sglang:prompt_tokens_total"
+          },
+          "output": {
+            "request_sum": 219000,
+            "server_delta": 219000.0,
+            "source": "sglang:generation_tokens_total"
+          },
+          "cached": {
+            "request_sum": 13623424,
+            "server_delta": 13623424.0,
+            "source": "sglang:cached_tokens_total"
+          }
+        },
+        "derived": {
+          "input_tpm": 2145451.1851881957,
+          "output_tpm": 32572.187837519225,
+          "cached_input_tpm": 2026231.6233706279,
+          "uncached_input_tpm": 119219.56181756762,
+          "total_tpm": 2178023.373025715,
+          "completed_rps": 0.4957715043762439,
+          "observed_cache_rate": 0.9444314731369151,
+          "ttft_s_mean": 0.4384817955340259,
+          "tpot_ms_mean": 6.881476763418367,
+          "saved_request_wall_span_s": 403.4082229202613
+        }
+      },
+      "evidence_sha256": {
+        "manifest.json": "57e3cf9733292bbaab8113ba1c98a79f614a02c8288e5c32b4e7096ef84dd613",
+        "summary.json": "613db3c8e44faa276b32164bc517c985bbc1a06d183af9ace261f4d9b38f7050",
+        "flush.json": "aa982ee922fbeb9462965c4b651a1fb0ccfa55dfa37b0914e302129fd90cfa64",
+        "cache-preseed.json": "9b26a80417390303a7c630ae43b524b2710d1095b8cef0349ddf1a546bb376fa",
+        "metrics-before.txt": "8d8a305de277cba5582453fa619b45e732ee378296d0ff726b8ee34f3739d075",
+        "metrics-after.txt": "a9711bed80457cb0f1a24a2c7f9838ee70e0bf73dd087645ff9527cbca005e29"
+      }
+    },
+    {
+      "point": "glm53-resume-07-sla-p03-r1.000000",
+      "evidence_root": "/volume/dev/alan/deployments/five-model-cost-20260913",
+      "model": "glm53",
+      "selected": false,
+      "original_sla_status": "FAIL",
+      "original_failure_reasons": [
+        "TPOT"
+      ],
+      "audit_status": "PASS",
+      "errors": [],
+      "missing": [],
+      "saved_requests": 200,
+      "saved_success": 200,
+      "cache_counts_known": 200,
+      "excess_cache_requests": [],
+      "flush_http": 200,
+      "preseed_cached_tokens": [
+        0
+      ],
+      "preseed_input_tokens": [
+        68224
+      ],
+      "flush_log": {
+        "path": "/volume/dev/alan/deployments/five-model-cost-20260913/runs/glm53-resume-07-sla/engine.log",
+        "events": [
+          {
+            "utc": "2026-09-13T16:09:23+00:00",
+            "line": 3427,
+            "text": "[2026-09-13 16:09:23 TP0] Cache flushed successfully!"
+          }
+        ]
+      },
+      "client_sha256": "98806c6426b44c51c384cb85cfc75410b5d6dea835465c4a0e08d6457568abad",
+      "client_matching_files": [
+        "/volume/dev/alan/deployments/five-model-cost-20260913/benchmark.py"
+      ],
+      "dataset_sha256": "6eeaf248f1065a9b26232fb8dbc8b614edc20c01d411ab04e72c32835b2aa605",
+      "dataset_check": {
+        "errors": [],
+        "sha256": "6eeaf248f1065a9b26232fb8dbc8b614edc20c01d411ab04e72c32835b2aa605",
+        "input_shape": [
+          200,
+          72125
+        ],
+        "shared_prefix_tokens": 68224,
+        "independent_tail_starts": 200
+      },
+      "target_cache_rate": 0.94532,
+      "accounting": {
+        "errors": [],
+        "missing": [],
+        "totals": {
+          "input": 14425000,
+          "output": 219000,
+          "cached": 13623424
+        },
+        "counters": {
+          "input": {
+            "request_sum": 14425000,
+            "server_delta": 14425000.0,
+            "source": "sglang:prompt_tokens_total"
+          },
+          "output": {
+            "request_sum": 219000,
+            "server_delta": 219000.0,
+            "source": "sglang:generation_tokens_total"
+          },
+          "cached": {
+            "request_sum": 13623424,
+            "server_delta": 13623424.0,
+            "source": "sglang:cached_tokens_total"
+          }
+        },
+        "derived": {
+          "input_tpm": 4070969.9028599877,
+          "output_tpm": 61805.36628952078,
+          "cached_input_tpm": 3844752.102454102,
+          "uncached_input_tpm": 226217.80040588544,
+          "total_tpm": 4132775.2691495083,
+          "completed_rps": 0.9407209480901184,
+          "observed_cache_rate": 0.9444314731369151,
+          "ttft_s_mean": 0.499174570706673,
+          "tpot_ms_mean": 23.21386921680294,
+          "saved_request_wall_span_s": 212.59956325916573
+        }
+      },
+      "evidence_sha256": {
+        "manifest.json": "6d16cd1991ce94ebd07f889eb57a194ee85c43c71d34efd59932024d663a5c1c",
+        "summary.json": "d4a3ecfe0bca28c38b385987c38e772946e91fddcdd596ab61f31ae1d374fdee",
+        "flush.json": "aa982ee922fbeb9462965c4b651a1fb0ccfa55dfa37b0914e302129fd90cfa64",
+        "cache-preseed.json": "01dca24fd6f67048befce81c480008253115ca16848a15aeddc8b0945f98194b",
+        "metrics-before.txt": "d4f921bd6e7e90a47b1f529290f6e6904d35d6928b7c28ceed339f7dd98a39ea",
+        "metrics-after.txt": "f3849cbf5fed908ef2f3dcb83b3fba7ad88d01b93d8cb348d72a2af3f06447f7"
+      }
+    },
+    {
+      "point": "glm53-resume-07-sla-p04-r0.750000",
+      "evidence_root": "/volume/dev/alan/deployments/five-model-cost-20260913",
+      "model": "glm53",
+      "selected": false,
+      "original_sla_status": "PASS",
+      "original_failure_reasons": [],
+      "audit_status": "PASS",
+      "errors": [],
+      "missing": [],
+      "saved_requests": 200,
+      "saved_success": 200,
+      "cache_counts_known": 200,
+      "excess_cache_requests": [],
+      "flush_http": 200,
+      "preseed_cached_tokens": [
+        0
+      ],
+      "preseed_input_tokens": [
+        68224
+      ],
+      "flush_log": {
+        "path": "/volume/dev/alan/deployments/five-model-cost-20260913/runs/glm53-resume-07-sla/engine.log",
+        "events": [
+          {
+            "utc": "2026-09-13T16:13:15+00:00",
+            "line": 3942,
+            "text": "[2026-09-13 16:13:15 TP0] Cache flushed successfully!"
+          }
+        ]
+      },
+      "client_sha256": "98806c6426b44c51c384cb85cfc75410b5d6dea835465c4a0e08d6457568abad",
+      "client_matching_files": [
+        "/volume/dev/alan/deployments/five-model-cost-20260913/benchmark.py"
+      ],
+      "dataset_sha256": "6eeaf248f1065a9b26232fb8dbc8b614edc20c01d411ab04e72c32835b2aa605",
+      "dataset_check": {
+        "errors": [],
+        "sha256": "6eeaf248f1065a9b26232fb8dbc8b614edc20c01d411ab04e72c32835b2aa605",
+        "input_shape": [
+          200,
+          72125
+        ],
+        "shared_prefix_tokens": 68224,
+        "independent_tail_starts": 200
+      },
+      "target_cache_rate": 0.94532,
+      "accounting": {
+        "errors": [],
+        "missing": [],
+        "totals": {
+          "input": 14425000,
+          "output": 219000,
+          "cached": 13623424
+        },
+        "counters": {
+          "input": {
+            "request_sum": 14425000,
+            "server_delta": 14425000.0,
+            "source": "sglang:prompt_tokens_total"
+          },
+          "output": {
+            "request_sum": 219000,
+            "server_delta": 219000.0,
+            "source": "sglang:generation_tokens_total"
+          },
+          "cached": {
+            "request_sum": 13623424,
+            "server_delta": 13623424.0,
+            "source": "sglang:cached_tokens_total"
+          }
+        },
+        "derived": {
+          "input_tpm": 3182025.474195699,
+          "output_tpm": 48309.43354238185,
+          "cached_input_tpm": 3005205.006153835,
+          "uncached_input_tpm": 176820.46804186425,
+          "total_tpm": 3230334.907738081,
+          "completed_rps": 0.7353034024715654,
+          "observed_cache_rate": 0.9444314731369151,
+          "ttft_s_mean": 0.4534576157433912,
+          "tpot_ms_mean": 12.411596121645738,
+          "saved_request_wall_span_s": 271.9932684600353
+        }
+      },
+      "evidence_sha256": {
+        "manifest.json": "3540559f5a6967cb17bcb52ac0d073cb4635becc93b5008205e71a25b9bf403b",
+        "summary.json": "894ef2190a7efaf8f68bf81d149d04419ace156e466935f12ae95f022537c010",
+        "flush.json": "aa982ee922fbeb9462965c4b651a1fb0ccfa55dfa37b0914e302129fd90cfa64",
+        "cache-preseed.json": "8f4127ce509e8091474ed0792fffd51987f2debf88bbe3bf6e8ab95a8b697fad",
+        "metrics-before.txt": "c705f8d13dac010000b9353f41a5eca70eb14c6799ca0897aa4a9a8f002d6503",
+        "metrics-after.txt": "cecdfdfa0593547ca1cc28b58e7e18081de043a8a8a7cd673cca95693b6a6c9c"
+      }
+    },
+    {
+      "point": "glm53-resume-07-sla-p05-r0.875000",
+      "evidence_root": "/volume/dev/alan/deployments/five-model-cost-20260913",
+      "model": "glm53",
+      "selected": true,
+      "original_sla_status": "PASS",
+      "original_failure_reasons": [],
+      "audit_status": "PASS",
+      "errors": [],
+      "missing": [],
+      "saved_requests": 200,
+      "saved_success": 200,
+      "cache_counts_known": 200,
+      "excess_cache_requests": [],
+      "flush_http": 200,
+      "preseed_cached_tokens": [
+        0
+      ],
+      "preseed_input_tokens": [
+        68224
+      ],
+      "flush_log": {
+        "path": "/volume/dev/alan/deployments/five-model-cost-20260913/runs/glm53-resume-07-sla/engine.log",
+        "events": [
+          {
+            "utc": "2026-09-13T16:18:05+00:00",
+            "line": 4540,
+            "text": "[2026-09-13 16:18:05 TP0] Cache flushed successfully!"
+          }
+        ]
+      },
+      "client_sha256": "98806c6426b44c51c384cb85cfc75410b5d6dea835465c4a0e08d6457568abad",
+      "client_matching_files": [
+        "/volume/dev/alan/deployments/five-model-cost-20260913/benchmark.py"
+      ],
+      "dataset_sha256": "6eeaf248f1065a9b26232fb8dbc8b614edc20c01d411ab04e72c32835b2aa605",
+      "dataset_check": {
+        "errors": [],
+        "sha256": "6eeaf248f1065a9b26232fb8dbc8b614edc20c01d411ab04e72c32835b2aa605",
+        "input_shape": [
+          200,
+          72125
+        ],
+        "shared_prefix_tokens": 68224,
+        "independent_tail_starts": 200
+      },
+      "target_cache_rate": 0.94532,
+      "accounting": {
+        "errors": [],
+        "missing": [],
+        "totals": {
+          "input": 14425000,
+          "output": 219000,
+          "cached": 13623424
+        },
+        "counters": {
+          "input": {
+            "request_sum": 14425000,
+            "server_delta": 14425000.0,
+            "source": "sglang:prompt_tokens_total"
+          },
+          "output": {
+            "request_sum": 219000,
+            "server_delta": 219000.0,
+            "source": "sglang:generation_tokens_total"
+          },
+          "cached": {
+            "request_sum": 13623424,
+            "server_delta": 13623424.0,
+            "source": "sglang:cached_tokens_total"
+          }
+        },
+        "derived": {
+          "input_tpm": 3637618.2131948047,
+          "output_tpm": 55226.23145162303,
+          "cached_input_tpm": 3435481.1277972423,
+          "uncached_input_tpm": 202137.08539756248,
+          "total_tpm": 3692844.444646428,
+          "completed_rps": 0.8405819094615378,
+          "observed_cache_rate": 0.9444314731369151,
+          "ttft_s_mean": 0.4632473019184545,
+          "tpot_ms_mean": 15.585893742351535,
+          "saved_request_wall_span_s": 237.92715343926102
+        }
+      },
+      "evidence_sha256": {
+        "manifest.json": "56af27eb0728679bbb960033c54316ca41c0588ed3b363284606645743e21c59",
+        "summary.json": "84567c85cf6dd33db474593a44153c9cff39fe89e847f5526d7fdff490d83e16",
+        "flush.json": "aa982ee922fbeb9462965c4b651a1fb0ccfa55dfa37b0914e302129fd90cfa64",
+        "cache-preseed.json": "58cbbc1a10ba1de45039b8a78ff51820382dcaacdba4d8836c54f2f2da1370eb",
+        "metrics-before.txt": "feae2b998d987962c923ede704f38899c5f9141c3721d5d0630f137f6102424a",
+        "metrics-after.txt": "e7919c89dc56021713465bd05bb9fe0ccee8b7a7658f3e81fef13c51c0390a70"
+      }
+    },
+    {
+      "point": "glm53-resume-07-sla-p06-r0.937500",
+      "evidence_root": "/volume/dev/alan/deployments/five-model-cost-20260913",
+      "model": "glm53",
+      "selected": false,
+      "original_sla_status": "FAIL",
+      "original_failure_reasons": [
+        "TPOT"
+      ],
+      "audit_status": "PASS",
+      "errors": [],
+      "missing": [],
+      "saved_requests": 200,
+      "saved_success": 200,
+      "cache_counts_known": 200,
+      "excess_cache_requests": [],
+      "flush_http": 200,
+      "preseed_cached_tokens": [
+        0
+      ],
+      "preseed_input_tokens": [
+        68224
+      ],
+      "flush_log": {
+        "path": "/volume/dev/alan/deployments/five-model-cost-20260913/runs/glm53-resume-07-sla/engine.log",
+        "events": [
+          {
+            "utc": "2026-09-13T16:22:22+00:00",
+            "line": 5093,
+            "text": "[2026-09-13 16:22:22 TP0] Cache flushed successfully!"
+          }
+        ]
+      },
+      "client_sha256": "98806c6426b44c51c384cb85cfc75410b5d6dea835465c4a0e08d6457568abad",
+      "client_matching_files": [
+        "/volume/dev/alan/deployments/five-model-cost-20260913/benchmark.py"
+      ],
+      "dataset_sha256": "6eeaf248f1065a9b26232fb8dbc8b614edc20c01d411ab04e72c32835b2aa605",
+      "dataset_check": {
+        "errors": [],
+        "sha256": "6eeaf248f1065a9b26232fb8dbc8b614edc20c01d411ab04e72c32835b2aa605",
+        "input_shape": [
+          200,
+          72125
+        ],
+        "shared_prefix_tokens": 68224,
+        "independent_tail_starts": 200
+      },
+      "target_cache_rate": 0.94532,
+      "accounting": {
+        "errors": [],
+        "missing": [],
+        "totals": {
+          "input": 14425000,
+          "output": 219000,
+          "cached": 13623424
+        },
+        "counters": {
+          "input": {
+            "request_sum": 14425000,
+            "server_delta": 14425000.0,
+            "source": "sglang:prompt_tokens_total"
+          },
+          "output": {
+            "request_sum": 219000,
+            "server_delta": 219000.0,
+            "source": "sglang:generation_tokens_total"
+          },
+          "cached": {
+            "request_sum": 13623424,
+            "server_delta": 13623424.0,
+            "source": "sglang:cached_tokens_total"
+          }
+        },
+        "derived": {
+          "input_tpm": 3901626.271239333,
+          "output_tpm": 59234.39538311361,
+          "cached_input_tpm": 3684818.646976252,
+          "uncached_input_tpm": 216807.6242630807,
+          "total_tpm": 3960860.6666224464,
+          "completed_rps": 0.9015889708236471,
+          "observed_cache_rate": 0.9444314731369151,
+          "ttft_s_mean": 0.4655056636873633,
+          "tpot_ms_mean": 16.701587339332395,
+          "saved_request_wall_span_s": 221.82707527885213
+        }
+      },
+      "evidence_sha256": {
+        "manifest.json": "a1c211fbb5a045748ac243c60a40dc143ab087090817af71a5c61ae1c0ef114e",
+        "summary.json": "128e59c4462197bca09dc8b98e8495cfa735585700ccc7c670b106ae60964f20",
+        "flush.json": "aa982ee922fbeb9462965c4b651a1fb0ccfa55dfa37b0914e302129fd90cfa64",
+        "cache-preseed.json": "5dc39817e5510bda9b81eadea6ce06b5d06333d7ed6f11ce0af5b8b7686e2379",
+        "metrics-before.txt": "54c2d626acfb926b78908176ab9b0d02ed19b25c012215b02bfe43a009c9f596",
+        "metrics-after.txt": "00c9666d870a297444bdeee895073c8c7423c3fb60a72e6d026075c7823c9add"
+      }
+    },
+    {
+      "point": "glm53flash-resume-07-sla-p01-r0.250000",
+      "evidence_root": "/volume/dev/alan/deployments/five-model-cost-20260913",
+      "model": "glm53flash",
+      "selected": false,
+      "original_sla_status": null,
+      "original_failure_reasons": null,
+      "audit_status": "INCOMPLETE",
+      "errors": [],
+      "missing": [
+        "no_final_summary"
+      ],
+      "saved_requests": 5,
+      "saved_success": 5,
+      "cache_counts_known": 5,
+      "excess_cache_requests": [],
+      "flush_http": 200,
+      "preseed_cached_tokens": [
+        0
+      ],
+      "preseed_input_tokens": [
+        68352
+      ],
+      "flush_log": {
+        "path": "/volume/dev/alan/deployments/five-model-cost-20260913/runs/glm53flash-resume-07-sla/engine.log",
+        "events": [
+          {
+            "utc": "2026-09-13T16:56:15+00:00",
+            "line": 679,
+            "text": "[2026-09-13 16:56:15 TP0 EP0] Cache flushed successfully!"
+          }
+        ]
+      },
+      "client_sha256": "98806c6426b44c51c384cb85cfc75410b5d6dea835465c4a0e08d6457568abad",
+      "client_matching_files": [
+        "/volume/dev/alan/deployments/five-model-cost-20260913/benchmark.py"
+      ],
+      "dataset_sha256": "e9b0b94a3fd4cf1723aaa9d6dd9db99381ca546ac830bbddef1b06945a7fc71e",
+      "dataset_check": {
+        "errors": [],
+        "sha256": "e9b0b94a3fd4cf1723aaa9d6dd9db99381ca546ac830bbddef1b06945a7fc71e",
+        "input_shape": [
+          200,
+          73835
+        ],
+        "shared_prefix_tokens": 68352,
+        "independent_tail_starts": 200
+      },
+      "target_cache_rate": 0.9256,
+      "accounting": null,
+      "evidence_sha256": {
+        "manifest.json": "6dcfe591b4119e59ba52e597acd55197cc71bf64ce53d838eb3590817e8306a2",
+        "flush.json": "aa982ee922fbeb9462965c4b651a1fb0ccfa55dfa37b0914e302129fd90cfa64",
+        "cache-preseed.json": "95c6a0eeb921e3042b3c110cab74717cf6a1c239ef69a3181a5371f332cbaa8d",
+        "metrics-before.txt": "7a2fba2d1730333e2d469890a2735d10b7067fc4d96c26d333113a03af9e9da8"
+      }
+    },
+    {
+      "point": "glm53flash-resume-08-sla-p01-r0.250000",
+      "evidence_root": "/volume/dev/alan/deployments/five-model-cost-20260913",
+      "model": "glm53flash",
+      "selected": false,
+      "original_sla_status": "PASS",
+      "original_failure_reasons": [],
+      "audit_status": "PASS",
+      "errors": [],
+      "missing": [],
+      "saved_requests": 200,
+      "saved_success": 200,
+      "cache_counts_known": 200,
+      "excess_cache_requests": [],
+      "flush_http": 200,
+      "preseed_cached_tokens": [
+        0
+      ],
+      "preseed_input_tokens": [
+        68352
+      ],
+      "flush_log": {
+        "path": "/volume/dev/alan/deployments/five-model-cost-20260913/runs/glm53flash-resume-08-sla/engine.log",
+        "events": [
+          {
+            "utc": "2026-09-13T18:26:29+00:00",
+            "line": 704,
+            "text": "[2026-09-13 18:26:29 TP0 EP0] Cache flushed successfully!"
+          }
+        ]
+      },
+      "client_sha256": "98806c6426b44c51c384cb85cfc75410b5d6dea835465c4a0e08d6457568abad",
+      "client_matching_files": [
+        "/volume/dev/alan/deployments/five-model-cost-20260913/benchmark.py"
+      ],
+      "dataset_sha256": "e9b0b94a3fd4cf1723aaa9d6dd9db99381ca546ac830bbddef1b06945a7fc71e",
+      "dataset_check": {
+        "errors": [],
+        "sha256": "e9b0b94a3fd4cf1723aaa9d6dd9db99381ca546ac830bbddef1b06945a7fc71e",
+        "input_shape": [
+          200,
+          73835
+        ],
+        "shared_prefix_tokens": 68352,
+        "independent_tail_starts": 200
+      },
+      "target_cache_rate": 0.9256,
+      "accounting": {
+        "errors": [],
+        "missing": [],
+        "totals": {
+          "input": 14767000,
+          "output": 289400,
+          "cached": 13665600
+        },
+        "counters": {
+          "input": {
+            "request_sum": 14767000,
+            "server_delta": 14767000.0,
+            "source": "sglang:prompt_tokens_total"
+          },
+          "output": {
+            "request_sum": 289400,
+            "server_delta": 289400.0,
+            "source": "sglang:generation_tokens_total"
+          },
+          "cached": {
+            "request_sum": 13665600,
+            "server_delta": 13665600.0,
+            "source": "sglang:prefill_effective_tokens_total cache modes"
+          }
+        },
+        "derived": {
+          "input_tpm": 1105981.6479627024,
+          "output_tpm": 21674.753769919826,
+          "cached_input_tpm": 1023491.7592198215,
+          "uncached_input_tpm": 82489.88874288076,
+          "total_tpm": 1127656.4017326222,
+          "completed_rps": 0.24965162139967548,
+          "observed_cache_rate": 0.9254147761901538,
+          "ttft_s_mean": 0.2895044769207016,
+          "tpot_ms_mean": 3.8546252577197846,
+          "saved_request_wall_span_s": 801.1133536016569
+        }
+      },
+      "evidence_sha256": {
+        "manifest.json": "79cedcd50101dc5e33b000cd4570326367ddfa1d71bb43a97d9262e6231e1d6a",
+        "summary.json": "06b6646745cd64cd4e73fdef6cfc5963c451018e682799668b3b9760b7852598",
+        "flush.json": "aa982ee922fbeb9462965c4b651a1fb0ccfa55dfa37b0914e302129fd90cfa64",
+        "cache-preseed.json": "e29e1b27377aa352182de474f98d1fe931ede141e71a79cbb44076e988e66891",
+        "metrics-before.txt": "1b3be313a06ed668f1b1a391ead4051a90348a426d4069738767a24904b4003e",
+        "metrics-after.txt": "dd7266b9c7bbbda45213c67625bcf474562309270ba4d3450942ef4d90697257"
+      }
+    },
+    {
+      "point": "glm53flash-resume-08-sla-p02-r0.500000",
+      "evidence_root": "/volume/dev/alan/deployments/five-model-cost-20260913",
+      "model": "glm53flash",
+      "selected": false,
+      "original_sla_status": "PASS",
+      "original_failure_reasons": [],
+      "audit_status": "PASS",
+      "errors": [],
+      "missing": [],
+      "saved_requests": 200,
+      "saved_success": 200,
+      "cache_counts_known": 200,
+      "excess_cache_requests": [],
+      "flush_http": 200,
+      "preseed_cached_tokens": [
+        0
+      ],
+      "preseed_input_tokens": [
+        68352
+      ],
+      "flush_log": {
+        "path": "/volume/dev/alan/deployments/five-model-cost-20260913/runs/glm53flash-resume-08-sla/engine.log",
+        "events": [
+          {
+            "utc": "2026-09-13T18:40:07+00:00",
+            "line": 2522,
+            "text": "[2026-09-13 18:40:07 TP0 EP0] Cache flushed successfully!"
+          }
+        ]
+      },
+      "client_sha256": "98806c6426b44c51c384cb85cfc75410b5d6dea835465c4a0e08d6457568abad",
+      "client_matching_files": [
+        "/volume/dev/alan/deployments/five-model-cost-20260913/benchmark.py"
+      ],
+      "dataset_sha256": "e9b0b94a3fd4cf1723aaa9d6dd9db99381ca546ac830bbddef1b06945a7fc71e",
+      "dataset_check": {
+        "errors": [],
+        "sha256": "e9b0b94a3fd4cf1723aaa9d6dd9db99381ca546ac830bbddef1b06945a7fc71e",
+        "input_shape": [
+          200,
+          73835
+        ],
+        "shared_prefix_tokens": 68352,
+        "independent_tail_starts": 200
+      },
+      "target_cache_rate": 0.9256,
+      "accounting": {
+        "errors": [],
+        "missing": [],
+        "totals": {
+          "input": 14767000,
+          "output": 289400,
+          "cached": 13665600
+        },
+        "counters": {
+          "input": {
+            "request_sum": 14767000,
+            "server_delta": 14767000.0,
+            "source": "sglang:prompt_tokens_total"
+          },
+          "output": {
+            "request_sum": 289400,
+            "server_delta": 289400.0,
+            "source": "sglang:generation_tokens_total"
+          },
+          "cached": {
+            "request_sum": 13665600,
+            "server_delta": 13665600.0,
+            "source": "sglang:cached_tokens_total"
+          }
+        },
+        "derived": {
+          "input_tpm": 2186464.444381917,
+          "output_tpm": 42849.78737753957,
+          "cached_input_tpm": 2023386.5044454206,
+          "uncached_input_tpm": 163077.93993649646,
+          "total_tpm": 2229314.2317594565,
+          "completed_rps": 0.49354742429785264,
+          "observed_cache_rate": 0.9254147761901538,
+          "ttft_s_mean": 0.2841820472152904,
+          "tpot_ms_mean": 4.596121521123375,
+          "saved_request_wall_span_s": 405.22586989915
+        }
+      },
+      "evidence_sha256": {
+        "manifest.json": "4088426216f9e0130e4268e30ef7b1c1b8e6144b926e96e4b0073deec7dd2a6f",
+        "summary.json": "99d1b6b0ee2c358102dc85ecd835fd2376f947ee07ad83e794a2f4274e8934d1",
+        "flush.json": "aa982ee922fbeb9462965c4b651a1fb0ccfa55dfa37b0914e302129fd90cfa64",
+        "cache-preseed.json": "c0e24c1112e9bc2d760ff8790a6e6464e8f97efdee86573b80e1e93fb260ff71",
+        "metrics-before.txt": "73e525dde662cfa8669d62e0297dc37fbe86a7e0b22dabfa1afbcf3ca136b68a",
+        "metrics-after.txt": "c6dc02347d303a1b67ecf3ba8f1bcf30c07bb417103d10e85edd0c51c39360a7"
+      }
+    },
+    {
+      "point": "glm53flash-resume-08-sla-p03-r1.000000",
+      "evidence_root": "/volume/dev/alan/deployments/five-model-cost-20260913",
+      "model": "glm53flash",
+      "selected": false,
+      "original_sla_status": "PASS",
+      "original_failure_reasons": [],
+      "audit_status": "PASS",
+      "errors": [],
+      "missing": [],
+      "saved_requests": 200,
+      "saved_success": 200,
+      "cache_counts_known": 200,
+      "excess_cache_requests": [],
+      "flush_http": 200,
+      "preseed_cached_tokens": [
+        0
+      ],
+      "preseed_input_tokens": [
+        68352
+      ],
+      "flush_log": {
+        "path": "/volume/dev/alan/deployments/five-model-cost-20260913/runs/glm53flash-resume-08-sla/engine.log",
+        "events": [
+          {
+            "utc": "2026-09-13T18:47:08+00:00",
+            "line": 3533,
+            "text": "[2026-09-13 18:47:08 TP0 EP0] Cache flushed successfully!"
+          }
+        ]
+      },
+      "client_sha256": "98806c6426b44c51c384cb85cfc75410b5d6dea835465c4a0e08d6457568abad",
+      "client_matching_files": [
+        "/volume/dev/alan/deployments/five-model-cost-20260913/benchmark.py"
+      ],
+      "dataset_sha256": "e9b0b94a3fd4cf1723aaa9d6dd9db99381ca546ac830bbddef1b06945a7fc71e",
+      "dataset_check": {
+        "errors": [],
+        "sha256": "e9b0b94a3fd4cf1723aaa9d6dd9db99381ca546ac830bbddef1b06945a7fc71e",
+        "input_shape": [
+          200,
+          73835
+        ],
+        "shared_prefix_tokens": 68352,
+        "independent_tail_starts": 200
+      },
+      "target_cache_rate": 0.9256,
+      "accounting": {
+        "errors": [],
+        "missing": [],
+        "totals": {
+          "input": 14767000,
+          "output": 289400,
+          "cached": 13665600
+        },
+        "counters": {
+          "input": {
+            "request_sum": 14767000,
+            "server_delta": 14767000.0,
+            "source": "sglang:prompt_tokens_total"
+          },
+          "output": {
+            "request_sum": 289400,
+            "server_delta": 289400.0,
+            "source": "sglang:generation_tokens_total"
+          },
+          "cached": {
+            "request_sum": 13665600,
+            "server_delta": 13665600.0,
+            "source": "sglang:cached_tokens_total"
+          }
+        },
+        "derived": {
+          "input_tpm": 4222420.55444708,
+          "output_tpm": 82749.9497837736,
+          "cached_input_tpm": 3907490.372374349,
+          "uncached_input_tpm": 314930.1820727306,
+          "total_tpm": 4305170.504230853,
+          "completed_rps": 0.9531208222042571,
+          "observed_cache_rate": 0.9254147761901538,
+          "ttft_s_mean": 0.2945095633971505,
+          "tpot_ms_mean": 7.268894780531879,
+          "saved_request_wall_span_s": 209.83334815269336
+        }
+      },
+      "evidence_sha256": {
+        "manifest.json": "cf73b51665b96fa64e6ac3c7647d805bbc1a2457ec30c2b7560b7881ce12e15d",
+        "summary.json": "e6c1025c1a70a83414dc7eaa57c90fcd80db6b171e55d830944021c14bb8ec84",
+        "flush.json": "aa982ee922fbeb9462965c4b651a1fb0ccfa55dfa37b0914e302129fd90cfa64",
+        "cache-preseed.json": "ddc9af06f9f92ad0152aaf5f9f14f80f8c2fcc7fb6737cc12554408c374cd068",
+        "metrics-before.txt": "00f615804a6222260d412c1f7cb5da62388de7c4ffe37d40e6b1d03b9cd8b9c5",
+        "metrics-after.txt": "ca353fda8a3f2e83e844a65664352d46f8a8727e150c0183685c32f0345560bf"
+      }
+    },
+    {
+      "point": "glm53flash-resume-08-sla-p04-r2.000000",
+      "evidence_root": "/volume/dev/alan/deployments/five-model-cost-20260913",
+      "model": "glm53flash",
+      "selected": false,
+      "original_sla_status": "FAIL",
+      "original_failure_reasons": [
+        "TTFT"
+      ],
+      "audit_status": "PASS",
+      "errors": [],
+      "missing": [],
+      "saved_requests": 200,
+      "saved_success": 200,
+      "cache_counts_known": 200,
+      "excess_cache_requests": [],
+      "flush_http": 200,
+      "preseed_cached_tokens": [
+        0
+      ],
+      "preseed_input_tokens": [
+        68352
+      ],
+      "flush_log": {
+        "path": "/volume/dev/alan/deployments/five-model-cost-20260913/runs/glm53flash-resume-08-sla/engine.log",
+        "events": [
+          {
+            "utc": "2026-09-13T18:50:54+00:00",
+            "line": 4178,
+            "text": "[2026-09-13 18:50:54 TP0 EP0] Cache flushed successfully!"
+          }
+        ]
+      },
+      "client_sha256": "98806c6426b44c51c384cb85cfc75410b5d6dea835465c4a0e08d6457568abad",
+      "client_matching_files": [
+        "/volume/dev/alan/deployments/five-model-cost-20260913/benchmark.py"
+      ],
+      "dataset_sha256": "e9b0b94a3fd4cf1723aaa9d6dd9db99381ca546ac830bbddef1b06945a7fc71e",
+      "dataset_check": {
+        "errors": [],
+        "sha256": "e9b0b94a3fd4cf1723aaa9d6dd9db99381ca546ac830bbddef1b06945a7fc71e",
+        "input_shape": [
+          200,
+          73835
+        ],
+        "shared_prefix_tokens": 68352,
+        "independent_tail_starts": 200
+      },
+      "target_cache_rate": 0.9256,
+      "accounting": {
+        "errors": [],
+        "missing": [],
+        "totals": {
+          "input": 14767000,
+          "output": 289400,
+          "cached": 13665600
+        },
+        "counters": {
+          "input": {
+            "request_sum": 14767000,
+            "server_delta": 14767000.0,
+            "source": "sglang:prompt_tokens_total"
+          },
+          "output": {
+            "request_sum": 289400,
+            "server_delta": 289400.0,
+            "source": "sglang:generation_tokens_total"
+          },
+          "cached": {
+            "request_sum": 13665600,
+            "server_delta": 13665600.0,
+            "source": "sglang:cached_tokens_total"
+          }
+        },
+        "derived": {
+          "input_tpm": 6525389.150261795,
+          "output_tpm": 127882.95659820976,
+          "cached_input_tpm": 6038691.540043176,
+          "uncached_input_tpm": 486697.6102186186,
+          "total_tpm": 6653272.106860004,
+          "completed_rps": 1.4729665583760625,
+          "observed_cache_rate": 0.9254147761901538,
+          "ttft_s_mean": 11.385366454601753,
+          "tpot_ms_mean": 12.92930016682656,
+          "saved_request_wall_span_s": 135.77672428218648
+        }
+      },
+      "evidence_sha256": {
+        "manifest.json": "a2e8297b0d3a24f02999caf42575da8887956d36a45060d3b719105c149d5b94",
+        "summary.json": "b8ea1382aea05e8957adecb30b154059025cef1ad17e057eb4593be01a8ccf3b",
+        "flush.json": "aa982ee922fbeb9462965c4b651a1fb0ccfa55dfa37b0914e302129fd90cfa64",
+        "cache-preseed.json": "792661b129df5213355515cbba7410862894830d86c97344f8479093100fa071",
+        "metrics-before.txt": "18ea68ab774e2da8fbe7eba4ef530f1db16ef58cfc1d85e7eae123d64c37c138",
+        "metrics-after.txt": "b7369610a5eab63a7a6329011b1572f7c32d2cf38a268a41089fa2376ac453a5"
+      }
+    },
+    {
+      "point": "glm53flash-resume-08-sla-p05-r1.500000",
+      "evidence_root": "/volume/dev/alan/deployments/five-model-cost-20260913",
+      "model": "glm53flash",
+      "selected": false,
+      "original_sla_status": "PASS",
+      "original_failure_reasons": [],
+      "audit_status": "PASS",
+      "errors": [],
+      "missing": [],
+      "saved_requests": 200,
+      "saved_success": 200,
+      "cache_counts_known": 200,
+      "excess_cache_requests": [],
+      "flush_http": 200,
+      "preseed_cached_tokens": [
+        0
+      ],
+      "preseed_input_tokens": [
+        68352
+      ],
+      "flush_log": {
+        "path": "/volume/dev/alan/deployments/five-model-cost-20260913/runs/glm53flash-resume-08-sla/engine.log",
+        "events": [
+          {
+            "utc": "2026-09-13T18:53:26+00:00",
+            "line": 4704,
+            "text": "[2026-09-13 18:53:26 TP0 EP0] Cache flushed successfully!"
+          }
+        ]
+      },
+      "client_sha256": "98806c6426b44c51c384cb85cfc75410b5d6dea835465c4a0e08d6457568abad",
+      "client_matching_files": [
+        "/volume/dev/alan/deployments/five-model-cost-20260913/benchmark.py"
+      ],
+      "dataset_sha256": "e9b0b94a3fd4cf1723aaa9d6dd9db99381ca546ac830bbddef1b06945a7fc71e",
+      "dataset_check": {
+        "errors": [],
+        "sha256": "e9b0b94a3fd4cf1723aaa9d6dd9db99381ca546ac830bbddef1b06945a7fc71e",
+        "input_shape": [
+          200,
+          73835
+        ],
+        "shared_prefix_tokens": 68352,
+        "independent_tail_starts": 200
+      },
+      "target_cache_rate": 0.9256,
+      "accounting": {
+        "errors": [],
+        "missing": [],
+        "totals": {
+          "input": 14767000,
+          "output": 289400,
+          "cached": 13665600
+        },
+        "counters": {
+          "input": {
+            "request_sum": 14767000,
+            "server_delta": 14767000.0,
+            "source": "sglang:prompt_tokens_total"
+          },
+          "output": {
+            "request_sum": 289400,
+            "server_delta": 289400.0,
+            "source": "sglang:generation_tokens_total"
+          },
+          "cached": {
+            "request_sum": 13665600,
+            "server_delta": 13665600.0,
+            "source": "sglang:cached_tokens_total"
+          }
+        },
+        "derived": {
+          "input_tpm": 6163396.658980949,
+          "output_tpm": 120788.71762098507,
+          "cached_input_tpm": 5703698.3397419965,
+          "uncached_input_tpm": 459698.3192389529,
+          "total_tpm": 6284185.376601934,
+          "completed_rps": 1.3912545222412471,
+          "observed_cache_rate": 0.9254147761901538,
+          "ttft_s_mean": 0.3647824161290191,
+          "tpot_ms_mean": 11.928933890572495,
+          "saved_request_wall_span_s": 143.75183687591925
+        }
+      },
+      "evidence_sha256": {
+        "manifest.json": "14ae99a4980c8ec6ad6f4b516221daafc883e74d68a64aef2395d256ebcc0827",
+        "summary.json": "91cba28921fbd4c4767fe63e93d8d5e836eda0d922d105b802355c1c8cad2b41",
+        "flush.json": "aa982ee922fbeb9462965c4b651a1fb0ccfa55dfa37b0914e302129fd90cfa64",
+        "cache-preseed.json": "f959fc781c25cb8ac1994453e1757284af7693f2edaedbe0733e033f1beb77bd",
+        "metrics-before.txt": "2b6c5d0036309f1417f213bb5b4097c70efa4fd3669e6298bfb49763604e8af2",
+        "metrics-after.txt": "398b5e03cd8b5443621f501e98d5fcb00046fce51318a01daf023a5aab11c093"
+      }
+    },
+    {
+      "point": "glm53flash-resume-08-sla-p06-r1.750000",
+      "evidence_root": "/volume/dev/alan/deployments/five-model-cost-20260913",
+      "model": "glm53flash",
+      "selected": false,
+      "original_sla_status": "FAIL",
+      "original_failure_reasons": [
+        "TTFT"
+      ],
+      "audit_status": "PASS",
+      "errors": [],
+      "missing": [],
+      "saved_requests": 200,
+      "saved_success": 200,
+      "cache_counts_known": 200,
+      "excess_cache_requests": [],
+      "flush_http": 200,
+      "preseed_cached_tokens": [
+        0
+      ],
+      "preseed_input_tokens": [
+        68352
+      ],
+      "flush_log": {
+        "path": "/volume/dev/alan/deployments/five-model-cost-20260913/runs/glm53flash-resume-08-sla/engine.log",
+        "events": [
+          {
+            "utc": "2026-09-13T18:56:06+00:00",
+            "line": 5242,
+            "text": "[2026-09-13 18:56:06 TP0 EP0] Cache flushed successfully!"
+          }
+        ]
+      },
+      "client_sha256": "98806c6426b44c51c384cb85cfc75410b5d6dea835465c4a0e08d6457568abad",
+      "client_matching_files": [
+        "/volume/dev/alan/deployments/five-model-cost-20260913/benchmark.py"
+      ],
+      "dataset_sha256": "e9b0b94a3fd4cf1723aaa9d6dd9db99381ca546ac830bbddef1b06945a7fc71e",
+      "dataset_check": {
+        "errors": [],
+        "sha256": "e9b0b94a3fd4cf1723aaa9d6dd9db99381ca546ac830bbddef1b06945a7fc71e",
+        "input_shape": [
+          200,
+          73835
+        ],
+        "shared_prefix_tokens": 68352,
+        "independent_tail_starts": 200
+      },
+      "target_cache_rate": 0.9256,
+      "accounting": {
+        "errors": [],
+        "missing": [],
+        "totals": {
+          "input": 14767000,
+          "output": 289400,
+          "cached": 13665600
+        },
+        "counters": {
+          "input": {
+            "request_sum": 14767000,
+            "server_delta": 14767000.0,
+            "source": "sglang:prompt_tokens_total"
+          },
+          "output": {
+            "request_sum": 289400,
+            "server_delta": 289400.0,
+            "source": "sglang:generation_tokens_total"
+          },
+          "cached": {
+            "request_sum": 13665600,
+            "server_delta": 13665600.0,
+            "source": "sglang:cached_tokens_total"
+          }
+        },
+        "derived": {
+          "input_tpm": 6353126.228645221,
+          "output_tpm": 124506.99062571458,
+          "cached_input_tpm": 5879276.886989513,
+          "uncached_input_tpm": 473849.34165570844,
+          "total_tpm": 6477633.219270936,
+          "completed_rps": 1.4340819007799421,
+          "observed_cache_rate": 0.9254147761901538,
+          "ttft_s_mean": 5.769668779820204,
+          "tpot_ms_mean": 12.895566175911089,
+          "saved_request_wall_span_s": 139.45850620884448
+        }
+      },
+      "evidence_sha256": {
+        "manifest.json": "753e934f79f6e31c897593b5384f2170ec7eeb65ce6d8cf04686145b2a36b62c",
+        "summary.json": "283ddccf87f1308e8fcc622fd5adbc50cd7bc2240235ed6161a82b0802e6a806",
+        "flush.json": "aa982ee922fbeb9462965c4b651a1fb0ccfa55dfa37b0914e302129fd90cfa64",
+        "cache-preseed.json": "45852adcada7ec03e392114ea851f7da885cb62cab890789f5674796965b0bd5",
+        "metrics-before.txt": "9a75bab7714d2174387f79d6adca7c90081389aa849db7b425cc0a50335c861c",
+        "metrics-after.txt": "4c5cfc4931ea9b98eefb30018ca515cb6999070ca16e4e591b17052cce68bddb"
+      }
+    },
+    {
+      "point": "glm53flash-resume-08-sla-p07-r1.625000",
+      "evidence_root": "/volume/dev/alan/deployments/five-model-cost-20260913",
+      "model": "glm53flash",
+      "selected": true,
+      "original_sla_status": "PASS",
+      "original_failure_reasons": [],
+      "audit_status": "PASS",
+      "errors": [],
+      "missing": [],
+      "saved_requests": 200,
+      "saved_success": 200,
+      "cache_counts_known": 200,
+      "excess_cache_requests": [],
+      "flush_http": 200,
+      "preseed_cached_tokens": [
+        0
+      ],
+      "preseed_input_tokens": [
+        68352
+      ],
+      "flush_log": {
+        "path": "/volume/dev/alan/deployments/five-model-cost-20260913/runs/glm53flash-resume-08-sla/engine.log",
+        "events": [
+          {
+            "utc": "2026-09-13T18:58:41+00:00",
+            "line": 5775,
+            "text": "[2026-09-13 18:58:41 TP0 EP0] Cache flushed successfully!"
+          }
+        ]
+      },
+      "client_sha256": "98806c6426b44c51c384cb85cfc75410b5d6dea835465c4a0e08d6457568abad",
+      "client_matching_files": [
+        "/volume/dev/alan/deployments/five-model-cost-20260913/benchmark.py"
+      ],
+      "dataset_sha256": "e9b0b94a3fd4cf1723aaa9d6dd9db99381ca546ac830bbddef1b06945a7fc71e",
+      "dataset_check": {
+        "errors": [],
+        "sha256": "e9b0b94a3fd4cf1723aaa9d6dd9db99381ca546ac830bbddef1b06945a7fc71e",
+        "input_shape": [
+          200,
+          73835
+        ],
+        "shared_prefix_tokens": 68352,
+        "independent_tail_starts": 200
+      },
+      "target_cache_rate": 0.9256,
+      "accounting": {
+        "errors": [],
+        "missing": [],
+        "totals": {
+          "input": 14767000,
+          "output": 289400,
+          "cached": 13665600
+        },
+        "counters": {
+          "input": {
+            "request_sum": 14767000,
+            "server_delta": 14767000.0,
+            "source": "sglang:prompt_tokens_total"
+          },
+          "output": {
+            "request_sum": 289400,
+            "server_delta": 289400.0,
+            "source": "sglang:generation_tokens_total"
+          },
+          "cached": {
+            "request_sum": 13665600,
+            "server_delta": 13665600.0,
+            "source": "sglang:cached_tokens_total"
+          }
+        },
+        "derived": {
+          "input_tpm": 6423233.694034237,
+          "output_tpm": 125880.93932779226,
+          "cached_input_tpm": 5944155.3713817485,
+          "uncached_input_tpm": 479078.3226524893,
+          "total_tpm": 6549114.63336203,
+          "completed_rps": 1.4499071565053243,
+          "observed_cache_rate": 0.9254147761901538,
+          "ttft_s_mean": 1.9097105245594868,
+          "tpot_ms_mean": 12.707301873213291,
+          "saved_request_wall_span_s": 137.9365122052841
+        }
+      },
+      "evidence_sha256": {
+        "manifest.json": "0af4b0fede42381181cc233925c554663ffe238ba5f5b1fcae1fa50009a745d2",
+        "summary.json": "a2e5d21a07974ef9bc09f6f337ff40fd0be8adcb863caf76f660fbee88d18cd8",
+        "flush.json": "aa982ee922fbeb9462965c4b651a1fb0ccfa55dfa37b0914e302129fd90cfa64",
+        "cache-preseed.json": "f748470624a2a4d4de4aaca4ced96a08b0090b6eeafc702dd8b8170bdc6c3cc3",
+        "metrics-before.txt": "61e32177de03aada450f771f71501dc691e0ebd15824792156f5a71abcdcbaca",
+        "metrics-after.txt": "6e000787dd30b3710f0456383aceba66e6fd609baf2472c719202a76eb7e000b"
+      }
+    },
+    {
+      "point": "v41-resume-02-sla-p01-r0.250000",
+      "evidence_root": "/volume/dev/alan/deployments/five-model-cost-20260913",
+      "model": "v41",
+      "selected": false,
+      "original_sla_status": "FAIL",
+      "original_failure_reasons": [
+        "TPOT"
+      ],
+      "audit_status": "PASS",
+      "errors": [],
+      "missing": [],
+      "saved_requests": 200,
+      "saved_success": 200,
+      "cache_counts_known": 200,
+      "excess_cache_requests": [],
+      "flush_http": 200,
+      "preseed_cached_tokens": [
+        0
+      ],
+      "preseed_input_tokens": [
+        7680
+      ],
+      "flush_log": {
+        "path": "/volume/dev/alan/deployments/five-model-cost-20260913/runs/v41-resume-02-sla/engine.log",
+        "events": [
+          {
+            "utc": "2026-09-13T06:45:43+00:00",
+            "line": 717,
+            "text": "[2026-09-13 06:45:43 TP0 EP0] Cache flushed successfully!"
+          }
+        ]
+      },
+      "client_sha256": "98806c6426b44c51c384cb85cfc75410b5d6dea835465c4a0e08d6457568abad",
+      "client_matching_files": [
+        "/volume/dev/alan/deployments/five-model-cost-20260913/benchmark.py"
+      ],
+      "dataset_sha256": "a91c2fb27f55d1d52ae065dccdd7d768d0a9af9abcdb6574775d9368340e8896",
+      "dataset_check": {
+        "errors": [],
+        "sha256": "a91c2fb27f55d1d52ae065dccdd7d768d0a9af9abcdb6574775d9368340e8896",
+        "input_shape": [
+          200,
+          8000
+        ],
+        "shared_prefix_tokens": 7680,
+        "independent_tail_starts": 200
+      },
+      "target_cache_rate": 0.932,
+      "accounting": {
+        "errors": [],
+        "missing": [],
+        "totals": {
+          "input": 1600000,
+          "output": 250400,
+          "cached": 1491200
+        },
+        "counters": {
+          "input": {
+            "request_sum": 1600000,
+            "server_delta": 1600000.0,
+            "source": "sglang:prompt_tokens_total"
+          },
+          "output": {
+            "request_sum": 250400,
+            "server_delta": 250400.0,
+            "source": "sglang:generation_tokens_total"
+          },
+          "cached": {
+            "request_sum": 1491200,
+            "server_delta": 1491200.0,
+            "source": "sglang:prefill_effective_tokens_total cache modes"
+          }
+        },
+        "derived": {
+          "input_tpm": 114515.32195267746,
+          "output_tpm": 17921.647885594022,
+          "cached_input_tpm": 106728.28005989539,
+          "uncached_input_tpm": 7787.041892782067,
+          "total_tpm": 132436.9698382715,
+          "completed_rps": 0.23857358740141138,
+          "observed_cache_rate": 0.932,
+          "ttft_s_mean": 0.20652054409729317,
+          "tpot_ms_mean": 47.168121648206785,
+          "saved_request_wall_span_s": 838.310839000158
+        }
+      },
+      "evidence_sha256": {
+        "manifest.json": "66f81b16640a329c01108fcdb75b38fc1db9cb0998f8e9bef4f60d9e5d8826ef",
+        "summary.json": "ca59cc7dae55d67dbc2d5431734126acb9a430f32c8369afd7b38cca89a5a06b",
+        "flush.json": "aa982ee922fbeb9462965c4b651a1fb0ccfa55dfa37b0914e302129fd90cfa64",
+        "cache-preseed.json": "8d1e3f6882ad42c1647171861feb997c1cbc4510ba1df3772b905462fb52b3df",
+        "metrics-before.txt": "4a1549bf4315ca5278e9f23a971a381419915d04fbe16d1762ffcee8f86dd9ab",
+        "metrics-after.txt": "83d6bf8528a241dbceee19b44f58976ac7c36ec4dabe04c7f6fd4836347b5093"
+      }
+    },
+    {
+      "point": "v41-resume-02-sla-p02-r0.125000",
+      "evidence_root": "/volume/dev/alan/deployments/five-model-cost-20260913",
+      "model": "v41",
+      "selected": false,
+      "original_sla_status": "FAIL",
+      "original_failure_reasons": [
+        "TPOT"
+      ],
+      "audit_status": "PASS",
+      "errors": [],
+      "missing": [],
+      "saved_requests": 200,
+      "saved_success": 200,
+      "cache_counts_known": 200,
+      "excess_cache_requests": [],
+      "flush_http": 200,
+      "preseed_cached_tokens": [
+        0
+      ],
+      "preseed_input_tokens": [
+        7680
+      ],
+      "flush_log": {
+        "path": "/volume/dev/alan/deployments/five-model-cost-20260913/runs/v41-resume-02-sla/engine.log",
+        "events": [
+          {
+            "utc": "2026-09-13T06:59:45+00:00",
+            "line": 1682,
+            "text": "[2026-09-13 06:59:45 TP0 EP0] Cache flushed successfully!"
+          }
+        ]
+      },
+      "client_sha256": "98806c6426b44c51c384cb85cfc75410b5d6dea835465c4a0e08d6457568abad",
+      "client_matching_files": [
+        "/volume/dev/alan/deployments/five-model-cost-20260913/benchmark.py"
+      ],
+      "dataset_sha256": "a91c2fb27f55d1d52ae065dccdd7d768d0a9af9abcdb6574775d9368340e8896",
+      "dataset_check": {
+        "errors": [],
+        "sha256": "a91c2fb27f55d1d52ae065dccdd7d768d0a9af9abcdb6574775d9368340e8896",
+        "input_shape": [
+          200,
+          8000
+        ],
+        "shared_prefix_tokens": 7680,
+        "independent_tail_starts": 200
+      },
+      "target_cache_rate": 0.932,
+      "accounting": {
+        "errors": [],
+        "missing": [],
+        "totals": {
+          "input": 1600000,
+          "output": 250400,
+          "cached": 1491200
+        },
+        "counters": {
+          "input": {
+            "request_sum": 1600000,
+            "server_delta": 1600000.0,
+            "source": "sglang:prompt_tokens_total"
+          },
+          "output": {
+            "request_sum": 250400,
+            "server_delta": 250400.0,
+            "source": "sglang:generation_tokens_total"
+          },
+          "cached": {
+            "request_sum": 1491200,
+            "server_delta": 1491200.0,
+            "source": "sglang:cached_tokens_total"
+          }
+        },
+        "derived": {
+          "input_tpm": 59347.91885957226,
+          "output_tpm": 9287.949301523058,
+          "cached_input_tpm": 55312.26037712135,
+          "uncached_input_tpm": 4035.6584824509137,
+          "total_tpm": 68635.86816109532,
+          "completed_rps": 0.12364149762410888,
+          "observed_cache_rate": 0.932,
+          "ttft_s_mean": 0.17216491042869164,
+          "tpot_ms_mean": 23.554332880705275,
+          "saved_request_wall_span_s": 1617.5749938823283
+        }
+      },
+      "evidence_sha256": {
+        "manifest.json": "eb8f843fd6872df52517246ea7c02510d94e52e0ea0d565e8fd4bdc5e610edbc",
+        "summary.json": "ca445367c9b849f5d52e2d1ef6892c3b367d804cdb812439ebd529652f1dcc43",
+        "flush.json": "aa982ee922fbeb9462965c4b651a1fb0ccfa55dfa37b0914e302129fd90cfa64",
+        "cache-preseed.json": "4355da03797e17f7099b8a2402e6f8720919b654814d6e5744a1572850e65abd",
+        "metrics-before.txt": "f52c5e03858ea0faa64181d286aa13c85930ffc823ec25833f606bff6bfb2e51",
+        "metrics-after.txt": "1018ebdb29b65cc9272e4e373ca6204623016b9a7556e09c5ce9db71fee7d063"
+      }
+    },
+    {
+      "point": "v41-resume-02-sla-p03-r0.062500",
+      "evidence_root": "/volume/dev/alan/deployments/five-model-cost-20260913",
+      "model": "v41",
+      "selected": false,
+      "original_sla_status": "PASS",
+      "original_failure_reasons": [],
+      "audit_status": "PASS",
+      "errors": [],
+      "missing": [],
+      "saved_requests": 200,
+      "saved_success": 200,
+      "cache_counts_known": 200,
+      "excess_cache_requests": [],
+      "flush_http": 200,
+      "preseed_cached_tokens": [
+        0
+      ],
+      "preseed_input_tokens": [
+        7680
+      ],
+      "flush_log": {
+        "path": "/volume/dev/alan/deployments/five-model-cost-20260913/runs/v41-resume-02-sla/engine.log",
+        "events": [
+          {
+            "utc": "2026-09-13T07:26:47+00:00",
+            "line": 3982,
+            "text": "[2026-09-13 07:26:47 TP0 EP0] Cache flushed successfully!"
+          }
+        ]
+      },
+      "client_sha256": "98806c6426b44c51c384cb85cfc75410b5d6dea835465c4a0e08d6457568abad",
+      "client_matching_files": [
+        "/volume/dev/alan/deployments/five-model-cost-20260913/benchmark.py"
+      ],
+      "dataset_sha256": "a91c2fb27f55d1d52ae065dccdd7d768d0a9af9abcdb6574775d9368340e8896",
+      "dataset_check": {
+        "errors": [],
+        "sha256": "a91c2fb27f55d1d52ae065dccdd7d768d0a9af9abcdb6574775d9368340e8896",
+        "input_shape": [
+          200,
+          8000
+        ],
+        "shared_prefix_tokens": 7680,
+        "independent_tail_starts": 200
+      },
+      "target_cache_rate": 0.932,
+      "accounting": {
+        "errors": [],
+        "missing": [],
+        "totals": {
+          "input": 1600000,
+          "output": 250400,
+          "cached": 1491200
+        },
+        "counters": {
+          "input": {
+            "request_sum": 1600000,
+            "server_delta": 1600000.0,
+            "source": "sglang:prompt_tokens_total"
+          },
+          "output": {
+            "request_sum": 250400,
+            "server_delta": 250400.0,
+            "source": "sglang:generation_tokens_total"
+          },
+          "cached": {
+            "request_sum": 1491200,
+            "server_delta": 1491200.0,
+            "source": "sglang:cached_tokens_total"
+          }
+        },
+        "derived": {
+          "input_tpm": 29960.097575413085,
+          "output_tpm": 4688.7552705521475,
+          "cached_input_tpm": 27922.810940284995,
+          "uncached_input_tpm": 2037.2866351280898,
+          "total_tpm": 34648.85284596523,
+          "completed_rps": 0.06241686994877726,
+          "observed_cache_rate": 0.932,
+          "ttft_s_mean": 0.16019959292374553,
+          "tpot_ms_mean": 17.592596468913236,
+          "saved_request_wall_span_s": 3204.2566741481423
+        }
+      },
+      "evidence_sha256": {
+        "manifest.json": "f5526eac25e9e7cb67a29c02c4c49618e59534c5b994403ee5bb6a63bcbecf9b",
+        "summary.json": "d05c453f5f96015d883b1e91ba914ba08151fc391c1ce92d09811a775e8711a3",
+        "flush.json": "aa982ee922fbeb9462965c4b651a1fb0ccfa55dfa37b0914e302129fd90cfa64",
+        "cache-preseed.json": "f3dc9361ebc2d7515f1a3be82d9770f542b5d4651350ff364cb3abb5f37d6fac",
+        "metrics-before.txt": "d0b790016e5823c96a09211a56f3a9b8b2e2271e6f871df2b0110318307e3132",
+        "metrics-after.txt": "db7fdfda239d011fb15d50977621699bba10d70f99d12c9aafa0021c72875ea3"
+      }
+    },
+    {
+      "point": "v41-resume-02-sla-p04-r0.093750",
+      "evidence_root": "/volume/dev/alan/deployments/five-model-cost-20260913",
+      "model": "v41",
+      "selected": false,
+      "original_sla_status": "FAIL",
+      "original_failure_reasons": [
+        "TPOT"
+      ],
+      "audit_status": "PASS",
+      "errors": [],
+      "missing": [],
+      "saved_requests": 200,
+      "saved_success": 200,
+      "cache_counts_known": 200,
+      "excess_cache_requests": [],
+      "flush_http": 200,
+      "preseed_cached_tokens": [
+        0
+      ],
+      "preseed_input_tokens": [
+        7680
+      ],
+      "flush_log": {
+        "path": "/volume/dev/alan/deployments/five-model-cost-20260913/runs/v41-resume-02-sla/engine.log",
+        "events": [
+          {
+            "utc": "2026-09-13T08:20:15+00:00",
+            "line": 9541,
+            "text": "[2026-09-13 08:20:15 TP0 EP0] Cache flushed successfully!"
+          }
+        ]
+      },
+      "client_sha256": "98806c6426b44c51c384cb85cfc75410b5d6dea835465c4a0e08d6457568abad",
+      "client_matching_files": [
+        "/volume/dev/alan/deployments/five-model-cost-20260913/benchmark.py"
+      ],
+      "dataset_sha256": "a91c2fb27f55d1d52ae065dccdd7d768d0a9af9abcdb6574775d9368340e8896",
+      "dataset_check": {
+        "errors": [],
+        "sha256": "a91c2fb27f55d1d52ae065dccdd7d768d0a9af9abcdb6574775d9368340e8896",
+        "input_shape": [
+          200,
+          8000
+        ],
+        "shared_prefix_tokens": 7680,
+        "independent_tail_starts": 200
+      },
+      "target_cache_rate": 0.932,
+      "accounting": {
+        "errors": [],
+        "missing": [],
+        "totals": {
+          "input": 1600000,
+          "output": 250400,
+          "cached": 1491200
+        },
+        "counters": {
+          "input": {
+            "request_sum": 1600000,
+            "server_delta": 1600000.0,
+            "source": "sglang:prompt_tokens_total"
+          },
+          "output": {
+            "request_sum": 250400,
+            "server_delta": 250400.0,
+            "source": "sglang:generation_tokens_total"
+          },
+          "cached": {
+            "request_sum": 1491200,
+            "server_delta": 1491200.0,
+            "source": "sglang:cached_tokens_total"
+          }
+        },
+        "derived": {
+          "input_tpm": 44719.34765115358,
+          "output_tpm": 6998.577907405535,
+          "cached_input_tpm": 41678.432010875134,
+          "uncached_input_tpm": 3040.9156402784433,
+          "total_tpm": 51717.925558559116,
+          "completed_rps": 0.09316530760656996,
+          "observed_cache_rate": 0.932,
+          "ttft_s_mean": 0.16925064011709764,
+          "tpot_ms_mean": 22.711358372768615,
+          "saved_request_wall_span_s": 2146.7168849599548
+        }
+      },
+      "evidence_sha256": {
+        "manifest.json": "010c0956de1b73a1a699426890c57027201aa1c53a08769778909e168e0e9359",
+        "summary.json": "19e2ee34f64de889c23b27969e944a5cfe07a349b065d017fe1908ad3081bc16",
+        "flush.json": "aa982ee922fbeb9462965c4b651a1fb0ccfa55dfa37b0914e302129fd90cfa64",
+        "cache-preseed.json": "033cfa47d3772858b43a8550b18f66242bdc1e442fa2d51a4f115924d958a517",
+        "metrics-before.txt": "a0a303d0b3343b89bd4598020d0ced99a9bb0922d2ac66b7ba93a5d0b486029b",
+        "metrics-after.txt": "b5cd89346ad47b4cc1b2c4026971da07cbe7ca545466cc44aa7e1865f840f1c2"
+      }
+    },
+    {
+      "point": "v41-resume-02-sla-p05-r0.078125",
+      "evidence_root": "/volume/dev/alan/deployments/five-model-cost-20260913",
+      "model": "v41",
+      "selected": false,
+      "original_sla_status": "FAIL",
+      "original_failure_reasons": [
+        "TPOT"
+      ],
+      "audit_status": "PASS",
+      "errors": [],
+      "missing": [],
+      "saved_requests": 200,
+      "saved_success": 200,
+      "cache_counts_known": 200,
+      "excess_cache_requests": [],
+      "flush_http": 200,
+      "preseed_cached_tokens": [
+        0
+      ],
+      "preseed_input_tokens": [
+        7680
+      ],
+      "flush_log": {
+        "path": "/volume/dev/alan/deployments/five-model-cost-20260913/runs/v41-resume-02-sla/engine.log",
+        "events": [
+          {
+            "utc": "2026-09-13T08:56:06+00:00",
+            "line": 12557,
+            "text": "[2026-09-13 08:56:06 TP0 EP0] Cache flushed successfully!"
+          }
+        ]
+      },
+      "client_sha256": "98806c6426b44c51c384cb85cfc75410b5d6dea835465c4a0e08d6457568abad",
+      "client_matching_files": [
+        "/volume/dev/alan/deployments/five-model-cost-20260913/benchmark.py"
+      ],
+      "dataset_sha256": "a91c2fb27f55d1d52ae065dccdd7d768d0a9af9abcdb6574775d9368340e8896",
+      "dataset_check": {
+        "errors": [],
+        "sha256": "a91c2fb27f55d1d52ae065dccdd7d768d0a9af9abcdb6574775d9368340e8896",
+        "input_shape": [
+          200,
+          8000
+        ],
+        "shared_prefix_tokens": 7680,
+        "independent_tail_starts": 200
+      },
+      "target_cache_rate": 0.932,
+      "accounting": {
+        "errors": [],
+        "missing": [],
+        "totals": {
+          "input": 1600000,
+          "output": 250400,
+          "cached": 1491200
+        },
+        "counters": {
+          "input": {
+            "request_sum": 1600000,
+            "server_delta": 1600000.0,
+            "source": "sglang:prompt_tokens_total"
+          },
+          "output": {
+            "request_sum": 250400,
+            "server_delta": 250400.0,
+            "source": "sglang:generation_tokens_total"
+          },
+          "cached": {
+            "request_sum": 1491200,
+            "server_delta": 1491200.0,
+            "source": "sglang:cached_tokens_total"
+          }
+        },
+        "derived": {
+          "input_tpm": 37356.620973138706,
+          "output_tpm": 5846.311182296207,
+          "cached_input_tpm": 34816.37074696527,
+          "uncached_input_tpm": 2540.250226173432,
+          "total_tpm": 43202.932155434915,
+          "completed_rps": 0.07782629369403897,
+          "observed_cache_rate": 0.932,
+          "ttft_s_mean": 0.17001089816214518,
+          "tpot_ms_mean": 21.288114404238815,
+          "saved_request_wall_span_s": 2569.8207598859444
+        }
+      },
+      "evidence_sha256": {
+        "manifest.json": "2e40a676d5144b0afc390bdbec30f0445540c4e5ce7a3f2d37cffff3a479992d",
+        "summary.json": "779207466e4db1acce39187359646179e67f48e0a10797abc6f37ce48a6ef850",
+        "flush.json": "aa982ee922fbeb9462965c4b651a1fb0ccfa55dfa37b0914e302129fd90cfa64",
+        "cache-preseed.json": "aada09c3c01fd19124541b23ffa428a74246eb5b45f8f6ff165766e6fea40f46",
+        "metrics-before.txt": "96e714167427d4fa2f64392c9339e70bb19d0089dcfaaf98f1570701dd06ea57",
+        "metrics-after.txt": "66e519c80d5154161507ca1df5305ee3056240924c2dec4fb8d7fb51363265ec"
+      }
+    },
+    {
+      "point": "v41-resume-02-sla-p06-r0.070312",
+      "evidence_root": "/volume/dev/alan/deployments/five-model-cost-20260913",
+      "model": "v41",
+      "selected": true,
+      "original_sla_status": "PASS",
+      "original_failure_reasons": [],
+      "audit_status": "PASS",
+      "errors": [],
+      "missing": [],
+      "saved_requests": 200,
+      "saved_success": 200,
+      "cache_counts_known": 200,
+      "excess_cache_requests": [],
+      "flush_http": 200,
+      "preseed_cached_tokens": [
+        0
+      ],
+      "preseed_input_tokens": [
+        7680
+      ],
+      "flush_log": {
+        "path": "/volume/dev/alan/deployments/five-model-cost-20260913/runs/v41-resume-02-sla/engine.log",
+        "events": [
+          {
+            "utc": "2026-09-13T09:39:00+00:00",
+            "line": 16268,
+            "text": "[2026-09-13 09:39:00 TP0 EP0] Cache flushed successfully!"
+          }
+        ]
+      },
+      "client_sha256": "98806c6426b44c51c384cb85cfc75410b5d6dea835465c4a0e08d6457568abad",
+      "client_matching_files": [
+        "/volume/dev/alan/deployments/five-model-cost-20260913/benchmark.py"
+      ],
+      "dataset_sha256": "a91c2fb27f55d1d52ae065dccdd7d768d0a9af9abcdb6574775d9368340e8896",
+      "dataset_check": {
+        "errors": [],
+        "sha256": "a91c2fb27f55d1d52ae065dccdd7d768d0a9af9abcdb6574775d9368340e8896",
+        "input_shape": [
+          200,
+          8000
+        ],
+        "shared_prefix_tokens": 7680,
+        "independent_tail_starts": 200
+      },
+      "target_cache_rate": 0.932,
+      "accounting": {
+        "errors": [],
+        "missing": [],
+        "totals": {
+          "input": 1600000,
+          "output": 250400,
+          "cached": 1491200
+        },
+        "counters": {
+          "input": {
+            "request_sum": 1600000,
+            "server_delta": 1600000.0,
+            "source": "sglang:prompt_tokens_total"
+          },
+          "output": {
+            "request_sum": 250400,
+            "server_delta": 250400.0,
+            "source": "sglang:generation_tokens_total"
+          },
+          "cached": {
+            "request_sum": 1491200,
+            "server_delta": 1491200.0,
+            "source": "sglang:cached_tokens_total"
+          }
+        },
+        "derived": {
+          "input_tpm": 33662.71232134674,
+          "output_tpm": 5268.214478290764,
+          "cached_input_tpm": 31373.647883495163,
+          "uncached_input_tpm": 2289.0644378515785,
+          "total_tpm": 38930.926799637506,
+          "completed_rps": 0.07013065066947237,
+          "observed_cache_rate": 0.932,
+          "ttft_s_mean": 0.16088701968314126,
+          "tpot_ms_mean": 19.716107075775994,
+          "saved_request_wall_span_s": 2851.815105495043
+        }
+      },
+      "evidence_sha256": {
+        "manifest.json": "9ebf972e0ff0b21157997ba68d31535478cf07d98bad64ec004ad1eb945b191b",
+        "summary.json": "cc24045221d5a1b5ad3faf9cf97e02f2bcb2710b9d4977ca791cd866afcaa9b6",
+        "flush.json": "aa982ee922fbeb9462965c4b651a1fb0ccfa55dfa37b0914e302129fd90cfa64",
+        "cache-preseed.json": "a53c00647cc70a80dc7138660eec1236b111e559db9467b18a497142ff11bacd",
+        "metrics-before.txt": "0e84e04968c60093374bf66e78189b5b6a7327ff84b2818ad35a4987f4a4c63c",
+        "metrics-after.txt": "31a1438b7471eadb994e24b63743635e90e2a17723fa9802db332860d9989bad"
+      }
+    },
+    {
+      "point": "v41-resume-02-sla-p07-r0.074219",
+      "evidence_root": "/volume/dev/alan/deployments/five-model-cost-20260913",
+      "model": "v41",
+      "selected": false,
+      "original_sla_status": "FAIL",
+      "original_failure_reasons": [
+        "TPOT"
+      ],
+      "audit_status": "PASS",
+      "errors": [],
+      "missing": [],
+      "saved_requests": 200,
+      "saved_success": 200,
+      "cache_counts_known": 200,
+      "excess_cache_requests": [],
+      "flush_http": 200,
+      "preseed_cached_tokens": [
+        0
+      ],
+      "preseed_input_tokens": [
+        7680
+      ],
+      "flush_log": {
+        "path": "/volume/dev/alan/deployments/five-model-cost-20260913/runs/v41-resume-02-sla/engine.log",
+        "events": [
+          {
+            "utc": "2026-09-13T10:26:36+00:00",
+            "line": 20734,
+            "text": "[2026-09-13 10:26:36 TP0 EP0] Cache flushed successfully!"
+          }
+        ]
+      },
+      "client_sha256": "98806c6426b44c51c384cb85cfc75410b5d6dea835465c4a0e08d6457568abad",
+      "client_matching_files": [
+        "/volume/dev/alan/deployments/five-model-cost-20260913/benchmark.py"
+      ],
+      "dataset_sha256": "a91c2fb27f55d1d52ae065dccdd7d768d0a9af9abcdb6574775d9368340e8896",
+      "dataset_check": {
+        "errors": [],
+        "sha256": "a91c2fb27f55d1d52ae065dccdd7d768d0a9af9abcdb6574775d9368340e8896",
+        "input_shape": [
+          200,
+          8000
+        ],
+        "shared_prefix_tokens": 7680,
+        "independent_tail_starts": 200
+      },
+      "target_cache_rate": 0.932,
+      "accounting": {
+        "errors": [],
+        "missing": [],
+        "totals": {
+          "input": 1600000,
+          "output": 250400,
+          "cached": 1491200
+        },
+        "counters": {
+          "input": {
+            "request_sum": 1600000,
+            "server_delta": 1600000.0,
+            "source": "sglang:prompt_tokens_total"
+          },
+          "output": {
+            "request_sum": 250400,
+            "server_delta": 250400.0,
+            "source": "sglang:generation_tokens_total"
+          },
+          "cached": {
+            "request_sum": 1491200,
+            "server_delta": 1491200.0,
+            "source": "sglang:cached_tokens_total"
+          }
+        },
+        "derived": {
+          "input_tpm": 35510.55400235123,
+          "output_tpm": 5557.401701367968,
+          "cached_input_tpm": 33095.83633019135,
+          "uncached_input_tpm": 2414.7176721598835,
+          "total_tpm": 41067.9557037192,
+          "completed_rps": 0.07398032083823172,
+          "observed_cache_rate": 0.932,
+          "ttft_s_mean": 0.16011360151227563,
+          "tpot_ms_mean": 20.603822126203283,
+          "saved_request_wall_span_s": 2703.4167238441296
+        }
+      },
+      "evidence_sha256": {
+        "manifest.json": "2eac9f95bc524a47c503b229cdfbec87a05d221e996d21c39d1c90e459b15985",
+        "summary.json": "3b570045bf295664f20d36815f69b3cf48faaa2c952b98b6968d411a6d59be6a",
+        "flush.json": "aa982ee922fbeb9462965c4b651a1fb0ccfa55dfa37b0914e302129fd90cfa64",
+        "cache-preseed.json": "fa464c491b97b53507721e9ad246efa16254b80e54dfd74139727728ed48dcd8",
+        "metrics-before.txt": "58d7d37ef4bf68bbef999e07ade9c0cd8ea3713587696e538caf408ea1be8477",
+        "metrics-after.txt": "85e6a9b68b23bc859c080fe407bbd59951a89eb418d2342de72621559089efbc"
+      }
+    },
+    {
+      "point": "v4flash-resume-02-sla-p01-r0.250000",
+      "evidence_root": "/volume/dev/alan/deployments/five-model-cost-20260913",
+      "model": "v4flash",
+      "selected": false,
+      "original_sla_status": "PASS",
+      "original_failure_reasons": [],
+      "audit_status": "PASS",
+      "errors": [],
+      "missing": [],
+      "saved_requests": 200,
+      "saved_success": 200,
+      "cache_counts_known": 200,
+      "excess_cache_requests": [],
+      "flush_http": 200,
+      "preseed_cached_tokens": [
+        0
+      ],
+      "preseed_input_tokens": [
+        17664
+      ],
+      "flush_log": {
+        "path": "/volume/dev/alan/deployments/five-model-cost-20260913/runs/v4flash-resume-02-sla/engine.log",
+        "events": [
+          {
+            "utc": "2026-09-13T13:43:44+00:00",
+            "line": 827,
+            "text": "[2026-09-13 13:43:44 TP0] Cache flushed successfully!"
+          }
+        ]
+      },
+      "client_sha256": "98806c6426b44c51c384cb85cfc75410b5d6dea835465c4a0e08d6457568abad",
+      "client_matching_files": [
+        "/volume/dev/alan/deployments/five-model-cost-20260913/benchmark.py"
+      ],
+      "dataset_sha256": "7f359cd04959f50cd2e9c8fe42da541eadd92423411ffa71ec3ce0678a1b938a",
+      "dataset_check": {
+        "errors": [],
+        "sha256": "7f359cd04959f50cd2e9c8fe42da541eadd92423411ffa71ec3ce0678a1b938a",
+        "input_shape": [
+          200,
+          22016
+        ],
+        "shared_prefix_tokens": 17664,
+        "independent_tail_starts": 200
+      },
+      "target_cache_rate": 0.796,
+      "accounting": {
+        "errors": [],
+        "missing": [],
+        "totals": {
+          "input": 4403200,
+          "output": 102800,
+          "cached": 3504896
+        },
+        "counters": {
+          "input": {
+            "request_sum": 4403200,
+            "server_delta": 4403200.0,
+            "source": "sglang:prompt_tokens_total"
+          },
+          "output": {
+            "request_sum": 102800,
+            "server_delta": 102800.0,
+            "source": "sglang:generation_tokens_total"
+          },
+          "cached": {
+            "request_sum": 3504896,
+            "server_delta": 3504896.0,
+            "source": "sglang:prefill_effective_tokens_total cache modes"
+          }
+        },
+        "derived": {
+          "input_tpm": 331356.67215140694,
+          "output_tpm": 7736.070561674381,
+          "cached_input_tpm": 263756.05804796,
+          "uncached_input_tpm": 67600.61410344692,
+          "total_tpm": 339092.7427130813,
+          "completed_rps": 0.25084534895182814,
+          "observed_cache_rate": 0.7959883720930233,
+          "ttft_s_mean": 0.3282232354884036,
+          "tpot_ms_mean": 2.0563791534041016,
+          "saved_request_wall_span_s": 797.3010193998925
+        }
+      },
+      "evidence_sha256": {
+        "manifest.json": "e9d21a2219d342722c0e740ab5586b890540b880b6ab144777e70a9653eef2f7",
+        "summary.json": "a7cf2a4311f97de9a011e005d23a6fc6bde48ba3875e981007da409c4f1f0b72",
+        "flush.json": "aa982ee922fbeb9462965c4b651a1fb0ccfa55dfa37b0914e302129fd90cfa64",
+        "cache-preseed.json": "e6261548234b5b77adf6b8e503e0f0ed21a4d787fc9b88901d60c411c09fddcd",
+        "metrics-before.txt": "d5a5202c2f2a5b5f2228eca99e9f59a35bed8b517fd2cc428f6f6029dd6129cc",
+        "metrics-after.txt": "6f60f399aadb0fc05e9eb8c2d6f2a78bbc98b48728531c574285c399d182a6e0"
+      }
+    },
+    {
+      "point": "v4flash-resume-02-sla-p02-r0.500000",
+      "evidence_root": "/volume/dev/alan/deployments/five-model-cost-20260913",
+      "model": "v4flash",
+      "selected": false,
+      "original_sla_status": "PASS",
+      "original_failure_reasons": [],
+      "audit_status": "PASS",
+      "errors": [],
+      "missing": [],
+      "saved_requests": 200,
+      "saved_success": 200,
+      "cache_counts_known": 200,
+      "excess_cache_requests": [],
+      "flush_http": 200,
+      "preseed_cached_tokens": [
+        0
+      ],
+      "preseed_input_tokens": [
+        17664
+      ],
+      "flush_log": {
+        "path": "/volume/dev/alan/deployments/five-model-cost-20260913/runs/v4flash-resume-02-sla/engine.log",
+        "events": [
+          {
+            "utc": "2026-09-13T13:57:14+00:00",
+            "line": 1831,
+            "text": "[2026-09-13 13:57:14 TP0] Cache flushed successfully!"
+          }
+        ]
+      },
+      "client_sha256": "98806c6426b44c51c384cb85cfc75410b5d6dea835465c4a0e08d6457568abad",
+      "client_matching_files": [
+        "/volume/dev/alan/deployments/five-model-cost-20260913/benchmark.py"
+      ],
+      "dataset_sha256": "7f359cd04959f50cd2e9c8fe42da541eadd92423411ffa71ec3ce0678a1b938a",
+      "dataset_check": {
+        "errors": [],
+        "sha256": "7f359cd04959f50cd2e9c8fe42da541eadd92423411ffa71ec3ce0678a1b938a",
+        "input_shape": [
+          200,
+          22016
+        ],
+        "shared_prefix_tokens": 17664,
+        "independent_tail_starts": 200
+      },
+      "target_cache_rate": 0.796,
+      "accounting": {
+        "errors": [],
+        "missing": [],
+        "totals": {
+          "input": 4403200,
+          "output": 102800,
+          "cached": 3504896
+        },
+        "counters": {
+          "input": {
+            "request_sum": 4403200,
+            "server_delta": 4403200.0,
+            "source": "sglang:prompt_tokens_total"
+          },
+          "output": {
+            "request_sum": 102800,
+            "server_delta": 102800.0,
+            "source": "sglang:generation_tokens_total"
+          },
+          "cached": {
+            "request_sum": 3504896,
+            "server_delta": 3504896.0,
+            "source": "sglang:cached_tokens_total"
+          }
+        },
+        "derived": {
+          "input_tpm": 661618.5341748871,
+          "output_tpm": 15446.580966837391,
+          "cached_input_tpm": 526640.6599644407,
+          "uncached_input_tpm": 134977.87421044646,
+          "total_tpm": 677065.1151417246,
+          "completed_rps": 0.5008618990543902,
+          "observed_cache_rate": 0.7959883720930233,
+          "ttft_s_mean": 0.31638230531243605,
+          "tpot_ms_mean": 2.077764724971287,
+          "saved_request_wall_span_s": 399.309140922036
+        }
+      },
+      "evidence_sha256": {
+        "manifest.json": "c4fa97d0bf0b0e9d755519b7e11451219f3356e387a8c2376426c47730818edd",
+        "summary.json": "a1046bf28e1665c873fb44f8adcc02a7216b699c86f7a21efd07a6901053dfa4",
+        "flush.json": "aa982ee922fbeb9462965c4b651a1fb0ccfa55dfa37b0914e302129fd90cfa64",
+        "cache-preseed.json": "7e05f57507f4733cb81fdab47c9deb808db6e701af4dc7ec6fd0eb19d26aef9a",
+        "metrics-before.txt": "d37f32a1aa3fd6fcc8057d05c04d540530d59d01c4fc9442b87d35363a9a5648",
+        "metrics-after.txt": "fd029dc68fb7c863633f1036cd6651e262db6754d05b35fc9449e80da3517757"
+      }
+    },
+    {
+      "point": "v4flash-resume-02-sla-p03-r1.000000",
+      "evidence_root": "/volume/dev/alan/deployments/five-model-cost-20260913",
+      "model": "v4flash",
+      "selected": false,
+      "original_sla_status": "PASS",
+      "original_failure_reasons": [],
+      "audit_status": "PASS",
+      "errors": [],
+      "missing": [],
+      "saved_requests": 200,
+      "saved_success": 200,
+      "cache_counts_known": 200,
+      "excess_cache_requests": [],
+      "flush_http": 200,
+      "preseed_cached_tokens": [
+        0
+      ],
+      "preseed_input_tokens": [
+        17664
+      ],
+      "flush_log": {
+        "path": "/volume/dev/alan/deployments/five-model-cost-20260913/runs/v4flash-resume-02-sla/engine.log",
+        "events": [
+          {
+            "utc": "2026-09-13T14:04:00+00:00",
+            "line": 2799,
+            "text": "[2026-09-13 14:04:00 TP0] Cache flushed successfully!"
+          }
+        ]
+      },
+      "client_sha256": "98806c6426b44c51c384cb85cfc75410b5d6dea835465c4a0e08d6457568abad",
+      "client_matching_files": [
+        "/volume/dev/alan/deployments/five-model-cost-20260913/benchmark.py"
+      ],
+      "dataset_sha256": "7f359cd04959f50cd2e9c8fe42da541eadd92423411ffa71ec3ce0678a1b938a",
+      "dataset_check": {
+        "errors": [],
+        "sha256": "7f359cd04959f50cd2e9c8fe42da541eadd92423411ffa71ec3ce0678a1b938a",
+        "input_shape": [
+          200,
+          22016
+        ],
+        "shared_prefix_tokens": 17664,
+        "independent_tail_starts": 200
+      },
+      "target_cache_rate": 0.796,
+      "accounting": {
+        "errors": [],
+        "missing": [],
+        "totals": {
+          "input": 4403200,
+          "output": 102800,
+          "cached": 3504896
+        },
+        "counters": {
+          "input": {
+            "request_sum": 4403200,
+            "server_delta": 4403200.0,
+            "source": "sglang:prompt_tokens_total"
+          },
+          "output": {
+            "request_sum": 102800,
+            "server_delta": 102800.0,
+            "source": "sglang:generation_tokens_total"
+          },
+          "cached": {
+            "request_sum": 3504896,
+            "server_delta": 3504896.0,
+            "source": "sglang:cached_tokens_total"
+          }
+        },
+        "derived": {
+          "input_tpm": 1318647.769371506,
+          "output_tpm": 30786.01714466543,
+          "cached_input_tpm": 1049628.2913061215,
+          "uncached_input_tpm": 269019.47806538455,
+          "total_tpm": 1349433.7865161714,
+          "completed_rps": 0.9982495831603576,
+          "observed_cache_rate": 0.7959883720930233,
+          "ttft_s_mean": 0.6190615432616323,
+          "tpot_ms_mean": 4.325179368385512,
+          "saved_request_wall_span_s": 200.34796189703047
+        }
+      },
+      "evidence_sha256": {
+        "manifest.json": "3d83841067bd9d7ad4c13f4938fa19f3e6deee214f5276abd4078d190bbf93bd",
+        "summary.json": "ce2ac04a6815eab63a8fa12df34d517a771e35130cac6a1078bc2d326a580e53",
+        "flush.json": "aa982ee922fbeb9462965c4b651a1fb0ccfa55dfa37b0914e302129fd90cfa64",
+        "cache-preseed.json": "e65e71905bcdaff64c0904f959fd9f08a996d0f21a36665cd2167987e138a2e6",
+        "metrics-before.txt": "8a1f3762ed6496ed4c70300f73b8a0481514e00e81633f16b4d72f7cac3c30da",
+        "metrics-after.txt": "f74ebdc1379543e875f103b7853ce53fdd7e571e7769fe0f2714d4ee06c5c4f8"
+      }
+    },
+    {
+      "point": "v4flash-resume-02-sla-p04-r2.000000",
+      "evidence_root": "/volume/dev/alan/deployments/five-model-cost-20260913",
+      "model": "v4flash",
+      "selected": false,
+      "original_sla_status": "PASS",
+      "original_failure_reasons": [],
+      "audit_status": "PASS",
+      "errors": [],
+      "missing": [],
+      "saved_requests": 200,
+      "saved_success": 200,
+      "cache_counts_known": 200,
+      "excess_cache_requests": [],
+      "flush_http": 200,
+      "preseed_cached_tokens": [
+        0
+      ],
+      "preseed_input_tokens": [
+        17664
+      ],
+      "flush_log": {
+        "path": "/volume/dev/alan/deployments/five-model-cost-20260913/runs/v4flash-resume-02-sla/engine.log",
+        "events": [
+          {
+            "utc": "2026-09-13T14:07:28+00:00",
+            "line": 3546,
+            "text": "[2026-09-13 14:07:28 TP0] Cache flushed successfully!"
+          }
+        ]
+      },
+      "client_sha256": "98806c6426b44c51c384cb85cfc75410b5d6dea835465c4a0e08d6457568abad",
+      "client_matching_files": [
+        "/volume/dev/alan/deployments/five-model-cost-20260913/benchmark.py"
+      ],
+      "dataset_sha256": "7f359cd04959f50cd2e9c8fe42da541eadd92423411ffa71ec3ce0678a1b938a",
+      "dataset_check": {
+        "errors": [],
+        "sha256": "7f359cd04959f50cd2e9c8fe42da541eadd92423411ffa71ec3ce0678a1b938a",
+        "input_shape": [
+          200,
+          22016
+        ],
+        "shared_prefix_tokens": 17664,
+        "independent_tail_starts": 200
+      },
+      "target_cache_rate": 0.796,
+      "accounting": {
+        "errors": [],
+        "missing": [],
+        "totals": {
+          "input": 4403200,
+          "output": 102800,
+          "cached": 3504896
+        },
+        "counters": {
+          "input": {
+            "request_sum": 4403200,
+            "server_delta": 4403200.0,
+            "source": "sglang:prompt_tokens_total"
+          },
+          "output": {
+            "request_sum": 102800,
+            "server_delta": 102800.0,
+            "source": "sglang:generation_tokens_total"
+          },
+          "cached": {
+            "request_sum": 3504896,
+            "server_delta": 3504896.0,
+            "source": "sglang:cached_tokens_total"
+          }
+        },
+        "derived": {
+          "input_tpm": 2606812.1607904225,
+          "output_tpm": 60860.3493207793,
+          "cached_input_tpm": 2074992.1682198646,
+          "uncached_input_tpm": 531819.9925705576,
+          "total_tpm": 2667672.5101112016,
+          "completed_rps": 1.9734224812185246,
+          "observed_cache_rate": 0.7959883720930233,
+          "ttft_s_mean": 0.3397794702462852,
+          "tpot_ms_mean": 9.616126374243514,
+          "saved_request_wall_span_s": 101.3444778979756
+        }
+      },
+      "evidence_sha256": {
+        "manifest.json": "641ccc84c9eb831d17761298899e0198a57312e8043db380b961de93e338eff0",
+        "summary.json": "55622dc69bd7eb096ba52ce5e1fdc45a1c3ec19e61dd7f68c8f8e3e3b8b44b0f",
+        "flush.json": "aa982ee922fbeb9462965c4b651a1fb0ccfa55dfa37b0914e302129fd90cfa64",
+        "cache-preseed.json": "f1973faf04d033578b0b8b216e75f49d70f0acb4a345d5fd5a1dbd3dc65ed64c",
+        "metrics-before.txt": "5e27141213cb83fc9314293fbb84b1887bd39e3b5c3b5e5aeff0dd46e68b275d",
+        "metrics-after.txt": "fc8414be81ac94f653c881504a5718743a6360410a15ed08e3e33c257571b81f"
+      }
+    },
+    {
+      "point": "v4flash-resume-02-sla-p05-r4.000000",
+      "evidence_root": "/volume/dev/alan/deployments/five-model-cost-20260913",
+      "model": "v4flash",
+      "selected": false,
+      "original_sla_status": "FAIL",
+      "original_failure_reasons": [
+        "TTFT",
+        "TPOT"
+      ],
+      "audit_status": "PASS",
+      "errors": [],
+      "missing": [],
+      "saved_requests": 200,
+      "saved_success": 200,
+      "cache_counts_known": 200,
+      "excess_cache_requests": [],
+      "flush_http": 200,
+      "preseed_cached_tokens": [
+        0
+      ],
+      "preseed_input_tokens": [
+        17664
+      ],
+      "flush_log": {
+        "path": "/volume/dev/alan/deployments/five-model-cost-20260913/runs/v4flash-resume-02-sla/engine.log",
+        "events": [
+          {
+            "utc": "2026-09-13T14:09:17+00:00",
+            "line": 4027,
+            "text": "[2026-09-13 14:09:17 TP0] Cache flushed successfully!"
+          }
+        ]
+      },
+      "client_sha256": "98806c6426b44c51c384cb85cfc75410b5d6dea835465c4a0e08d6457568abad",
+      "client_matching_files": [
+        "/volume/dev/alan/deployments/five-model-cost-20260913/benchmark.py"
+      ],
+      "dataset_sha256": "7f359cd04959f50cd2e9c8fe42da541eadd92423411ffa71ec3ce0678a1b938a",
+      "dataset_check": {
+        "errors": [],
+        "sha256": "7f359cd04959f50cd2e9c8fe42da541eadd92423411ffa71ec3ce0678a1b938a",
+        "input_shape": [
+          200,
+          22016
+        ],
+        "shared_prefix_tokens": 17664,
+        "independent_tail_starts": 200
+      },
+      "target_cache_rate": 0.796,
+      "accounting": {
+        "errors": [],
+        "missing": [],
+        "totals": {
+          "input": 4403200,
+          "output": 102800,
+          "cached": 3504896
+        },
+        "counters": {
+          "input": {
+            "request_sum": 4403200,
+            "server_delta": 4403200.0,
+            "source": "sglang:prompt_tokens_total"
+          },
+          "output": {
+            "request_sum": 102800,
+            "server_delta": 102800.0,
+            "source": "sglang:generation_tokens_total"
+          },
+          "cached": {
+            "request_sum": 3504896,
+            "server_delta": 3504896.0,
+            "source": "sglang:cached_tokens_total"
+          }
+        },
+        "derived": {
+          "input_tpm": 3022737.3907399015,
+          "output_tpm": 70570.81299238323,
+          "cached_input_tpm": 2406063.814919767,
+          "uncached_input_tpm": 616673.5758201345,
+          "total_tpm": 3093308.2037322847,
+          "completed_rps": 2.288288359026694,
+          "observed_cache_rate": 0.7959883720930233,
+          "ttft_s_mean": 5.428107834567782,
+          "tpot_ms_mean": 88.46946120410105,
+          "saved_request_wall_span_s": 87.39902874082327
+        }
+      },
+      "evidence_sha256": {
+        "manifest.json": "1e50b6568b810e79cf0a883073af319e44eccfcbaa1dacc7fbab393b0825f291",
+        "summary.json": "a46caf57ea1770969c2d83f942a497b0ae58a807d014c6f089acada112778d68",
+        "flush.json": "aa982ee922fbeb9462965c4b651a1fb0ccfa55dfa37b0914e302129fd90cfa64",
+        "cache-preseed.json": "3abfe57d75cd5cd35d45b644d60714437cfc73bfb92723aed7c6210606935e1a",
+        "metrics-before.txt": "890f801b2016014e2deccff22f44b302a1e4441fa1ce4a4e5cd7689510b94205",
+        "metrics-after.txt": "5e5f50687f3a0fe3a2df35a2df783d855e74056a4106565dfebfe277df2cc968"
+      }
+    },
+    {
+      "point": "v4flash-resume-02-sla-p06-r3.000000",
+      "evidence_root": "/volume/dev/alan/deployments/five-model-cost-20260913",
+      "model": "v4flash",
+      "selected": false,
+      "original_sla_status": "FAIL",
+      "original_failure_reasons": [
+        "TPOT"
+      ],
+      "audit_status": "PASS",
+      "errors": [],
+      "missing": [],
+      "saved_requests": 200,
+      "saved_success": 200,
+      "cache_counts_known": 200,
+      "excess_cache_requests": [],
+      "flush_http": 200,
+      "preseed_cached_tokens": [
+        0
+      ],
+      "preseed_input_tokens": [
+        17664
+      ],
+      "flush_log": {
+        "path": "/volume/dev/alan/deployments/five-model-cost-20260913/runs/v4flash-resume-02-sla/engine.log",
+        "events": [
+          {
+            "utc": "2026-09-13T14:10:52+00:00",
+            "line": 4399,
+            "text": "[2026-09-13 14:10:52 TP0] Cache flushed successfully!"
+          }
+        ]
+      },
+      "client_sha256": "98806c6426b44c51c384cb85cfc75410b5d6dea835465c4a0e08d6457568abad",
+      "client_matching_files": [
+        "/volume/dev/alan/deployments/five-model-cost-20260913/benchmark.py"
+      ],
+      "dataset_sha256": "7f359cd04959f50cd2e9c8fe42da541eadd92423411ffa71ec3ce0678a1b938a",
+      "dataset_check": {
+        "errors": [],
+        "sha256": "7f359cd04959f50cd2e9c8fe42da541eadd92423411ffa71ec3ce0678a1b938a",
+        "input_shape": [
+          200,
+          22016
+        ],
+        "shared_prefix_tokens": 17664,
+        "independent_tail_starts": 200
+      },
+      "target_cache_rate": 0.796,
+      "accounting": {
+        "errors": [],
+        "missing": [],
+        "totals": {
+          "input": 4403200,
+          "output": 102800,
+          "cached": 3504896
+        },
+        "counters": {
+          "input": {
+            "request_sum": 4403200,
+            "server_delta": 4403200.0,
+            "source": "sglang:prompt_tokens_total"
+          },
+          "output": {
+            "request_sum": 102800,
+            "server_delta": 102800.0,
+            "source": "sglang:generation_tokens_total"
+          },
+          "cached": {
+            "request_sum": 3504896,
+            "server_delta": 3504896.0,
+            "source": "sglang:cached_tokens_total"
+          }
+        },
+        "derived": {
+          "input_tpm": 3405607.4229593705,
+          "output_tpm": 79509.54830128618,
+          "cached_input_tpm": 2710823.9085893454,
+          "uncached_input_tpm": 694783.5143700251,
+          "total_tpm": 3485116.9712606566,
+          "completed_rps": 2.578130619367256,
+          "observed_cache_rate": 0.7959883720930233,
+          "ttft_s_mean": 0.9261336852842942,
+          "tpot_ms_mean": 73.71568273621762,
+          "saved_request_wall_span_s": 77.57288611214608
+        }
+      },
+      "evidence_sha256": {
+        "manifest.json": "5d37044bb3158f33716f2d4d87a7b29bb23b231f97d0df7cb2edef4e3b55a731",
+        "summary.json": "d10d3f47c5f648eddbbacd0556d5f9ca272594ccb6e8a4d13250640dde638067",
+        "flush.json": "aa982ee922fbeb9462965c4b651a1fb0ccfa55dfa37b0914e302129fd90cfa64",
+        "cache-preseed.json": "3463302222758d2cd4c696102197c23c021da0431bdb0fbde8a897f07f91a197",
+        "metrics-before.txt": "860bfd0c0bf3db953b322eb6367d2d938f753ea4d48fae15f329d544cc9f4f0c",
+        "metrics-after.txt": "cb3a7fa440bd13c486257ce225bb2ec90d884fb2dc284827bfc003729d5b8922"
+      }
+    },
+    {
+      "point": "v4flash-resume-02-sla-p07-r2.500000",
+      "evidence_root": "/volume/dev/alan/deployments/five-model-cost-20260913",
+      "model": "v4flash",
+      "selected": true,
+      "original_sla_status": "PASS",
+      "original_failure_reasons": [],
+      "audit_status": "PASS",
+      "errors": [],
+      "missing": [],
+      "saved_requests": 200,
+      "saved_success": 200,
+      "cache_counts_known": 200,
+      "excess_cache_requests": [],
+      "flush_http": 200,
+      "preseed_cached_tokens": [
+        0
+      ],
+      "preseed_input_tokens": [
+        17664
+      ],
+      "flush_log": {
+        "path": "/volume/dev/alan/deployments/five-model-cost-20260913/runs/v4flash-resume-02-sla/engine.log",
+        "events": [
+          {
+            "utc": "2026-09-13T14:12:17+00:00",
+            "line": 4818,
+            "text": "[2026-09-13 14:12:17 TP0] Cache flushed successfully!"
+          }
+        ]
+      },
+      "client_sha256": "98806c6426b44c51c384cb85cfc75410b5d6dea835465c4a0e08d6457568abad",
+      "client_matching_files": [
+        "/volume/dev/alan/deployments/five-model-cost-20260913/benchmark.py"
+      ],
+      "dataset_sha256": "7f359cd04959f50cd2e9c8fe42da541eadd92423411ffa71ec3ce0678a1b938a",
+      "dataset_check": {
+        "errors": [],
+        "sha256": "7f359cd04959f50cd2e9c8fe42da541eadd92423411ffa71ec3ce0678a1b938a",
+        "input_shape": [
+          200,
+          22016
+        ],
+        "shared_prefix_tokens": 17664,
+        "independent_tail_starts": 200
+      },
+      "target_cache_rate": 0.796,
+      "accounting": {
+        "errors": [],
+        "missing": [],
+        "totals": {
+          "input": 4403200,
+          "output": 102800,
+          "cached": 3504896
+        },
+        "counters": {
+          "input": {
+            "request_sum": 4403200,
+            "server_delta": 4403200.0,
+            "source": "sglang:prompt_tokens_total"
+          },
+          "output": {
+            "request_sum": 102800,
+            "server_delta": 102800.0,
+            "source": "sglang:generation_tokens_total"
+          },
+          "cached": {
+            "request_sum": 3504896,
+            "server_delta": 3504896.0,
+            "source": "sglang:cached_tokens_total"
+          }
+        },
+        "derived": {
+          "input_tpm": 3150236.015404985,
+          "output_tpm": 73547.4796474456,
+          "cached_input_tpm": 2507551.237611026,
+          "uncached_input_tpm": 642684.7777939589,
+          "total_tpm": 3223783.495052431,
+          "completed_rps": 2.3848080300728145,
+          "observed_cache_rate": 0.7959883720930233,
+          "ttft_s_mean": 0.35786542678251865,
+          "tpot_ms_mean": 24.299955184123938,
+          "saved_request_wall_span_s": 83.86083878204226
+        }
+      },
+      "evidence_sha256": {
+        "manifest.json": "c119a7b0288467dfdfc68012e7ab8b961ad073650390747212ccc0dafce94062",
+        "summary.json": "e475d92adef7f7cb5d0bd468a998cc802ae844c6e098e4bfe9a3041a960ed983",
+        "flush.json": "aa982ee922fbeb9462965c4b651a1fb0ccfa55dfa37b0914e302129fd90cfa64",
+        "cache-preseed.json": "53605fae0bf2b8f641c256c36b7beef00b99ec8b982bd01183d1fd869dea0568",
+        "metrics-before.txt": "373884650d5aa44e5e205dd18fad996a17278fb8458a94ba69d2b9563586f980",
+        "metrics-after.txt": "535e6ac38c459db5196636a2b46cc055ad259db1bcd5799d44d7269de9e045f7"
+      }
+    },
+    {
+      "point": "v4flash-resume-02-sla-p08-r2.750000",
+      "evidence_root": "/volume/dev/alan/deployments/five-model-cost-20260913",
+      "model": "v4flash",
+      "selected": false,
+      "original_sla_status": "FAIL",
+      "original_failure_reasons": [
+        "TPOT"
+      ],
+      "audit_status": "PASS",
+      "errors": [],
+      "missing": [],
+      "saved_requests": 200,
+      "saved_success": 200,
+      "cache_counts_known": 200,
+      "excess_cache_requests": [],
+      "flush_http": 200,
+      "preseed_cached_tokens": [
+        0
+      ],
+      "preseed_input_tokens": [
+        17664
+      ],
+      "flush_log": {
+        "path": "/volume/dev/alan/deployments/five-model-cost-20260913/runs/v4flash-resume-02-sla/engine.log",
+        "events": [
+          {
+            "utc": "2026-09-13T14:13:49+00:00",
+            "line": 5268,
+            "text": "[2026-09-13 14:13:49 TP0] Cache flushed successfully!"
+          }
+        ]
+      },
+      "client_sha256": "98806c6426b44c51c384cb85cfc75410b5d6dea835465c4a0e08d6457568abad",
+      "client_matching_files": [
+        "/volume/dev/alan/deployments/five-model-cost-20260913/benchmark.py"
+      ],
+      "dataset_sha256": "7f359cd04959f50cd2e9c8fe42da541eadd92423411ffa71ec3ce0678a1b938a",
+      "dataset_check": {
+        "errors": [],
+        "sha256": "7f359cd04959f50cd2e9c8fe42da541eadd92423411ffa71ec3ce0678a1b938a",
+        "input_shape": [
+          200,
+          22016
+        ],
+        "shared_prefix_tokens": 17664,
+        "independent_tail_starts": 200
+      },
+      "target_cache_rate": 0.796,
+      "accounting": {
+        "errors": [],
+        "missing": [],
+        "totals": {
+          "input": 4403200,
+          "output": 102800,
+          "cached": 3504896
+        },
+        "counters": {
+          "input": {
+            "request_sum": 4403200,
+            "server_delta": 4403200.0,
+            "source": "sglang:prompt_tokens_total"
+          },
+          "output": {
+            "request_sum": 102800,
+            "server_delta": 102800.0,
+            "source": "sglang:generation_tokens_total"
+          },
+          "cached": {
+            "request_sum": 3504896,
+            "server_delta": 3504896.0,
+            "source": "sglang:cached_tokens_total"
+          }
+        },
+        "derived": {
+          "input_tpm": 3407806.953970118,
+          "output_tpm": 79560.8999973038,
+          "cached_input_tpm": 2712574.7096979585,
+          "uncached_input_tpm": 695232.2442721595,
+          "total_tpm": 3487367.8539674217,
+          "completed_rps": 2.5797957197569326,
+          "observed_cache_rate": 0.7959883720930233,
+          "ttft_s_mean": 0.4142290800623596,
+          "tpot_ms_mean": 42.97799455403617,
+          "saved_request_wall_span_s": 77.52288307296112
+        }
+      },
+      "evidence_sha256": {
+        "manifest.json": "512f82f3f189d9a10725a362f873527e9192036634cb4d66d7a5ba79058b1627",
+        "summary.json": "74d48487a24cb74c511afb66864098687474940ebaceafcff855a289bec991df",
+        "flush.json": "aa982ee922fbeb9462965c4b651a1fb0ccfa55dfa37b0914e302129fd90cfa64",
+        "cache-preseed.json": "54b5262ac8e618c05a09c9af60a901df2c5565bacdb565f4a9c96af134eb1d79",
+        "metrics-before.txt": "e0b390e85ea3756bfe300a6fc805220f88ab78be38cfe009485b014ac8bd1e4e",
+        "metrics-after.txt": "694bf69e31c95ad6d3d0aadf5e2fc8b4e0ca4dbc2e74f583d1bd7845f7f235bc"
+      }
+    },
+    {
+      "point": "v4pro-resume-11-sla-p01-r0.250000",
+      "evidence_root": "/volume/dev/alan/deployments/five-model-cost-20260913",
+      "model": "v4pro",
+      "selected": false,
+      "original_sla_status": null,
+      "original_failure_reasons": null,
+      "audit_status": "FAIL",
+      "errors": [
+        "preseed_length_mismatch",
+        "preseed_request_failed"
+      ],
+      "missing": [
+        "no_final_summary",
+        "preseed_cache_count_missing"
+      ],
+      "saved_requests": 0,
+      "saved_success": 0,
+      "cache_counts_known": 0,
+      "excess_cache_requests": [],
+      "flush_http": 200,
+      "preseed_cached_tokens": [
+        null
+      ],
+      "preseed_input_tokens": [
+        null
+      ],
+      "flush_log": {
+        "path": "/volume/dev/alan/deployments/five-model-cost-20260913/runs/v4pro-resume-11-sla/engine.log",
+        "events": [
+          {
+            "utc": "2026-09-13T19:57:19+00:00",
+            "line": 1530,
+            "text": "[2026-09-13 19:57:19 TP0] Cache flushed successfully!"
+          }
+        ]
+      },
+      "client_sha256": "98806c6426b44c51c384cb85cfc75410b5d6dea835465c4a0e08d6457568abad",
+      "client_matching_files": [
+        "/volume/dev/alan/deployments/five-model-cost-20260913/benchmark.py"
+      ],
+      "dataset_sha256": "a5c4d94dbc65395569d72d872b28e218517208203361d4006d255dac4bffbc64",
+      "dataset_check": {
+        "errors": [],
+        "sha256": "a5c4d94dbc65395569d72d872b28e218517208203361d4006d255dac4bffbc64",
+        "input_shape": [
+          200,
+          49664
+        ],
+        "shared_prefix_tokens": 43264,
+        "independent_tail_starts": 200
+      },
+      "target_cache_rate": 0.868,
+      "accounting": null,
+      "evidence_sha256": {
+        "manifest.json": "2de33615630ad49ac5d08688908600939927895e2d307d8fdbbd5bda9def3a96",
+        "flush.json": "aa982ee922fbeb9462965c4b651a1fb0ccfa55dfa37b0914e302129fd90cfa64",
+        "cache-preseed.json": "491dc7c8d05e71af9680b214ccc12d58afe2c69340361f506c0dd3738c516ac6"
+      }
+    },
+    {
+      "point": "v4pro-resume-12-sla-p01-r0.250000",
+      "evidence_root": "/volume/dev/alan/deployments/five-model-cost-20260913",
+      "model": "v4pro",
+      "selected": false,
+      "original_sla_status": "PASS",
+      "original_failure_reasons": [],
+      "audit_status": "PASS",
+      "errors": [],
+      "missing": [],
+      "saved_requests": 200,
+      "saved_success": 200,
+      "cache_counts_known": 200,
+      "excess_cache_requests": [],
+      "flush_http": 200,
+      "preseed_cached_tokens": [
+        0
+      ],
+      "preseed_input_tokens": [
+        43264
+      ],
+      "flush_log": {
+        "path": "/volume/dev/alan/deployments/five-model-cost-20260913/runs/v4pro-resume-12-sla/engine.log",
+        "events": [
+          {
+            "utc": "2026-09-13T20:06:47+00:00",
+            "line": 1484,
+            "text": "[2026-09-13 20:06:47 TP0] Cache flushed successfully!"
+          }
+        ]
+      },
+      "client_sha256": "98806c6426b44c51c384cb85cfc75410b5d6dea835465c4a0e08d6457568abad",
+      "client_matching_files": [
+        "/volume/dev/alan/deployments/five-model-cost-20260913/benchmark.py"
+      ],
+      "dataset_sha256": "a5c4d94dbc65395569d72d872b28e218517208203361d4006d255dac4bffbc64",
+      "dataset_check": {
+        "errors": [],
+        "sha256": "a5c4d94dbc65395569d72d872b28e218517208203361d4006d255dac4bffbc64",
+        "input_shape": [
+          200,
+          49664
+        ],
+        "shared_prefix_tokens": 43264,
+        "independent_tail_starts": 200
+      },
+      "target_cache_rate": 0.868,
+      "accounting": {
+        "errors": [],
+        "missing": [],
+        "totals": {
+          "input": 9932800,
+          "output": 189600,
+          "cached": 8621568
+        },
+        "counters": {
+          "input": {
+            "request_sum": 9932800,
+            "server_delta": 9932800.0,
+            "source": "sglang:prompt_tokens_total"
+          },
+          "output": {
+            "request_sum": 189600,
+            "server_delta": 189600.0,
+            "source": "sglang:generation_tokens_total"
+          },
+          "cached": {
+            "request_sum": 8621568,
+            "server_delta": 8621568.0,
+            "source": "sglang:prefill_effective_tokens_total cache modes"
+          }
+        },
+        "derived": {
+          "input_tpm": 745389.7549040911,
+          "output_tpm": 14228.20327901656,
+          "cached_input_tpm": 646990.6228262882,
+          "uncached_input_tpm": 98399.13207780296,
+          "total_tpm": 759617.9581831077,
+          "completed_rps": 0.2501442207984627,
+          "observed_cache_rate": 0.8679896907216494,
+          "ttft_s_mean": 0.7853376227687113,
+          "tpot_ms_mean": 3.0112484102496344,
+          "saved_request_wall_span_s": 799.5354536068626
+        }
+      },
+      "evidence_sha256": {
+        "manifest.json": "05e055d14c871b9dc0e50c1c6fc27bb55fa22d89a4c5fd778ada3fc98bd99d2b",
+        "summary.json": "c5d159699587ad2ad93348aa026c87e45fd2d6e76f916e3d7b0243b8dbc41ebd",
+        "flush.json": "aa982ee922fbeb9462965c4b651a1fb0ccfa55dfa37b0914e302129fd90cfa64",
+        "cache-preseed.json": "c1803087352eb6882ebca9b0c0e96630b0652c77c11066885d05de77695ba727",
+        "metrics-before.txt": "738fc09d7d8d14248e4b5f001caa9fe95e9178523f4be486ffd28aba4f546d17",
+        "metrics-after.txt": "4bc6d16e25438a1837c7b906960beea47327727f6f88e9dc879c9ae181288bfd"
+      }
+    },
+    {
+      "point": "v4pro-resume-12-sla-p02-r0.500000",
+      "evidence_root": "/volume/dev/alan/deployments/five-model-cost-20260913",
+      "model": "v4pro",
+      "selected": false,
+      "original_sla_status": "PASS",
+      "original_failure_reasons": [],
+      "audit_status": "PASS",
+      "errors": [],
+      "missing": [],
+      "saved_requests": 200,
+      "saved_success": 200,
+      "cache_counts_known": 200,
+      "excess_cache_requests": [],
+      "flush_http": 200,
+      "preseed_cached_tokens": [
+        0
+      ],
+      "preseed_input_tokens": [
+        43264
+      ],
+      "flush_log": {
+        "path": "/volume/dev/alan/deployments/five-model-cost-20260913/runs/v4pro-resume-12-sla/engine.log",
+        "events": [
+          {
+            "utc": "2026-09-13T20:20:26+00:00",
+            "line": 2834,
+            "text": "[2026-09-13 20:20:26 TP0] Cache flushed successfully!"
+          }
+        ]
+      },
+      "client_sha256": "98806c6426b44c51c384cb85cfc75410b5d6dea835465c4a0e08d6457568abad",
+      "client_matching_files": [
+        "/volume/dev/alan/deployments/five-model-cost-20260913/benchmark.py"
+      ],
+      "dataset_sha256": "a5c4d94dbc65395569d72d872b28e218517208203361d4006d255dac4bffbc64",
+      "dataset_check": {
+        "errors": [],
+        "sha256": "a5c4d94dbc65395569d72d872b28e218517208203361d4006d255dac4bffbc64",
+        "input_shape": [
+          200,
+          49664
+        ],
+        "shared_prefix_tokens": 43264,
+        "independent_tail_starts": 200
+      },
+      "target_cache_rate": 0.868,
+      "accounting": {
+        "errors": [],
+        "missing": [],
+        "totals": {
+          "input": 9932800,
+          "output": 189600,
+          "cached": 8610560
+        },
+        "counters": {
+          "input": {
+            "request_sum": 9932800,
+            "server_delta": 9932800.0,
+            "source": "sglang:prompt_tokens_total"
+          },
+          "output": {
+            "request_sum": 189600,
+            "server_delta": 189600.0,
+            "source": "sglang:generation_tokens_total"
+          },
+          "cached": {
+            "request_sum": 8610560,
+            "server_delta": 8610560.0,
+            "source": "sglang:cached_tokens_total"
+          }
+        },
+        "derived": {
+          "input_tpm": 1482375.4064711335,
+          "output_tpm": 28295.986737569154,
+          "cached_input_tpm": 1285043.7318725921,
+          "uncached_input_tpm": 197331.67459854134,
+          "total_tpm": 1510671.3932087026,
+          "completed_rps": 0.4974681212652805,
+          "observed_cache_rate": 0.8668814432989691,
+          "ttft_s_mean": 0.8198453409830109,
+          "tpot_ms_mean": 6.523465173520097,
+          "saved_request_wall_span_s": 402.03256066096947
+        }
+      },
+      "evidence_sha256": {
+        "manifest.json": "9924de30ffd2cd8b25765b3a2942bd72a13e191da2602cb29921df49bcfa7106",
+        "summary.json": "a9d4ed7e296ded70b2d86f53e3a084418a2d2c54b1972f785ea18354d1dd1b15",
+        "flush.json": "aa982ee922fbeb9462965c4b651a1fb0ccfa55dfa37b0914e302129fd90cfa64",
+        "cache-preseed.json": "d8b1f3376ffe211f8ae41f96c51261be4c802736beae555ec7473fab21993849",
+        "metrics-before.txt": "6d8bbe53e12624117071058ab1b8a7587654029a0206594fa663c526ddfb3a8b",
+        "metrics-after.txt": "dbc232c639a2791c332a1993c8467814e14b2af4df08f7cfe24cfc4abf0dcce7"
+      }
+    },
+    {
+      "point": "v4pro-resume-12-sla-p03-r1.000000",
+      "evidence_root": "/volume/dev/alan/deployments/five-model-cost-20260913",
+      "model": "v4pro",
+      "selected": false,
+      "original_sla_status": "FAIL",
+      "original_failure_reasons": [
+        "cache_rate_mismatch",
+        "TTFT"
+      ],
+      "audit_status": "PASS",
+      "errors": [],
+      "missing": [],
+      "saved_requests": 200,
+      "saved_success": 200,
+      "cache_counts_known": 200,
+      "excess_cache_requests": [],
+      "flush_http": 200,
+      "preseed_cached_tokens": [
+        0
+      ],
+      "preseed_input_tokens": [
+        43264
+      ],
+      "flush_log": {
+        "path": "/volume/dev/alan/deployments/five-model-cost-20260913/runs/v4pro-resume-12-sla/engine.log",
+        "events": [
+          {
+            "utc": "2026-09-13T20:27:24+00:00",
+            "line": 3569,
+            "text": "[2026-09-13 20:27:24 TP0] Cache flushed successfully!"
+          }
+        ]
+      },
+      "client_sha256": "98806c6426b44c51c384cb85cfc75410b5d6dea835465c4a0e08d6457568abad",
+      "client_matching_files": [
+        "/volume/dev/alan/deployments/five-model-cost-20260913/benchmark.py"
+      ],
+      "dataset_sha256": "a5c4d94dbc65395569d72d872b28e218517208203361d4006d255dac4bffbc64",
+      "dataset_check": {
+        "errors": [],
+        "sha256": "a5c4d94dbc65395569d72d872b28e218517208203361d4006d255dac4bffbc64",
+        "input_shape": [
+          200,
+          49664
+        ],
+        "shared_prefix_tokens": 43264,
+        "independent_tail_starts": 200
+      },
+      "target_cache_rate": 0.868,
+      "accounting": {
+        "errors": [],
+        "missing": [],
+        "totals": {
+          "input": 9932800,
+          "output": 189600,
+          "cached": 7962112
+        },
+        "counters": {
+          "input": {
+            "request_sum": 9932800,
+            "server_delta": 9932800.0,
+            "source": "sglang:prompt_tokens_total"
+          },
+          "output": {
+            "request_sum": 189600,
+            "server_delta": 189600.0,
+            "source": "sglang:generation_tokens_total"
+          },
+          "cached": {
+            "request_sum": 7962112,
+            "server_delta": 7962112.0,
+            "source": "sglang:cached_tokens_total"
+          }
+        },
+        "derived": {
+          "input_tpm": 1861138.5664410116,
+          "output_tpm": 35525.92141160758,
+          "cached_input_tpm": 1491884.837460009,
+          "uncached_input_tpm": 369253.72898100276,
+          "total_tpm": 1896664.4878526193,
+          "completed_rps": 0.6245766774192613,
+          "observed_cache_rate": 0.8015979381443299,
+          "ttft_s_mean": 58.37887022030307,
+          "tpot_ms_mean": 19.437246366960625,
+          "saved_request_wall_span_s": 320.21437703212723
+        }
+      },
+      "evidence_sha256": {
+        "manifest.json": "0a9f24d244f82135d6b2524149a839cfb72a00b5a65f317453a3d177e0b10295",
+        "summary.json": "87558c21b5f2f86efad1f3b317129c216cb83bf8435db5f11c358ef799b8f406",
+        "flush.json": "aa982ee922fbeb9462965c4b651a1fb0ccfa55dfa37b0914e302129fd90cfa64",
+        "cache-preseed.json": "75868c94bdff91d2b7ca6b8920514b84381229a87bfc50c201f05679680bc0cf",
+        "metrics-before.txt": "120eab69655a44fdfdbd6d5d46d201e83fa3769baa096ba1764755e334a4ebc1",
+        "metrics-after.txt": "a31fcb9d2f9a2f6cc3068ffd812873ab0332f879948fcec1ef84b60dc9d1b112"
+      }
+    },
+    {
+      "point": "v4pro-resume-13-sla-p04-r0.750000",
+      "evidence_root": "/volume/dev/alan/deployments/five-model-cost-20260913",
+      "model": "v4pro",
+      "selected": true,
+      "original_sla_status": "PASS",
+      "original_failure_reasons": [],
+      "audit_status": "PASS",
+      "errors": [],
+      "missing": [],
+      "saved_requests": 200,
+      "saved_success": 200,
+      "cache_counts_known": 200,
+      "excess_cache_requests": [],
+      "flush_http": 200,
+      "preseed_cached_tokens": [
+        0
+      ],
+      "preseed_input_tokens": [
+        43264
+      ],
+      "flush_log": {
+        "path": "/volume/dev/alan/deployments/five-model-cost-20260913/runs/v4pro-resume-12-sla/engine.log",
+        "events": [
+          {
+            "utc": "2026-09-13T20:34:50+00:00",
+            "line": 4217,
+            "text": "[2026-09-13 20:34:50 TP0] Cache flushed successfully!"
+          }
+        ]
+      },
+      "client_sha256": "98806c6426b44c51c384cb85cfc75410b5d6dea835465c4a0e08d6457568abad",
+      "client_matching_files": [
+        "/volume/dev/alan/deployments/five-model-cost-20260913/benchmark.py"
+      ],
+      "dataset_sha256": "a5c4d94dbc65395569d72d872b28e218517208203361d4006d255dac4bffbc64",
+      "dataset_check": {
+        "errors": [],
+        "sha256": "a5c4d94dbc65395569d72d872b28e218517208203361d4006d255dac4bffbc64",
+        "input_shape": [
+          200,
+          49664
+        ],
+        "shared_prefix_tokens": 43264,
+        "independent_tail_starts": 200
+      },
+      "target_cache_rate": 0.868,
+      "accounting": {
+        "errors": [],
+        "missing": [],
+        "totals": {
+          "input": 9932800,
+          "output": 189600,
+          "cached": 8603136
+        },
+        "counters": {
+          "input": {
+            "request_sum": 9932800,
+            "server_delta": 9932800.0,
+            "source": "sglang:prompt_tokens_total"
+          },
+          "output": {
+            "request_sum": 189600,
+            "server_delta": 189600.0,
+            "source": "sglang:generation_tokens_total"
+          },
+          "cached": {
+            "request_sum": 8603136,
+            "server_delta": 8603136.0,
+            "source": "sglang:cached_tokens_total"
+          }
+        },
+        "derived": {
+          "input_tpm": 2207604.922855547,
+          "output_tpm": 42139.36587602808,
+          "cached_input_tpm": 1912081.7277701935,
+          "uncached_input_tpm": 295523.1950853534,
+          "total_tpm": 2249744.288731575,
+          "completed_rps": 0.7408467981017595,
+          "observed_cache_rate": 0.8661340206185567,
+          "ttft_s_mean": 0.7432617352250963,
+          "tpot_ms_mean": 11.327712728790427,
+          "saved_request_wall_span_s": 269.9581886860542
+        }
+      },
+      "evidence_sha256": {
+        "manifest.json": "a4b2d2773026743a0ff7363c72d827b78b91fbb0255ffc2cff1aca1777f02061",
+        "summary.json": "7347eb68bbc36e3fb356cebb17af01fc83d6d4dddfcf76efdf5dd9259f98e21f",
+        "flush.json": "aa982ee922fbeb9462965c4b651a1fb0ccfa55dfa37b0914e302129fd90cfa64",
+        "cache-preseed.json": "4c44f1ea2e0f69b08eb182181e33cf61511a3c05db6636081894b3d974b719f7",
+        "metrics-before.txt": "3f5d8a003fe0d82e9e157b03adda659f8cf35d91998ec4f8560a93db902eafed",
+        "metrics-after.txt": "8f8c9baed3bfcffb7c782776318c3ab3b57e7fbb690db1994aa041d98db12ad3"
+      }
+    },
+    {
+      "point": "v4pro-resume-13-sla-p05-r0.875000",
+      "evidence_root": "/volume/dev/alan/deployments/five-model-cost-20260913",
+      "model": "v4pro",
+      "selected": false,
+      "original_sla_status": "FAIL",
+      "original_failure_reasons": [
+        "cache_rate_mismatch",
+        "TTFT"
+      ],
+      "audit_status": "PASS",
+      "errors": [],
+      "missing": [],
+      "saved_requests": 200,
+      "saved_success": 200,
+      "cache_counts_known": 200,
+      "excess_cache_requests": [],
+      "flush_http": 200,
+      "preseed_cached_tokens": [
+        0
+      ],
+      "preseed_input_tokens": [
+        43264
+      ],
+      "flush_log": {
+        "path": "/volume/dev/alan/deployments/five-model-cost-20260913/runs/v4pro-resume-12-sla/engine.log",
+        "events": [
+          {
+            "utc": "2026-09-13T20:40:16+00:00",
+            "line": 4780,
+            "text": "[2026-09-13 20:40:16 TP0] Cache flushed successfully!"
+          }
+        ]
+      },
+      "client_sha256": "98806c6426b44c51c384cb85cfc75410b5d6dea835465c4a0e08d6457568abad",
+      "client_matching_files": [
+        "/volume/dev/alan/deployments/five-model-cost-20260913/benchmark.py"
+      ],
+      "dataset_sha256": "a5c4d94dbc65395569d72d872b28e218517208203361d4006d255dac4bffbc64",
+      "dataset_check": {
+        "errors": [],
+        "sha256": "a5c4d94dbc65395569d72d872b28e218517208203361d4006d255dac4bffbc64",
+        "input_shape": [
+          200,
+          49664
+        ],
+        "shared_prefix_tokens": 43264,
+        "independent_tail_starts": 200
+      },
+      "target_cache_rate": 0.868,
+      "accounting": {
+        "errors": [],
+        "missing": [],
+        "totals": {
+          "input": 9932800,
+          "output": 189600,
+          "cached": 8146432
+        },
+        "counters": {
+          "input": {
+            "request_sum": 9932800,
+            "server_delta": 9932800.0,
+            "source": "sglang:prompt_tokens_total"
+          },
+          "output": {
+            "request_sum": 189600,
+            "server_delta": 189600.0,
+            "source": "sglang:generation_tokens_total"
+          },
+          "cached": {
+            "request_sum": 8146432,
+            "server_delta": 8146432.0,
+            "source": "sglang:cached_tokens_total"
+          }
+        },
+        "derived": {
+          "input_tpm": 2011890.8351851436,
+          "output_tpm": 38403.52190229374,
+          "cached_input_tpm": 1650061.6019912795,
+          "uncached_input_tpm": 361829.23319386423,
+          "total_tpm": 2050294.3570874373,
+          "completed_rps": 0.6751674033455298,
+          "observed_cache_rate": 0.8201546391752578,
+          "ttft_s_mean": 24.677003367776052,
+          "tpot_ms_mean": 17.900916023670135,
+          "saved_request_wall_span_s": 296.22032182104886
+        }
+      },
+      "evidence_sha256": {
+        "manifest.json": "38d9f1ee6e7b92f7126066562dafe53f4d77708214a77eb0676e28888a09cc11",
+        "summary.json": "3d9366c73f0242b501dcd2978aa050f6ceb350362f05520bb046136ad90cbd74",
+        "flush.json": "aa982ee922fbeb9462965c4b651a1fb0ccfa55dfa37b0914e302129fd90cfa64",
+        "cache-preseed.json": "ab344b6aa548d6c5119731a8502962a6ca552f02ffa9e0d0edcc5f3ec1aabc62",
+        "metrics-before.txt": "514f3496a698d83e01fda2533d0534370ed1bed54ae53ca8017794dc5a91b969",
+        "metrics-after.txt": "6ce5fb0973109a58637d9857befac2dc7dcbf59e881d6860fb7a5a80c5fdf887"
+      }
+    },
+    {
+      "point": "v4pro-resume-13-sla-p06-r0.812500",
+      "evidence_root": "/volume/dev/alan/deployments/five-model-cost-20260913",
+      "model": "v4pro",
+      "selected": false,
+      "original_sla_status": "FAIL",
+      "original_failure_reasons": [
+        "cache_rate_mismatch",
+        "TTFT"
+      ],
+      "audit_status": "PASS",
+      "errors": [],
+      "missing": [],
+      "saved_requests": 200,
+      "saved_success": 200,
+      "cache_counts_known": 200,
+      "excess_cache_requests": [],
+      "flush_http": 200,
+      "preseed_cached_tokens": [
+        0
+      ],
+      "preseed_input_tokens": [
+        43264
+      ],
+      "flush_log": {
+        "path": "/volume/dev/alan/deployments/five-model-cost-20260913/runs/v4pro-resume-12-sla/engine.log",
+        "events": [
+          {
+            "utc": "2026-09-13T20:47:24+00:00",
+            "line": 5419,
+            "text": "[2026-09-13 20:47:24 TP0] Cache flushed successfully!"
+          }
+        ]
+      },
+      "client_sha256": "98806c6426b44c51c384cb85cfc75410b5d6dea835465c4a0e08d6457568abad",
+      "client_matching_files": [
+        "/volume/dev/alan/deployments/five-model-cost-20260913/benchmark.py"
+      ],
+      "dataset_sha256": "a5c4d94dbc65395569d72d872b28e218517208203361d4006d255dac4bffbc64",
+      "dataset_check": {
+        "errors": [],
+        "sha256": "a5c4d94dbc65395569d72d872b28e218517208203361d4006d255dac4bffbc64",
+        "input_shape": [
+          200,
+          49664
+        ],
+        "shared_prefix_tokens": 43264,
+        "independent_tail_starts": 200
+      },
+      "target_cache_rate": 0.868,
+      "accounting": {
+        "errors": [],
+        "missing": [],
+        "totals": {
+          "input": 9932800,
+          "output": 189600,
+          "cached": 8394240
+        },
+        "counters": {
+          "input": {
+            "request_sum": 9932800,
+            "server_delta": 9932800.0,
+            "source": "sglang:prompt_tokens_total"
+          },
+          "output": {
+            "request_sum": 189600,
+            "server_delta": 189600.0,
+            "source": "sglang:generation_tokens_total"
+          },
+          "cached": {
+            "request_sum": 8394240,
+            "server_delta": 8394240.0,
+            "source": "sglang:cached_tokens_total"
+          }
+        },
+        "derived": {
+          "input_tpm": 2182791.0822951156,
+          "output_tpm": 41665.71250837165,
+          "cached_input_tpm": 1844683.4945478567,
+          "uncached_input_tpm": 338107.5877472589,
+          "total_tpm": 2224456.794803487,
+          "completed_rps": 0.7325195588672935,
+          "observed_cache_rate": 0.8451030927835051,
+          "ttft_s_mean": 4.983998226108961,
+          "tpot_ms_mean": 15.569422335138716,
+          "saved_request_wall_span_s": 273.02753514703363
+        }
+      },
+      "evidence_sha256": {
+        "manifest.json": "7141f1838a5a8997ffedce72085c3ef299a31631cd24d7a673c5077d26bbcb58",
+        "summary.json": "103574ea0f0edbe6745a7c1db94a21cd8cf4bd6060c31fcaf327ba391bad93a0",
+        "flush.json": "aa982ee922fbeb9462965c4b651a1fb0ccfa55dfa37b0914e302129fd90cfa64",
+        "cache-preseed.json": "6a1078c8a32c9b8a90fbc83c9d970d75b5b4e4555ffacbb4e8f2b9882af13531",
+        "metrics-before.txt": "dc615a83c1c6b2de984351e81ac335988fcf098a1d482772c540c9c3081e1ff2",
+        "metrics-after.txt": "59950a5433a6a72f91d63d2d0a72926832d43a1a928b63ccd856b72c036dc755"
+      }
+    },
+    {
+      "point": "sla-tp8-mtp5-mem085-01-p01-r0.250000",
+      "evidence_root": "/volume/dev/alan/deployments/glm53-nvfp4-perf-20260914",
+      "model": "glm53_nvfp4",
+      "selected": false,
+      "original_sla_status": null,
+      "original_failure_reasons": null,
+      "audit_status": "INCOMPLETE",
+      "errors": [],
+      "missing": [
+        "no_final_summary"
+      ],
+      "saved_requests": 4,
+      "saved_success": 4,
+      "cache_counts_known": 4,
+      "excess_cache_requests": [],
+      "flush_http": 200,
+      "preseed_cached_tokens": [
+        0
+      ],
+      "preseed_input_tokens": [
+        68224
+      ],
+      "flush_log": {
+        "path": "/volume/dev/alan/deployments/glm53-nvfp4-perf-20260914/runs/sla-tp8-mtp5-mem085-01/engine.log",
+        "events": [
+          {
+            "utc": "2026-09-14T05:39:19+00:00",
+            "line": 669,
+            "text": "[2026-09-14 05:39:19 TP0] Cache flushed successfully!"
+          }
+        ]
+      },
+      "client_sha256": "98806c6426b44c51c384cb85cfc75410b5d6dea835465c4a0e08d6457568abad",
+      "client_matching_files": [
+        "/volume/dev/alan/deployments/five-model-cost-20260913/benchmark.py"
+      ],
+      "dataset_sha256": "6eeaf248f1065a9b26232fb8dbc8b614edc20c01d411ab04e72c32835b2aa605",
+      "dataset_check": {
+        "errors": [],
+        "sha256": "6eeaf248f1065a9b26232fb8dbc8b614edc20c01d411ab04e72c32835b2aa605",
+        "input_shape": [
+          200,
+          72125
+        ],
+        "shared_prefix_tokens": 68224,
+        "independent_tail_starts": 200
+      },
+      "target_cache_rate": 0.94532,
+      "accounting": null,
+      "evidence_sha256": {
+        "manifest.json": "3d634aa9eb7c06e10cbe0f13c2062e20330781c41e5c2d2f142776ebf1588308",
+        "flush.json": "aa982ee922fbeb9462965c4b651a1fb0ccfa55dfa37b0914e302129fd90cfa64",
+        "cache-preseed.json": "f9f966891aafb1a586b550b7552698eef2d4afe720913d2e9aa3d6ef241de95d",
+        "metrics-before.txt": "079d9eb25a53cab5fe0b29bf568d288433c31a7a84b5da9e67a5fa1b0b331198"
+      }
+    },
+    {
+      "point": "sla-tp8-mtp5-mem085-02-p01-r0.250000",
+      "evidence_root": "/volume/dev/alan/deployments/glm53-nvfp4-perf-20260914",
+      "model": "glm53_nvfp4",
+      "selected": false,
+      "original_sla_status": "PASS",
+      "original_failure_reasons": [],
+      "audit_status": "PASS",
+      "errors": [],
+      "missing": [],
+      "saved_requests": 200,
+      "saved_success": 200,
+      "cache_counts_known": 200,
+      "excess_cache_requests": [],
+      "flush_http": 200,
+      "preseed_cached_tokens": [
+        0
+      ],
+      "preseed_input_tokens": [
+        68224
+      ],
+      "flush_log": {
+        "path": "/volume/dev/alan/deployments/glm53-nvfp4-perf-20260914/runs/sla-tp8-mtp5-mem085-02/engine.log",
+        "events": [
+          {
+            "utc": "2026-09-14T05:47:45+00:00",
+            "line": 668,
+            "text": "[2026-09-14 05:47:45 TP0] Cache flushed successfully!"
+          }
+        ]
+      },
+      "client_sha256": "98806c6426b44c51c384cb85cfc75410b5d6dea835465c4a0e08d6457568abad",
+      "client_matching_files": [
+        "/volume/dev/alan/deployments/five-model-cost-20260913/benchmark.py"
+      ],
+      "dataset_sha256": "6eeaf248f1065a9b26232fb8dbc8b614edc20c01d411ab04e72c32835b2aa605",
+      "dataset_check": {
+        "errors": [],
+        "sha256": "6eeaf248f1065a9b26232fb8dbc8b614edc20c01d411ab04e72c32835b2aa605",
+        "input_shape": [
+          200,
+          72125
+        ],
+        "shared_prefix_tokens": 68224,
+        "independent_tail_starts": 200
+      },
+      "target_cache_rate": 0.94532,
+      "accounting": {
+        "errors": [],
+        "missing": [],
+        "totals": {
+          "input": 14425000,
+          "output": 219000,
+          "cached": 13623424
+        },
+        "counters": {
+          "input": {
+            "request_sum": 14425000,
+            "server_delta": 14425000.0,
+            "source": "sglang:prompt_tokens_total"
+          },
+          "output": {
+            "request_sum": 219000,
+            "server_delta": 219000.0,
+            "source": "sglang:generation_tokens_total"
+          },
+          "cached": {
+            "request_sum": 13623424,
+            "server_delta": 13623424.0,
+            "source": "sglang:prefill_effective_tokens_total cache modes"
+          }
+        },
+        "derived": {
+          "input_tpm": 1080103.0891995302,
+          "output_tpm": 16398.098893219903,
+          "cached_input_tpm": 1020083.3516724452,
+          "uncached_input_tpm": 60019.737527085104,
+          "total_tpm": 1096501.1880927503,
+          "completed_rps": 0.24959054631993768,
+          "observed_cache_rate": 0.9444314731369151,
+          "ttft_s_mean": 0.48923763455823066,
+          "tpot_ms_mean": 4.35570244509233,
+          "saved_request_wall_span_s": 801.3088005939499
+        }
+      },
+      "evidence_sha256": {
+        "manifest.json": "63aab36888f09ad82dc8172758826aea58f5227fa3118aed965319f28c90307f",
+        "summary.json": "31a41ca565020b828faa576271fa916fe44a9add31ca1b37e7ba79ed012f1481",
+        "flush.json": "aa982ee922fbeb9462965c4b651a1fb0ccfa55dfa37b0914e302129fd90cfa64",
+        "cache-preseed.json": "b7c0e6df53c55873f18cfb4d6cce81e7bcc261c7f88bcbf2ff682a66d0224e18",
+        "metrics-before.txt": "a2a80501b855399fdb2386cb9dc05ab6abe56775b127003721a371129f4db260",
+        "metrics-after.txt": "ac80d6d39c00ee4ddcf9b142b0bfdab2a02ef555ac7136c0531e3575e3cad2ef"
+      }
+    },
+    {
+      "point": "sla-tp8-mtp5-mem085-02-p02-r0.500000",
+      "evidence_root": "/volume/dev/alan/deployments/glm53-nvfp4-perf-20260914",
+      "model": "glm53_nvfp4",
+      "selected": false,
+      "original_sla_status": "PASS",
+      "original_failure_reasons": [],
+      "audit_status": "PASS",
+      "errors": [],
+      "missing": [],
+      "saved_requests": 104,
+      "saved_success": 104,
+      "cache_counts_known": 104,
+      "excess_cache_requests": [],
+      "flush_http": 200,
+      "preseed_cached_tokens": [
+        0
+      ],
+      "preseed_input_tokens": [
+        68224
+      ],
+      "flush_log": {
+        "path": "/volume/dev/alan/deployments/glm53-nvfp4-perf-20260914/runs/sla-tp8-mtp5-mem085-02/engine.log",
+        "events": [
+          {
+            "utc": "2026-09-14T06:01:26+00:00",
+            "line": 2186,
+            "text": "[2026-09-14 06:01:26 TP0] Cache flushed successfully!"
+          }
+        ]
+      },
+      "client_sha256": "028ab6e65bc515480fa2441c3333316c0d356cfd728d537cd709ac740f1b629f",
+      "client_matching_files": [
+        "/volume/dev/alan/deployments/glm53-nvfp4-perf-20260914/benchmark_core.py"
+      ],
+      "dataset_sha256": "6eeaf248f1065a9b26232fb8dbc8b614edc20c01d411ab04e72c32835b2aa605",
+      "dataset_check": {
+        "errors": [],
+        "sha256": "6eeaf248f1065a9b26232fb8dbc8b614edc20c01d411ab04e72c32835b2aa605",
+        "input_shape": [
+          200,
+          72125
+        ],
+        "shared_prefix_tokens": 68224,
+        "independent_tail_starts": 200
+      },
+      "target_cache_rate": 0.94532,
+      "accounting": {
+        "errors": [],
+        "missing": [],
+        "totals": {
+          "input": 7501000,
+          "output": 113880,
+          "cached": 7084096
+        },
+        "counters": {
+          "input": {
+            "request_sum": 7501000,
+            "server_delta": 7501000.0,
+            "source": "sglang:prompt_tokens_total"
+          },
+          "output": {
+            "request_sum": 113880,
+            "server_delta": 113880.0,
+            "source": "sglang:generation_tokens_total"
+          },
+          "cached": {
+            "request_sum": 7084096,
+            "server_delta": 7084096.0,
+            "source": "sglang:cached_tokens_total"
+          }
+        },
+        "derived": {
+          "input_tpm": 2125826.9319664943,
+          "output_tpm": 32274.252901259082,
+          "cached_input_tpm": 2007673.9188689662,
+          "uncached_input_tpm": 118153.01309752825,
+          "total_tpm": 2158101.1848677536,
+          "completed_rps": 0.4912367260465614,
+          "observed_cache_rate": 0.9444202106385815,
+          "ttft_s_mean": 0.5182519081953125,
+          "tpot_ms_mean": 7.825091991469223,
+          "saved_request_wall_span_s": 211.70769428601488
+        }
+      },
+      "evidence_sha256": {
+        "manifest.json": "18bbac6c98db987a7c37de1569d1e89bfe6503eda4935112b9a445317fb3d999",
+        "summary.json": "4593fe33023e224a1a212086c74f7b26740705dffb84c6f8edb7fd8164111374",
+        "flush.json": "aa982ee922fbeb9462965c4b651a1fb0ccfa55dfa37b0914e302129fd90cfa64",
+        "cache-preseed.json": "ccdadebad6d05dc499117de8204837b54fd56dfef7ab7fed521f6eac9604bf35",
+        "metrics-before.txt": "aadd67957c9b109ddc00334978b4334a8f11d0af9bd5ac3baecda8bec48130ae",
+        "metrics-after.txt": "c2386eda2ba231af1488b42cbf32eac472a3adf29e89f165b2e8ae62ad0101d6"
+      }
+    },
+    {
+      "point": "sla-tp8-mtp5-mem085-02-p03-r1.000000",
+      "evidence_root": "/volume/dev/alan/deployments/glm53-nvfp4-perf-20260914",
+      "model": "glm53_nvfp4",
+      "selected": false,
+      "original_sla_status": "FAIL",
+      "original_failure_reasons": [
+        "TPOT"
+      ],
+      "audit_status": "PASS",
+      "errors": [],
+      "missing": [],
+      "saved_requests": 200,
+      "saved_success": 200,
+      "cache_counts_known": 200,
+      "excess_cache_requests": [],
+      "flush_http": 200,
+      "preseed_cached_tokens": [
+        0
+      ],
+      "preseed_input_tokens": [
+        68224
+      ],
+      "flush_log": {
+        "path": "/volume/dev/alan/deployments/glm53-nvfp4-perf-20260914/runs/sla-tp8-mtp5-mem085-02/engine.log",
+        "events": [
+          {
+            "utc": "2026-09-14T06:05:17+00:00",
+            "line": 2593,
+            "text": "[2026-09-14 06:05:17 TP0] Cache flushed successfully!"
+          }
+        ]
+      },
+      "client_sha256": "028ab6e65bc515480fa2441c3333316c0d356cfd728d537cd709ac740f1b629f",
+      "client_matching_files": [
+        "/volume/dev/alan/deployments/glm53-nvfp4-perf-20260914/benchmark_core.py"
+      ],
+      "dataset_sha256": "6eeaf248f1065a9b26232fb8dbc8b614edc20c01d411ab04e72c32835b2aa605",
+      "dataset_check": {
+        "errors": [],
+        "sha256": "6eeaf248f1065a9b26232fb8dbc8b614edc20c01d411ab04e72c32835b2aa605",
+        "input_shape": [
+          200,
+          72125
+        ],
+        "shared_prefix_tokens": 68224,
+        "independent_tail_starts": 200
+      },
+      "target_cache_rate": 0.94532,
+      "accounting": {
+        "errors": [],
+        "missing": [],
+        "totals": {
+          "input": 14425000,
+          "output": 219000,
+          "cached": 13623424
+        },
+        "counters": {
+          "input": {
+            "request_sum": 14425000,
+            "server_delta": 14425000.0,
+            "source": "sglang:prompt_tokens_total"
+          },
+          "output": {
+            "request_sum": 219000,
+            "server_delta": 219000.0,
+            "source": "sglang:generation_tokens_total"
+          },
+          "cached": {
+            "request_sum": 13623424,
+            "server_delta": 13623424.0,
+            "source": "sglang:cached_tokens_total"
+          }
+        },
+        "derived": {
+          "input_tpm": 4016989.2739074463,
+          "output_tpm": 60985.8336905186,
+          "cached_input_tpm": 3793771.0975315967,
+          "uncached_input_tpm": 223218.17637584993,
+          "total_tpm": 4077975.1075979653,
+          "completed_rps": 0.9282470881357473,
+          "observed_cache_rate": 0.9444314731369151,
+          "ttft_s_mean": 0.5958563113841229,
+          "tpot_ms_mean": 31.88471125910004,
+          "saved_request_wall_span_s": 215.4566190028563
+        }
+      },
+      "evidence_sha256": {
+        "manifest.json": "b078464fd17529a5fd7ce453736c938a4133a04b8238ea594a32ebe175bda1e3",
+        "summary.json": "945b60abcd060c019008aa6bffe8c91b527739ba71d206cbb811f21c0b47da24",
+        "flush.json": "aa982ee922fbeb9462965c4b651a1fb0ccfa55dfa37b0914e302129fd90cfa64",
+        "cache-preseed.json": "77cbad0e3e7662be7de0cf9ec6846582c561f481e3c7db875e1650cd0bd71bc8",
+        "metrics-before.txt": "142939fd660bb4b4e0c811a93df938726867a73664f22bda12523cf295bc699a",
+        "metrics-after.txt": "ec1ff43a672156fc51187f286d0cff16ccb8e8be7d3c671ad55e680b196ba0e2"
+      }
+    },
+    {
+      "point": "sla-tp8-mtp5-mem085-02-p04-r0.750000",
+      "evidence_root": "/volume/dev/alan/deployments/glm53-nvfp4-perf-20260914",
+      "model": "glm53_nvfp4",
+      "selected": true,
+      "original_sla_status": "PASS",
+      "original_failure_reasons": [],
+      "audit_status": "PASS",
+      "errors": [],
+      "missing": [],
+      "saved_requests": 119,
+      "saved_success": 119,
+      "cache_counts_known": 119,
+      "excess_cache_requests": [],
+      "flush_http": 200,
+      "preseed_cached_tokens": [
+        0
+      ],
+      "preseed_input_tokens": [
+        68224
+      ],
+      "flush_log": {
+        "path": "/volume/dev/alan/deployments/glm53-nvfp4-perf-20260914/runs/sla-tp8-mtp5-mem085-02/engine.log",
+        "events": [
+          {
+            "utc": "2026-09-14T06:09:12+00:00",
+            "line": 3076,
+            "text": "[2026-09-14 06:09:12 TP0] Cache flushed successfully!"
+          }
+        ]
+      },
+      "client_sha256": "028ab6e65bc515480fa2441c3333316c0d356cfd728d537cd709ac740f1b629f",
+      "client_matching_files": [
+        "/volume/dev/alan/deployments/glm53-nvfp4-perf-20260914/benchmark_core.py"
+      ],
+      "dataset_sha256": "6eeaf248f1065a9b26232fb8dbc8b614edc20c01d411ab04e72c32835b2aa605",
+      "dataset_check": {
+        "errors": [],
+        "sha256": "6eeaf248f1065a9b26232fb8dbc8b614edc20c01d411ab04e72c32835b2aa605",
+        "input_shape": [
+          200,
+          72125
+        ],
+        "shared_prefix_tokens": 68224,
+        "independent_tail_starts": 200
+      },
+      "target_cache_rate": 0.94532,
+      "accounting": {
+        "errors": [],
+        "missing": [],
+        "totals": {
+          "input": 8582875,
+          "output": 130305,
+          "cached": 8105728
+        },
+        "counters": {
+          "input": {
+            "request_sum": 8582875,
+            "server_delta": 8582875.0,
+            "source": "sglang:prompt_tokens_total"
+          },
+          "output": {
+            "request_sum": 130305,
+            "server_delta": 130305.0,
+            "source": "sglang:generation_tokens_total"
+          },
+          "cached": {
+            "request_sum": 8105728,
+            "server_delta": 8105728.0,
+            "source": "sglang:cached_tokens_total"
+          }
+        },
+        "derived": {
+          "input_tpm": 3042219.652145156,
+          "output_tpm": 46186.90494417949,
+          "cached_input_tpm": 2873093.807907403,
+          "uncached_input_tpm": 169125.84423775307,
+          "total_tpm": 3088406.5570893358,
+          "completed_rps": 0.7029970311138432,
+          "observed_cache_rate": 0.9444070896989645,
+          "ttft_s_mean": 0.5320024156723829,
+          "tpot_ms_mean": 16.2176355347312,
+          "saved_request_wall_span_s": 169.27234005974606
+        }
+      },
+      "evidence_sha256": {
+        "manifest.json": "76a5e515db8fa798e5618e956503124ab51aac0ba9b0c159861aadc1cc48276b",
+        "summary.json": "4be5e8eaa86002075af6e9d21ad2333ae0eac3abdb1c2ad57bd90289d02249c6",
+        "flush.json": "aa982ee922fbeb9462965c4b651a1fb0ccfa55dfa37b0914e302129fd90cfa64",
+        "cache-preseed.json": "b26be6851d83115a1e1c09350892dac0b10ef548aa809c9ebd63dfc6fa11f180",
+        "metrics-before.txt": "44bccc3ea4a600ee2fdf2eba782f35bd6e93ce651585560761451446a85dbd78",
+        "metrics-after.txt": "505523514a6e946d5689f5af20bc2f5c0b2a911bdac50fac783e04df706753b6"
+      }
+    },
+    {
+      "point": "sla-tp8-mtp5-mem085-02-p05-r0.875000",
+      "evidence_root": "/volume/dev/alan/deployments/glm53-nvfp4-perf-20260914",
+      "model": "glm53_nvfp4",
+      "selected": false,
+      "original_sla_status": "FAIL",
+      "original_failure_reasons": [
+        "TPOT"
+      ],
+      "audit_status": "PASS",
+      "errors": [],
+      "missing": [],
+      "saved_requests": 200,
+      "saved_success": 200,
+      "cache_counts_known": 200,
+      "excess_cache_requests": [],
+      "flush_http": 200,
+      "preseed_cached_tokens": [
+        0
+      ],
+      "preseed_input_tokens": [
+        68224
+      ],
+      "flush_log": {
+        "path": "/volume/dev/alan/deployments/glm53-nvfp4-perf-20260914/runs/sla-tp8-mtp5-mem085-02/engine.log",
+        "events": [
+          {
+            "utc": "2026-09-14T06:12:21+00:00",
+            "line": 3420,
+            "text": "[2026-09-14 06:12:21 TP0] Cache flushed successfully!"
+          }
+        ]
+      },
+      "client_sha256": "028ab6e65bc515480fa2441c3333316c0d356cfd728d537cd709ac740f1b629f",
+      "client_matching_files": [
+        "/volume/dev/alan/deployments/glm53-nvfp4-perf-20260914/benchmark_core.py"
+      ],
+      "dataset_sha256": "6eeaf248f1065a9b26232fb8dbc8b614edc20c01d411ab04e72c32835b2aa605",
+      "dataset_check": {
+        "errors": [],
+        "sha256": "6eeaf248f1065a9b26232fb8dbc8b614edc20c01d411ab04e72c32835b2aa605",
+        "input_shape": [
+          200,
+          72125
+        ],
+        "shared_prefix_tokens": 68224,
+        "independent_tail_starts": 200
+      },
+      "target_cache_rate": 0.94532,
+      "accounting": {
+        "errors": [],
+        "missing": [],
+        "totals": {
+          "input": 14425000,
+          "output": 219000,
+          "cached": 13623424
+        },
+        "counters": {
+          "input": {
+            "request_sum": 14425000,
+            "server_delta": 14425000.0,
+            "source": "sglang:prompt_tokens_total"
+          },
+          "output": {
+            "request_sum": 219000,
+            "server_delta": 219000.0,
+            "source": "sglang:generation_tokens_total"
+          },
+          "cached": {
+            "request_sum": 13623424,
+            "server_delta": 13623424.0,
+            "source": "sglang:cached_tokens_total"
+          }
+        },
+        "derived": {
+          "input_tpm": 3600691.103780312,
+          "output_tpm": 54665.604972470595,
+          "cached_input_tpm": 3400606.0034542247,
+          "uncached_input_tpm": 200085.10032608718,
+          "total_tpm": 3655356.7087527825,
+          "completed_rps": 0.832048781924971,
+          "observed_cache_rate": 0.9444314731369151,
+          "ttft_s_mean": 0.5587995736370794,
+          "tpot_ms_mean": 24.470348905959682,
+          "saved_request_wall_span_s": 240.36714150104672
+        }
+      },
+      "evidence_sha256": {
+        "manifest.json": "bd44fb50bf2a8ff441d566af2db43eb7cd7ee7b928de0df94a275057234fea98",
+        "summary.json": "6d9975153d33357bf9dd4840a766cbaf30899d7d33e8ba322d8163da20e9e304",
+        "flush.json": "aa982ee922fbeb9462965c4b651a1fb0ccfa55dfa37b0914e302129fd90cfa64",
+        "cache-preseed.json": "17cac14fa59e5c8a46a250c863543a306b9dbd74c2bd4545bbf3dc7aee61b2d8",
+        "metrics-before.txt": "0e20dab72936f246432a169a6514ce794c21d68756d573005d3261596aa96376",
+        "metrics-after.txt": "1548f0390c9b0db1b1ffa553c112eb35b174a6332cf156c973f1ac02537c40a5"
+      }
+    },
+    {
+      "point": "sla-tp8-mtp5-mem085-02-p06-r0.812500",
+      "evidence_root": "/volume/dev/alan/deployments/glm53-nvfp4-perf-20260914",
+      "model": "glm53_nvfp4",
+      "selected": false,
+      "original_sla_status": "FAIL",
+      "original_failure_reasons": [
+        "TPOT"
+      ],
+      "audit_status": "PASS",
+      "errors": [],
+      "missing": [],
+      "saved_requests": 200,
+      "saved_success": 200,
+      "cache_counts_known": 200,
+      "excess_cache_requests": [],
+      "flush_http": 200,
+      "preseed_cached_tokens": [
+        0
+      ],
+      "preseed_input_tokens": [
+        68224
+      ],
+      "flush_log": {
+        "path": "/volume/dev/alan/deployments/glm53-nvfp4-perf-20260914/runs/sla-tp8-mtp5-mem085-02/engine.log",
+        "events": [
+          {
+            "utc": "2026-09-14T06:16:41+00:00",
+            "line": 3923,
+            "text": "[2026-09-14 06:16:41 TP0] Cache flushed successfully!"
+          }
+        ]
+      },
+      "client_sha256": "028ab6e65bc515480fa2441c3333316c0d356cfd728d537cd709ac740f1b629f",
+      "client_matching_files": [
+        "/volume/dev/alan/deployments/glm53-nvfp4-perf-20260914/benchmark_core.py"
+      ],
+      "dataset_sha256": "6eeaf248f1065a9b26232fb8dbc8b614edc20c01d411ab04e72c32835b2aa605",
+      "dataset_check": {
+        "errors": [],
+        "sha256": "6eeaf248f1065a9b26232fb8dbc8b614edc20c01d411ab04e72c32835b2aa605",
+        "input_shape": [
+          200,
+          72125
+        ],
+        "shared_prefix_tokens": 68224,
+        "independent_tail_starts": 200
+      },
+      "target_cache_rate": 0.94532,
+      "accounting": {
+        "errors": [],
+        "missing": [],
+        "totals": {
+          "input": 14425000,
+          "output": 219000,
+          "cached": 13623424
+        },
+        "counters": {
+          "input": {
+            "request_sum": 14425000,
+            "server_delta": 14425000.0,
+            "source": "sglang:prompt_tokens_total"
+          },
+          "output": {
+            "request_sum": 219000,
+            "server_delta": 219000.0,
+            "source": "sglang:generation_tokens_total"
+          },
+          "cached": {
+            "request_sum": 13623424,
+            "server_delta": 13623424.0,
+            "source": "sglang:cached_tokens_total"
+          }
+        },
+        "derived": {
+          "input_tpm": 3375890.908244102,
+          "output_tpm": 51252.69385826401,
+          "cached_input_tpm": 3188297.623622495,
+          "uncached_input_tpm": 187593.28462160652,
+          "total_tpm": 3427143.602102366,
+          "completed_rps": 0.7801018852094979,
+          "observed_cache_rate": 0.9444314731369151,
+          "ttft_s_mean": 0.5454166470840573,
+          "tpot_ms_mean": 19.281051907951433,
+          "saved_request_wall_span_s": 256.37378153717145
+        }
+      },
+      "evidence_sha256": {
+        "manifest.json": "08c3a5aa221f042e1610994ffd083acbcd0b4b410a2540e22dad8cd635110b34",
+        "summary.json": "95396f1c70f8c622c74769343c5f1a8907948034fd70d8e711ec6219a32c0d66",
+        "flush.json": "aa982ee922fbeb9462965c4b651a1fb0ccfa55dfa37b0914e302129fd90cfa64",
+        "cache-preseed.json": "070fe09581eee114e537986ab1862a29274a371831b1b8efbe25a3bb4bc8bff5",
+        "metrics-before.txt": "2d0ea02ce2158efeeb554ebd8e2cc880fb0cbb8953722b76d0faa5718ff2b6ef",
+        "metrics-after.txt": "9f7d3a135910cc334ac9f6a5ea507ed2751e2877f63e773ca86f08ffdaf58b13"
+      }
+    }
+  ]
+}

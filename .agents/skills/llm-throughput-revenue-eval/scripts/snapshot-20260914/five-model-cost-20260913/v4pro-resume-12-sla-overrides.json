@@ -1,0 +1,11 @@
+{
+  "model": "v4pro",
+  "authorization": "User explicitly permits local V4 Pro mem/CUDA graph tuning and skipping the model if it cannot be made viable. No online changes.",
+  "reason": "Final bounded SLA viability attempt after mem .90 / graph64 passed target and draft capture but failed cache preseed at a 2.64 GiB FlashInfer MoE workspace allocation. Lower mem to .86 and graph to32, retaining TP8 and DSPARK. The observed 13,125.54 bytes/full-token slope and 7.83 GiB fixed state suggest about 162k full tokens, sufficient for the 49,664+948-token request but not a capacity guarantee. Do not reduce input/output, sample count, cache target or SLA. If it fails, retain evidence and skip V4 Pro valid capacity conclusions for this campaign.",
+  "strategies": {
+    "sla": [
+      "--mem-fraction-static", "0.86",
+      "--cuda-graph-max-bs-decode", "32"
+    ]
+  }
+}
