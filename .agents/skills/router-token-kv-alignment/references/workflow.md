@@ -34,7 +34,7 @@ Respect exclusions for multimodal or hosted-tool execution. Invalid requests are
 1. Run the exact Router preprocessor and save IDs plus normalized body. Reproduce its transport/schema boundary; do not automatically sort object keys.
 2. Construct an independent native backend renderer from the exact SGLang revision and backend config. Use SGLang's `TemplateManager` for explicit templates, not the Router loader. Ordinary text rendering needs tokenizer/config files, not weights/GPU.
 3. Render the forwarded body via the backend endpoint adapter. Depending on version, Responses may call `_make_request`/`_process_messages` or Harmony methods. Inspect source rather than assume names.
-4. Compare complete ordered arrays and effective kwargs. Alternate Chat/Responses calls to detect shared mutable tokenizer/template state.
+4. Compare complete ordered arrays and effective kwargs. Alternate Chat/Responses calls to detect shared mutable tokenizer/template state. If the native JSON loader writes a process-wide conversation registry, test a same-name template collision: separate `TemplateManager` instances alone may not isolate it.
 5. Inspect stages after rendering: truncation, TokenizerManager transforms and model-specific encoding can still change the final prompt.
 
 Private methods can bypass validation in `create_responses`; equal rendering is not an HTTP-success claim. Identify simulated configuration/clock inputs explicitly. Tool-description fixtures validate rendering, not external tool execution.
