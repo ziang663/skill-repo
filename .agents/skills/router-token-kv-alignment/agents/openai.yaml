@@ -1,0 +1,4 @@
+interface:
+  display_name: "Router Token 与 KV 对齐验证"
+  short_description: "核对 Router 分词与后端实际输入、KV event 及缓存选路是否一致"
+  default_prompt: "使用 $router-token-kv-alignment 核对当前 Router 和后端的 token IDs、KV events 与缓存匹配，区分预处理差异和策略索引问题。"
